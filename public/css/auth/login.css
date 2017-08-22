@@ -1,0 +1,64 @@
+body{
+    background: #2E353D;
+}
+.main-login{
+    width: 600px;
+    background: #f7f7f7;
+    border-radius: 5px;
+    margin-top: 5%;
+}
+.main-login .account-wall .main-login__logo{
+    height: 70%;
+    width: 70%;
+    padding: 25px 0 0 0;
+    margin: 0 auto 20px;
+    display: block;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.main-login input, .main-login__button--submit{
+    height: 10%;
+    font-size: 2rem;
+}
+.account-wall .main-login__button--submit{
+    width: 100%;
+}
+.main-login__recover{
+    font-size: 1.9rem;
+}
+.account-wall hr{
+    margin-bottom: 40px;
+}
+
+/* ...Desktops com monitores widescreen... */ 
+@media screen and (min-width: 961px) and (max-width: 1280px) {
+    /* ... */
+}
+
+/* ...Tablets em formato paisagem e monitores antigos... */ 
+@media screen and (min-width: 769px) and (max-width: 960px) {
+    .main-login{
+        width: 70%;
+    }
+}
+
+/* ...Tablet em formato retrato... */ 
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .main-login{
+        width: 80%;
+    }
+}
+
+/* ...Smartphone em formato paisagem... */ 
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .main-login{
+        width: 99%;
+        height: 100%;
+    }
+}
+
+/* ...Smartphone em formato retrato... */ 
+@media screen and (max-width: 320px) {
+    /* ... */
+}

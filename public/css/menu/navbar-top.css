@@ -1,0 +1,87 @@
+/* Menu Top*/
+.navbar-top{
+    background: #2e353d;
+    z-index: 10;
+    height: 60px;
+}
+.navbar-top .navbar-header{
+    margin-bottom: 0px;
+    font-family: verdana;
+}
+.navbar-top .navbar-header .brand{
+    margin-top: -12px;
+}
+.navbar-top .navbar-header .brand span{
+    font-size: 1.9em;
+}
+.navbar-top .navbar-header .brand img {
+  width: 60px;
+  margin-top: -7px;
+}
+.navbar-top a{
+    font-size: 1.1em;
+    color: white;
+    z-index: 50;
+}
+.navbar-top .perfil a:hover{
+    color:black;
+    background: #C0C0C0;
+}
+.navbar-top .perfil{
+    float: right;
+}
+.navbar-top a:focus{
+    color:black;
+    background: #C0C0C0;
+}
+.navbar-top .navbar-main a:hover{
+    color:black;
+    background: #C0C0C0;
+}
+.navbar-top .navbar-main{
+    margin-top:7px;
+}
+.navbar-top .dropdown-menu{
+    position: absolute;
+    top: 56px;
+    width: 211px;
+}
+.navbar-top .perfil a{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.navbar-top .logout{
+    margin-top: -15px;
+    margin-bottom: -1px;
+    list-style: none;
+}
+.navbar-top .logout button{
+    width: 100%;
+}
+.navbar-top .icons-menu{
+    position: fixed;
+    top: 9px;
+    left: 1%;
+    color:white;
+    font-size: 2em;
+    display: none;
+}
+.navbar-top button{
+    background: white;
+}
+.navbar-top .display-none--li_menu{
+    display: none;
+}
+
+/* Tablets em formato retrato */
+@media (max-width: 1415px) {
+    .navbar-top .navbar{
+        display: none;
+    }
+    .navbar-top .dropdown{
+        display: none;
+    }
+    .navbar-top button{
+        border: none;
+    }
+}
