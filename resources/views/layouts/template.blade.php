@@ -23,6 +23,8 @@
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
         <script src="{{ asset('js/mask.js') }}"></script>
+        <script src="{{asset('dist/sweetalert.min.js')}}"></script>
+       <link rel="stylesheet" type="text/css" href="{{ asset('dist/sweetalert.css')}}">
 
         @stack('links')
 

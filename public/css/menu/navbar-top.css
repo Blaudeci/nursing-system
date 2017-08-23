@@ -4,6 +4,14 @@
     z-index: 10;
     height: 60px;
 }
+.navbar-top a{
+    font-size: 1.1em;
+    color: white;
+    z-index: 50;
+}
+.nav-top .toggle-btn {
+  display: none;
+}
 .navbar-top .navbar-header{
     margin-bottom: 0px;
     font-family: verdana;
@@ -18,21 +26,16 @@
   width: 60px;
   margin-top: -7px;
 }
-.navbar-top a{
-    font-size: 1.1em;
-    color: white;
-    z-index: 50;
+.navbar-top .dropdown-menu a{
+    font-size: 1.3em;
 }
 .navbar-top .perfil a:hover{
     color:black;
     background: #C0C0C0;
 }
-.navbar-top .perfil{
-    float: right;
-}
-.navbar-top a:focus{
+.navbar-top .navbar-header a:focus{
     color:black;
-    background: #C0C0C0;
+    background: none;
 }
 .navbar-top .navbar-main a:hover{
     color:black;
@@ -40,10 +43,11 @@
 }
 .navbar-top .navbar-main{
     margin-top:7px;
+    float: right;
 }
 .navbar-top .dropdown-menu{
     position: absolute;
-    top: 56px;
+    top: 53px;
     width: 211px;
 }
 .navbar-top .perfil a{
@@ -55,9 +59,6 @@
     margin-bottom: -1px;
     list-style: none;
 }
-.navbar-top .logout button{
-    width: 100%;
-}
 .navbar-top .icons-menu{
     position: fixed;
     top: 9px;
@@ -66,22 +67,21 @@
     font-size: 2em;
     display: none;
 }
-.navbar-top button{
-    background: white;
-}
-.navbar-top .display-none--li_menu{
-    display: none;
-}
-
-/* Tablets em formato retrato */
-@media (max-width: 1415px) {
-    .navbar-top .navbar{
-        display: none;
+@media (max-width: 960px) {
+    .navbar-top .toggle-btn {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 10 !important;
+        padding: 3px;
+        background-color: #ffffff;
+        color: #000;
+        width: 40px;
+        text-align: center;
     }
-    .navbar-top .dropdown{
+    .navbar-top .perfil{
         display: none;
-    }
-    .navbar-top button{
-        border: none;
     }
 }

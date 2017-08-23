@@ -10,6 +10,10 @@ class Users extends Model
         'name', 'cpf', 'data_nasc', 'email', 'profile', 'sexo', 'password', 'status_user'
     ];
 
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
     //Validação dos dados do usuario create
     public $rules = [
 	    'name'                  => 'required|string|min:3|max:100',
@@ -19,8 +23,7 @@ class Users extends Model
         'profile'               => 'required|string',
         'sexo'                  => 'required|string',
         'password'              => 'required|string|min:6|max:10|confirmed',
-        'password_confirmation' => 'required|string|min:6|max:10',
-        'status_user'           => 'required|string',
+        'password_confirmation' => 'required|string|min:6|max:10'
     ];
 
     public $messages = [

@@ -5,6 +5,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/usuario', 'Painel\UserController');
+Route::get('usuario/{id}/destroy', 'Painel\UserController@destroy');
 
 Auth::routes();
 

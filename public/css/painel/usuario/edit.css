@@ -1,0 +1,27 @@
+body{
+    background: #E6E8EB;
+}
+#main .main--form p{
+    font-size: 1.1em;
+}
+#main .main--form label{
+    font-size: 1.1em;
+}
+#main .main--form input{
+    font-size: 1.1em;
+    height: 38px;
+}
+#main .main--form select{
+    font-size: 1.1em;
+    height: 38px;
+}
+#main .main--form .btn-editar__user{
+    float: right;
+    font-size: 1.2em;
+}
+@media (max-width: 960px) {  
+    #main .main--form .btn-editar__user{
+        float: none;
+        width: 100%;
+    }
+}

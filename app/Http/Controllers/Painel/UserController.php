@@ -48,7 +48,7 @@ class UserController extends Controller
             'profile'       => $dataForm['profile'],
             'sexo'          => $dataForm['sexo'],
             'password'      => bcrypt($dataForm['password']),
-            'status_user'   => $dataForm['status_user'],
+            'status_user'   => "ativo"
         ]);
 
         if($insert)
@@ -83,7 +83,6 @@ class UserController extends Controller
             'email'                 => 'required|string|email|max:100|unique:users,email,'.$id,
             'profile'               => 'required|string',
             'sexo'                  => 'required|string',
-            'status_user'           => 'required|string',
         ];
 
         $rules_edit_password = [
@@ -93,7 +92,6 @@ class UserController extends Controller
             'email'                 => 'required|string|email|max:100|unique:users,email,'.$id,
             'profile'               => 'required|string',
             'sexo'                  => 'required|string',
-            'status_user'           => 'required|string',
             'password_old'          => 'min:6|max:10',
             'password_new'          => 'min:6|max:10',
             'password_new_confirm'  => 'min:6|max:10'
@@ -121,7 +119,6 @@ class UserController extends Controller
                     'profile'       => $dataForm['profile'],
                     'sexo'          => $dataForm['sexo'],
                     'password'      => $user->password,
-                    'status_user'   => $dataForm['status_user']
                 ]);
 
                 return redirect()->route('usuario.edit', $id)->with('message', 'Usuário editado com sucesso!');
@@ -147,7 +144,6 @@ class UserController extends Controller
                         'profile'       => $dataForm['profile'],
                         'sexo'          => $dataForm['sexo'],
                         'password'      => bcrypt($dataForm['password_new']),
-                        'status_user'   => $dataForm['status_user']
                     ]);
 
                     return redirect()->route('usuario.edit', $id)->with('message', 'Usuário editado com sucesso!');
@@ -162,6 +158,14 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        //
+        $user = $this->user->find($id);
+
+        $delete = $user->delete();
+
+        if($delete)
+            return redirect()->route('usuario.index')->with('message', 'Usuário deletado com sucesso!');
+        else
+            return redirect()->route('usuario.index')->withErrors(['errors' => 'Falha ao deletar usuário!']);
+
     }
 }

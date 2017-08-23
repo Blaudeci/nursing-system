@@ -14,9 +14,9 @@ class UserTableSeeder extends Seeder
     		'data_nasc'   => '00/00/0000',
     		'email'       => 'admin@admin.com',
     		'profile'     => 'admin',
-    		'sexo'        => 'masculino',
+    		'sexo'        => 'Masculino',
     		'password'    => bcrypt('123456'),
-            'status_user' => 'Ativo'
+            'status_user' => 'ativo'
     	]);
     }
 }
