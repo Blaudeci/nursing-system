@@ -1,5 +1,5 @@
 *{
-	list-style: none;
+	/*tirar depois -> list-style: none;*/
 	text-decoration: none;
 	margin: 0;
 	padding: 0;
@@ -14,7 +14,7 @@ body{
   font-size: 18px; 
   font-weight: 300; 
   line-height: 22px;
-  text-align: left;
+  text-align: left;  
 }
 .clearfix:before,
 .clearfix:after {
@@ -27,6 +27,21 @@ body{
 .clearfix {
   *zoom: 1;
 }
+
+/*Loading*/
+.corpo{
+  display: none;
+}
+.loading{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: white url(../img/loading.gif) 50% 50% no-repeat;
+}
+
+
 .text-center{
   text-align: center;
 }
@@ -44,14 +59,13 @@ body{
 .notification-red{
   color: red;
 }
-
-
-
-
 .body_main{
   width: 83.8%;
   float: right;
   margin-top: 60px;
+}
+.body_main textarea{
+  resize: none;
 }
 
 /*--------- Header ---------*/
@@ -71,19 +85,17 @@ body{
     text-align: center;
 }
 .body_main .body_main--main{
-    position: fixed;
+    position: absolute;
     top: 125px;
     left: 16.70%;
     background: #FCFCFC;
     width: 82.7%;
     border-radius: 5px;
 }
-
 @media (max-width: 960px) {
   .body_main{
     width: 100%;
     margin-top: 38px;
-    background: red;
   }
   .body_main header{
       width: 100%;

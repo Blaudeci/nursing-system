@@ -24,6 +24,7 @@
 		</div>
 		<div class="col-sm-12">
 			@if( isset($errors) && count($errors) > 0 )
+				<br>
 				<div class="alert alert-danger">
 					@foreach($errors->all() as $error)
 						<p>{{$error}}</p>

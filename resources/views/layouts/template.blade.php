@@ -24,6 +24,7 @@
         <script src="{{ asset('js/jquery.maskedinput.js') }}"></script>
         <script src="{{ asset('js/mask.js') }}"></script>
         <script src="{{asset('dist/sweetalert.min.js')}}"></script>
+        <script src="{{asset('js/js.js')}}"></script>
        <link rel="stylesheet" type="text/css" href="{{ asset('dist/sweetalert.css')}}">
 
         @stack('links')
@@ -32,13 +33,16 @@
         <link rel="icon" href="img/logotipo.jpg">     
     </head>
     <body>
-        <!-- Verifica se o usuario esta logado -->
-        @if(Auth::check())
-            @include('includes.navbar-top')
-            @yield('content')   
-        @else
-            @yield('content')
-        @endif
+        <div class="loading" id="loading"></div>
+        <div class="corpo" id="corpo">
+            <!-- Verifica se o usuario esta logado -->
+            @if(Auth::check())
+                @include('includes.navbar-top')
+                @yield('content')   
+            @else
+                @yield('content')
+            @endif
+        </div>
     </body>
 </html>
 

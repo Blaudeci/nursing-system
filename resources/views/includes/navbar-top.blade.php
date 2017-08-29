@@ -8,7 +8,7 @@
             <a class="navbar-brand" href="{{ url('/home') }}">
                 <div class="brand">
                     <span style="color:red">SW</span><span style="color:#4876FF">EP</span>
-                    <img src="img/logo-side.png">
+                    <img src="{{ asset('img/logo-side.png')}}">
                 </div>
             </a>
         </div>
@@ -77,7 +77,7 @@
             </li>  
             <ul class="sub-menu collapse" id="paciente">
                 <li>
-                    <a href="">
+                    <a href="{{ url('/paciente/create') }}">
                         Cadastrar 
                     </a>
                 </li>

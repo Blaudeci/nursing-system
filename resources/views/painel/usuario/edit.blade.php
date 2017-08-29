@@ -24,9 +24,9 @@
 				<br>
 				<div class="col-sm-12">
 					@if(Session::has('message'))
-						<div class="alert alert-success">
-	 						{{ Session::get('message') }}
-						</div>
+						<script type="text/javascript">
+							swal("Usuário editado com sucesso!", "", "success");
+						</script>
 					@endif
 				</div>
 				<div class="col-sm-12">
@@ -71,12 +71,16 @@
 						<div class="col-sm-3 form-group">
 							<label for="profile">Perfil: <span class="notification-red">*</span></label>
 								<select class="form-control" id="profile" name="profile">
-									@if($user->profile == "Enfermeiro")
+									@if ($user->id == 1 && $user->profile == 'admin')
 										<option value="admin" selected>Enfermeiro</option>
-										<option value="user">Técnico de Enfermagem</option>
 									@else
-										<option value="admin">Enfermeiro</option>
-										<option value="user" selected>Técnico de Enfermagem</option>
+										@if($user->profile == "Enfermeiro")
+											<option value="admin" selected>Enfermeiro</option>
+											<option value="user">Técnico de Enfermagem</option>
+										@else
+											<option value="admin">Enfermeiro</option>
+											<option value="user" selected>Técnico de Enfermagem</option>
+										@endif
 									@endif
 								</select>
 						</div>

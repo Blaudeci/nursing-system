@@ -47,53 +47,76 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-						<div class="col-sm-6 form-group">
-							<label for="name">Nome: <span class="notification-red">*</span></label>
+						<div class="col-sm-6 form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+							<label for="name" class="{{ $errors->has('name') ? ' help-block' : '' }}">
+								Nome: 
+								<span class="notification-red">*</span>
+							</label>
 							<input type="text" class="form-control" id="name" name="name" maxlength="100" placeholder="Digite seu nome" value="{{old('name')}}" />
 						</div>
-						<div class="col-sm-3 form-group">
-							<label for="cpf">CPF: <span class="notification-red">*</span></label>
+						<div class="col-sm-3 form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
+							<label for="cpf" class="{{ $errors->has('cpf') ? ' help-block' : '' }}">
+								CPF: 
+								<span class="notification-red">*</span>
+							</label>
 							<input type="text" class="form-control input-cpf" id="cpf" name="cpf" placeholder="Digite seu CPF" value="{{old('cpf')}}"/>
 						</div>
-						<div class="col-sm-3 form-group">
-							<label for="data_nasc">Data Nasc.: <span class="notification-red">*</span></label>
+						<div class="col-sm-3 form-group{{ $errors->has('data_nasc') ? ' has-error' : '' }}">
+							<label for="data_nasc" class="{{ $errors->has('data_nasc') ? ' help-block' : '' }}">
+								Data Nasc.: 
+								<span class="notification-red">*</span>
+							</label>
 							<input type="text" class="form-control input-data" id="data_nasc" name="data_nasc" placeholder="00/00/0000" value="{{old('data_nasc')}}">
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-						<div class="col-sm-6 form-group">
-							<label for="email">E-mail: <span class="notification-red">*</span></label>
+						<div class="col-sm-6 form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+							<label for="email" class="{{ $errors->has('email') ? ' help-block' : '' }}">
+								E-mail: 
+								<span class="notification-red">*</span>
+							</label>
 							<input type="email" class="form-control" id="email" name="email" maxlength="100" placeholder="Digite seu e-mail" value="{{old('email')}}">
 						</div>
-						<div class="col-sm-3 form-group">
-							<label for="profile">Perfil: <span class="notification-red">*</span></label>
-								<select class="form-control" id="profile" name="profile">
-									<option value="" selected disabled>Selecione: </option>
-									<option value="admin">Enfermeiro</option>
-									<option value="user">Técnico de Enfermagem</option>
-								</select>
+						<div class="col-sm-3 form-group{{ $errors->has('profile') ? ' has-error' : '' }}">
+							<label for="profile" class="{{ $errors->has('profile') ? ' help-block' : '' }}">
+								Perfil: 
+								<span class="notification-red">*</span>
+							</label>
+							<select class="form-control" id="profile" name="profile" value="{{old('data_nasc')}}">
+								<option value="" selected disabled>Selecione: </option>
+								<option value="admin" @if (old('profile') == 'admin') selected="selected" @endif>Enfermeiro</option>
+                				<option value="user" @if (old('profile') == 'user') selected="selected" @endif>Técnico de Enfermagem</option>
+							</select>
 						</div>
-						<div class="col-sm-3 form-group">
-							<label for="sexo">Sexo: <span class="notification-red">*</span></label>
+						<div class="col-sm-3 form-group{{ $errors->has('sexo') ? ' has-error' : '' }}">
+							<label for="sexo" class="{{ $errors->has('sexo') ? ' help-block' : '' }}">Sexo: 
+								<span class="notification-red">*</span>
+							</label>
 							<select class="form-control" id="sexo" name="sexo">
 								<option selected disabled>Selecione</option>
-								<option value="Masculino">Masculino</option>
-								<option value="Feminino">Feminino</option>
+								<option value="Masculino" @if (old('sexo') == 'Masculino') selected="selected" @endif>Masculino</option>
+                				<option value="Feminino" @if (old('sexo') == 'Feminino') selected="selected" @endif>Feminino</option>
 							</select>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-						<div class="col-sm-6 form-group">
-							<label for="password">Senha: <span class="notification-red">*</span></label>
+						<div class="col-sm-6 form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+							<label for="password" class="{{ $errors->has('password') ? ' help-block' : '' }}">
+								Senha: 
+								<span class="notification-red">*</span>
+							</label>
 							<input type="password" class="form-control" id="password" name="password" maxlength="10">
 						</div>
-						<div class="col-sm-6 form-group">
-							<label for="password-confirm">Confirmar Senha: <span class="notification-red">*</span></label>
-							<input type="password" class="form-control" id="password-confirm" name="password_confirmation" maxlength="10">
+						<div class="col-sm-6 form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+							<label for="password_confirmation" class="{{ $errors->has('password_confirmation') ? ' help-block' : '' }}">
+								Confirmar Senha: 
+								<span class="notification-red">*</span>
+							</label>
+							<input type="password" class="form-control" id="password_confirmation" name="password_confirmation" maxlength="10">
 						</div>
 					</div>
 				</div>

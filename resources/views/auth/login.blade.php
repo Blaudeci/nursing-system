@@ -22,7 +22,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12 form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-mail" required autofocus>
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-mail" autofocus>
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">
@@ -33,7 +33,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <input id="password" type="password" class="form-control" name="password" placeholder="Senha" required>
+                                    <input id="password" type="password" class="form-control" name="password" placeholder="Senha">
 
                                     @if ($errors->has('password'))
                                         <span class="help-block">

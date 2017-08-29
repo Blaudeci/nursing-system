@@ -4,6 +4,9 @@
     z-index: 10;
     height: 60px;
 }
+.navbar-top i{
+    border-radius: 5px;
+}
 .navbar-top a{
     font-size: 1.1em;
     color: white;
@@ -68,6 +71,9 @@
     display: none;
 }
 @media (max-width: 960px) {
+    .navbar-top{
+        position: relative;
+    }
     .navbar-top .toggle-btn {
         display: block;
         cursor: pointer;

@@ -19,7 +19,6 @@ body{
     float: right;
     font-size: 1.2em;
 }
-
 @media (max-width: 960px) {  
     #main .main--form .btn-registrar__user{
         float: none;

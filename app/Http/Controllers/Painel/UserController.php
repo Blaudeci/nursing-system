@@ -95,7 +95,6 @@ class UserController extends Controller
             'password_old'          => 'min:6|max:10',
             'password_new'          => 'min:6|max:10',
             'password_new_confirm'  => 'min:6|max:10'
-        
         ];
 
 
@@ -158,14 +157,17 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        $user = $this->user->find($id);
+        if($id == 1){
+            return redirect()->route('usuario.index')->withErrors(['errors' => 'Usuário não pode ser deletado!']);
+        }else{
+            $user = $this->user->find($id);
 
-        $delete = $user->delete();
+            $delete = $user->delete();
 
-        if($delete)
-            return redirect()->route('usuario.index')->with('message', 'Usuário deletado com sucesso!');
-        else
-            return redirect()->route('usuario.index')->withErrors(['errors' => 'Falha ao deletar usuário!']);
-
+            if($delete)
+                return redirect()->route('usuario.index')->with('message', 'Usuário deletado com sucesso!');
+            else
+                return redirect()->route('usuario.index')->withErrors(['errors' => 'Falha ao deletar usuário!']);
+        }
     }
 }
