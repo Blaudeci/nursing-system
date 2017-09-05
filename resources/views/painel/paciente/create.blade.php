@@ -1,22 +1,21 @@
 @extends('layouts.template')
 
 @push('links')
-    <script src="{{ asset('js/functions.js') }}"></script>
-    <link href="{{ asset('css/painel/paciente/create.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/painel/usuario/create.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/painel/formulario.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/paciente-functions.js') }}"></script>
 @endpush
 
 @section('content')
-<div class="body_main">
+<div class="body-main body-main__patient">
 	<header>
 		<h2><i class="glyphicon glyphicon glyphicon-edit"></i> Cadastrar Paciente</h2>
 	</header>
-	<div id="main" class="container body_main--main" style="margin-top: 70px;">
-		<div class="main--form">
-			<form method="post" action="" role="form" autocomplete="off" id="formulario" enctype="multipart/form-data" name="formulario">
+	<div class="container body-main__main" style="margin-top: 70px;">
+		<div class="body-main__form">
+			<form method="post" action="{{ route('paciente.store') }}" role="form" autocomplete="off" id="form-main__patient" name="formulario">
 				{{ csrf_field() }}
 					<ul id="progress">
-						<li class="ativo">Dados Pessoais</li>
+						<li class="active">Dados Pessoais</li>
 						<li>Contato</li>
 						<li>Fisiológicos</li>
 						<li>Mórbida</li>

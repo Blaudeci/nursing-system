@@ -7,24 +7,21 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 
 class AuthServiceProvider extends ServiceProvider
 {
-    /**
-     * The policy mappings for the application.
-     *
-     * @var array
-     */
+    
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
-    /**
-     * Register any authentication / authorization services.
-     *
-     * @return void
-     */
     public function boot()
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('profile_admin', function( $user){
+            return $user->profile == "admin";
+        });
+
+        Gate::define('profile_user', function($user){
+            return $user->profile == "user";
+        });
     }
 }

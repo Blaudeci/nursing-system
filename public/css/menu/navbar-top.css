@@ -17,7 +17,11 @@
 }
 .navbar-top .navbar-header{
     margin-bottom: 0px;
-    font-family: verdana;
+    margin-top: 5px;
+    font-family: 'Frijole', cursive;
+    font-family: 'Black Ops One', cursive;
+    font-family: 'Faster One', cursive;
+    font-family: 'Nosifer', cursive;
 }
 .navbar-top .navbar-header .brand{
     margin-top: -12px;
@@ -25,9 +29,9 @@
 .navbar-top .navbar-header .brand span{
     font-size: 1.9em;
 }
-.navbar-top .navbar-header .brand img {
-  width: 60px;
-  margin-top: -7px;
+.navbar-top .navbar-header .brand img{
+    width: 60px;
+    margin-top: -7px;
 }
 .navbar-top .dropdown-menu a{
     font-size: 1.3em;
@@ -40,18 +44,9 @@
     color:black;
     background: none;
 }
-.navbar-top .navbar-main a:hover{
-    color:black;
-    background: #C0C0C0;
-}
 .navbar-top .navbar-main{
     margin-top:7px;
     float: right;
-}
-.navbar-top .dropdown-menu{
-    position: absolute;
-    top: 53px;
-    width: 211px;
 }
 .navbar-top .perfil a{
     margin-top: 0px;

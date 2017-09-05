@@ -95,9 +95,6 @@
   text-decoration: none;
   color: #e1ffff;
 }
-.display-none--li_menu{
-    display: none;
-}
 .nav-side-menu li a i {
   padding-left: 10px;
   width: 20px;
@@ -122,9 +119,12 @@
   .nav-side-menu .perfil-li{
     display: block;
   }
+  .display-none__li-menu{
+    display: block;
+  }
 }
 @media (min-width: 960px) {
   .nav-side-menu .menu-list .menu-content {
     display: block;
-  }
+  } 
 }

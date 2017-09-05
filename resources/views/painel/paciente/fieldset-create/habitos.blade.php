@@ -5,35 +5,109 @@
 		</div>
 	</div>
 </div>
-<div class="col-sm-12">
-	@if( isset($errors) && count($errors) > 0 )
-		<div class="alert alert-danger">
-			@foreach($errors->all() as $error)
-				<p>{{$error}}</p>
-			@endforeach
+<div class="row">
+	<div class="col-sm-12 form-group">
+		<div class="col-sm-3 form-group">
+			<label for="sono_repouso">Sono e Repouso:</label>
+			<select class="form-control" id="sono_repouso" name="sono_repouso">
+				<option value="" selected hidden>Selecione</option>
+				<option value="Alterado" @if (old('sono_repouso') == 'Alterado') selected="selected" @endif>Alterado</option>
+				<option value="Satisfatorio" @if (old('sono_repouso') == 'Satisfatorio') selected="selected" @endif>Satisfatório</option>
+			</select>
 		</div>
-	@endif	
+		<div class="col-sm-3 form-group">
+			<label for="horas_sono">Horas de Sono:</label>
+			<div class="input-group">
+				<input type="text" class="form-control input-time" placeholder="00:00" aria-describedby="basic-addon2" name="horas_sono" value="{{old('horas_sono')}}">
+				<span class="input-group-addon" id="basic-addon2">horas/dia</span>
+			</div>
+		</div>
+		<div class="col-sm-3 form-group">
+			<label for="atividade_fisica">Atividade Física:</label>
+			<select class="form-control" id="atividade_fisica" name="atividade_fisica">
+				<option value="" selected hidden>Selecione</option>
+				<option value="Sim" @if (old('atividade_fisica') == 'Sim') selected="selected" @endif>Sim</option>
+				<option value="Nao" @if (old('atividade_fisica') == 'Nao') selected="selected" @endif>Não</option>
+			</select>
+		</div>
+		<div class="col-sm-3 form-group">
+			<label for="qtde_atividade_fisica">Qtde Atividade Física:</label>
+			<div class="input-group">
+				<input type="text" class="form-control" aria-describedby="basic-addon2" name="qtde_atividade_fisica" value="{{old('qtde_atividade_fisica')}}">
+				<span class="input-group-addon" id="basic-addon2">x semana</span>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="row">
 	<div class="col-sm-12 form-group">
-		<div class="col-sm-6">
-			<div class="col-sm-6">
-				<label for="sono-repouso">Sono e Repouso:</label>
-				<select class="form-control" id="sono-repouso" name="sono-repouso">
-					<option selected disabled>Selecione</option>
-					<option value="Alterado" @if (old('sono-repouso') == 'Alterado') selected="selected" @endif>Alterado</option>
-					<option value="Satisfatorio" @if (old('sono-repouso') == 'Satisfatorio') selected="selected" @endif>Satisfatório</option>
-				</select>
-			</div>
-			<div class="col-sm-6">
-				<label for="horas-sono">Horas de Sono:</label>
-				<div class="input-group">
-					<input type="text" class="form-control input-time" placeholder="00:00" aria-describedby="basic-addon2" name="horas-sono">
-					<span class="input-group-addon" id="basic-addon2">horas/dia</span>
-				</div>
-			</div>
+		<div class="col-sm-12">
+			<label>Alimentos e liquidos ingeridos:</label>
 		</div>
-		
-		
 	</div>
 </div>
+<div class="row">
+	<div class="col-sm-12">
+		<div class="col-sm-4 form-group">
+			<label for="frutas_verduras">Frutas e verduras:</label>
+			<div class="input-group">
+				<input type="text" class="form-control" aria-describedby="basic-addon2" name="frutas_verduras" value="{{old('frutas_verduras')}}">
+				<span class="input-group-addon" id="basic-addon2">x semana</span>
+			</div>
+		</div>
+		<div class="col-sm-4 form-group">
+			<label for="carne_vermelha">Carne vermelha:</label>
+			<div class="input-group">
+				<input type="text" class="form-control" aria-describedby="basic-addon2" name="carne_vermelha" value="{{old('carne_vermelha')}}">
+				<span class="input-group-addon" id="basic-addon2">x semana</span>
+			</div>
+		</div>
+		<div class="col-sm-4 form-group">
+			<label for="carne_branca">Carne branca:</label>
+			<div class="input-group">
+				<input type="text" class="form-control" aria-describedby="basic-addon2" name="carne_branca" value="{{old('carne_branca')}}">
+				<span class="input-group-addon" id="basic-addon2">x semana</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="col-sm-4 form-group">
+			<label for="suco_habitos">Suco:</label>
+			<div class="input-group">
+				<input type="text" class="form-control" aria-describedby="basic-addon2" name="suco_habitos" value="{{old('suco_habitos')}}">
+				<span class="input-group-addon" id="basic-addon2">copos/dia</span>
+			</div>
+		</div>
+
+		<div class="col-sm-4 form-group">
+			<label for="agua_habitos">Água:</label>
+			<div class="input-group">
+				<input type="text" class="form-control" aria-describedby="basic-addon2" name="agua_habitos" value="{{old('agua_habitos')}}">
+				<span class="input-group-addon" id="basic-addon2">copos/dia</span>
+			</div>
+		</div>
+
+		<div class="col-sm-4 form-group">
+			<label for="cha_habitos">Chá:</label>
+			<div class="input-group">
+				<input type="text" class="form-control" aria-describedby="basic-addon2" name="cha_habitos" value="{{old('cha_habitos')}}">
+				<span class="input-group-addon" id="basic-addon2">copos/dia</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12 form-group">
+		<div class="col-sm-12">
+			<label for="outras_informacoes">Outras Informações:</label>
+			<textarea id="outras_informacoes" class="form-control" name="outras_informacoes" rows="4" value="{{old('outras_informacoes')}}"></textarea>
+		</div>
+	</div>
+</div>
+<hr>
+<button type="button" name="prev" class="prev acao btn-previous btn btn-primary">Anterior</button>
+<button type="submit" class="btn-register btn btn-primary">Cadastrar</button>

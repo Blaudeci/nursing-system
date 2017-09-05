@@ -1,16 +1,16 @@
 @extends('layouts.template')
 
 @push('links')
-    <link href="{{ asset('css/painel/usuario/create.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/painel/formulario.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
-<div class="body_main">
+<div class="body-main body-main__user">
 	<header>
 		<h2><i class="glyphicon glyphicon glyphicon-edit"></i> Cadastrar Usuário</h2>
 	</header>
-	<div id="main" class="container body_main--main">
-		<div class="main--form">
+	<div class="container body-main__main">
+		<div class="body-main__form">
 			<form method="post" action="{{ route('usuario.store') }}" role="form" autocomplete="off">
 				{{ csrf_field() }}
 				<div class="row form-group hrs-bottom">
@@ -85,7 +85,7 @@
 								<span class="notification-red">*</span>
 							</label>
 							<select class="form-control" id="profile" name="profile" value="{{old('data_nasc')}}">
-								<option value="" selected disabled>Selecione: </option>
+								<option value="" selected hidden>Selecione</option>
 								<option value="admin" @if (old('profile') == 'admin') selected="selected" @endif>Enfermeiro</option>
                 				<option value="user" @if (old('profile') == 'user') selected="selected" @endif>Técnico de Enfermagem</option>
 							</select>
@@ -95,7 +95,7 @@
 								<span class="notification-red">*</span>
 							</label>
 							<select class="form-control" id="sexo" name="sexo">
-								<option selected disabled>Selecione</option>
+								<option value="" selected hidden>Selecione</option>
 								<option value="Masculino" @if (old('sexo') == 'Masculino') selected="selected" @endif>Masculino</option>
                 				<option value="Feminino" @if (old('sexo') == 'Feminino') selected="selected" @endif>Feminino</option>
 							</select>
@@ -127,7 +127,7 @@
 					<div class="col-sm-12">
 						<div class="col-sm-12">
 							<br>
-							<button class="btn btn-lg btn-primary btn-registrar__user" onclick="validator()" type="submit">Cadastrar</button>
+							<button class="btn btn-lg btn-primary btn-register" type="submit">Cadastrar</button>
 						</div>
 					</div>
 				</div>

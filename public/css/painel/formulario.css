@@ -1,0 +1,216 @@
+body{
+	background: #E6E8EB;
+}
+/*-------------------Form General--------------*/
+/*Form*/
+.body-main .body-main__main .body-main__form p{
+    font-size: 1.1em;
+}
+.body-main .body-main__main .body-main__form label{
+    font-size: 1.1em;
+}
+.body-main .body-main__main .body-main__form input{
+    font-size: 1.1em;
+    height: 38px;
+}
+.body-main .body-main__main .body-main__form select{
+    font-size: 1.1em;
+    height: 38px;
+}
+/*Index*/
+.body-main .body-main__main a{
+    text-decoration: none;
+}
+.body-main .body-main__main .actions{
+    font-size: 1.4em;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+}
+.body-main .body-main__main .glyphicon-eye-close{
+	background: #E9E9E9;
+	border-radius: 5px;	
+    padding: 7px;
+}
+.body-main .body-main__main .glyphicon-edit{ 
+    background: #E9E9E9;
+	border-radius: 5px;	
+    padding: 7px;
+}
+.body-main .body-main__main .glyphicon-remove{ 
+    background: #b12020;
+    border-radius: 5px;
+    padding: 7px;
+}
+.body-main .body-main__main .glyphicon-eye-close:hover{
+    background: black;
+    color: white;
+}
+.body-main .body-main__main .glyphicon-edit:hover{
+    background: black;
+    color: white;
+}
+.body-main .body-main__main .glyphicon-remove:hover{
+    background: black;
+    color: white;
+}
+
+
+/*-------------------Form User------------------*/
+/* Create*/
+.body-main__user .body-main__main .body-main__form .btn-register{
+    float: right;
+    font-size: 1.2em;
+}
+/*Edit*/
+.body-main__user .body-main__main .body-main__form .btn-edit{
+    float: right;
+    font-size: 1.2em;
+}
+
+
+/*-------------------Form Patient---------------*/
+/*Create*/
+.body-main__patient .body-main__main .body-main__form #form-main__patient fieldset:not(:first-of-type){
+	display: none;
+}
+.body-main__patient .body-main__main .body-main__form #form-main__patient #progress{
+	margin-top: -70px;
+	text-align: center;
+}
+.body-main__patient .body-main__main .body-main__form #form-main__patient #progress{
+	margin-bottom: 30px;
+	overflow: hidden;
+	counter-reset: step;
+}
+.body-main__patient .body-main__main .body-main__form #form-main__patient #progress li{
+	list-style-type: none;
+	color: green;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 12px;
+	float: left;
+	width: 20%;
+	position: relative;
+}
+.body-main__patient #form-main__patient #progress li:before{
+	content: counter(step);
+	counter-increment: step;
+	width: 30px;
+	display: block;
+	line-height: 30px;
+	background: #008B8B;
+	color: white;
+	border-radius: 100%;
+		-moz-border-radius:100%;
+		-webkit-border-radius: 100%;
+		margin: 0 auto 10px auto;
+}
+.body-main__patient #form-main__patient #progress li:after{
+	content: '';
+	width: 100%;
+	background: #008B8B;
+	height: 2px;
+	position: absolute;
+	top: 14px;
+	left: -50%;
+	z-index: -1;
+}
+/*Create Morbida*/
+#form-main__patient fieldset .morbida_form{
+	background: #D3D3D3;
+	padding: 15px 0 0 0;
+	border-radius: 3px;
+	height: 500px;
+} .body-main__form #form-main__patient #progress li:first-child:after{
+	content: none;
+}
+.body-main__patient .body-main__main .body-main__form #form-main__patient #progress 
+li.ativo:before, #form-main__patient #progress li.ativo:after{
+	background: red;
+	color: white;
+}
+.body-main__patient .body-main__main .body-main__form #form-main__patient fieldset #course-display{
+	display: none;
+}
+.body-main__patient .body-main__main .body-main__form #form-main__patient fieldset .btn-next{
+	float: right;
+	margin-bottom: 10px;
+	font-size: 1.3em;
+}
+.body-main__patient .body-main__main .body-main__form #form-main__patient fieldset .btn-previous{
+	float: left;
+	margin-bottom: 10px;
+	font-size: 1.3em;
+	margin-left: 15px;
+}
+/* Historia Morbida Pregressa */
+.body-main__patient .body-main__main .body-main__form #form-main__patient fieldset .forms-morbidas p{
+	background: #696969; 
+	color: white;
+	text-align:center;
+	font-size:1.6em;
+	padding: 10px 0;
+	border-radius: 3px;
+}
+.body-main__patient .body-main__main .body-main__form #form-main__patient fieldset .forms-morbidas .input-group-addon{
+	font-size: 1em;
+}
+.body-main__patient .body-main__main .body-main__form #form-main__patient fieldset .form-morbida{
+	background: #D3D3D3;
+	padding: 15px 0 0 0;
+	border-radius: 3px;
+	height: 500px;
+}
+.body-main__patient .body-main__main .body-main__form #form-main__patient fieldset .btn-register{
+	float: right;
+	margin-bottom: 10px;
+	font-size: 1.3em;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 960px) { 
+	/*------------Form User-------------*/
+	/*Create*/
+    .body-main__user .body-main__main .body-main__form .btn-register{
+        float: none;
+        width: 100%;
+    }
+    /*Edit*/
+    .body-main__user .body-main__main .body-main__form .btn-edit{
+        float: none;
+        width: 100%;
+    }
+
+    /*------------Form Patient----------*/
+    /*Create*/
+    .body-main__patient .body-main__main .body-main__form #form-main__patient fieldset .btn-next{
+        float: none;
+        width: 100%;
+        position: relative;
+		left: 0px;
+    }
+    .body-main__patient .body-main__main .body-main__form #form-main__patient fieldset .btn-previous{
+        float: none;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 769px) { 
+	/*---------------------Form Patient-------------------*/
+	/* Historia Morbida Pregressa */
+	.body-main__patient .body-main__main .body-main__form #form-main__patient fieldset .form-morbida{
+		height: auto;
+	}
+}

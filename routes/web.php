@@ -7,14 +7,17 @@ Route::get('/', function () {
 /*CRUD Usuario*/
 Route::resource('/usuario', 'Painel\UserController');
 Route::get('usuario/{id}/destroy', 'Painel\UserController@destroy');
+Route::get('usuario/{id}/status_inativado', 'Painel\UserController@status_inativado');
+Route::get('usuario/{id}/status_ativado', 'Painel\UserController@status_ativado');
 
 /*CRUD Paciente*/
 Route::resource('/paciente', 'Painel\PacienteController');
+Route::get('paciente/{id}/destroy', 'Painel\PacienteController@destroy');
+Route::get('paciente/{id}/status_inativado', 'Painel\PacienteController@status_inativado');
+Route::get('paciente/{id}/status_ativado', 'Painel\PacienteController@status_ativado');
 
 
 /*CRUD Ocorrência*/
-
-
 
 
 Auth::routes();

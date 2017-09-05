@@ -27,21 +27,6 @@ body{
 .clearfix {
   *zoom: 1;
 }
-
-/*Loading*/
-.corpo{
-  display: none;
-}
-.loading{
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: white url(../img/loading.gif) 50% 50% no-repeat;
-}
-
-
 .text-center{
   text-align: center;
 }
@@ -51,25 +36,25 @@ body{
   height: 0.8px;
 }
 .hrs-top{
-   border-top: solid 1px #CCCCCC;
+  border-top: solid 1px #CCCCCC;
 }
 .hrs-bottom{
-   border-bottom: solid 1px #CCCCCC;
+  border-bottom: solid 1px #CCCCCC;
 }
 .notification-red{
   color: red;
 }
-.body_main{
+/*----------Main------------*/
+.body-main{
   width: 83.8%;
   float: right;
   margin-top: 60px;
 }
-.body_main textarea{
+.body-main textarea{
   resize: none;
 }
-
 /*--------- Header ---------*/
-.body_main header{
+.body-main header{
     width: 83.8%;
     height: 60px;
     background: #D3D3D3;
@@ -79,12 +64,12 @@ body{
     left: 16.20%;
     z-index: 5;
 }
-.body_main header h2{
+.body-main header h2{
     position: relative;
     top: -7px;
     text-align: center;
 }
-.body_main .body_main--main{
+.body-main .body-main__main{
     position: absolute;
     top: 125px;
     left: 16.70%;
@@ -92,20 +77,51 @@ body{
     width: 82.7%;
     border-radius: 5px;
 }
+
 @media (max-width: 960px) {
-  .body_main{
+  .body-main{
     width: 100%;
     margin-top: 38px;
   }
-  .body_main header{
+  .body-main header{
       width: 100%;
       position: absolute;
       left: 0;
   }
-  .body_main .body_main--main{
+  .body-main .body-main__main{
         width: 100%;
         position: absolute;
         left: 0;
         margin-bottom: 10px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Loading*/
+/*.corpo{
+  display: none;
+}
+.loading{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: white url(../img/loading.gif) 50% 50% no-repeat;
+}*/

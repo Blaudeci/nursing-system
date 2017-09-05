@@ -1,7 +1,7 @@
 <?php
-
 namespace App\Http\Controllers\Painel;
 
+use Gate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Painel\Users;
@@ -18,17 +18,28 @@ class UserController extends Controller
     
     public function index()
     {
+        
+        if(Gate::denies('profile_admin'))
+            abort(403, 'Unauthorized');
+
         $users = $this->user->all(); 
+
         return view('painel.usuario.index', compact('users'));
     }
 
     public function create()
     {
+        if(Gate::denies('profile_admin'))
+            abort(403, 'Unauthorized');
+
         return view('painel.usuario.create');
     }
 
     public function store(Request $request)
     {
+        if(Gate::denies('profile_admin'))
+            abort(403, 'Unauthorized');
+
         $dataForm = $request->all();
 
         //Valida os dados
@@ -56,21 +67,59 @@ class UserController extends Controller
         else
             return redirect()->route('usuario.create');
     }
-    
-    public function show($id)
-    {
-        //
-    }
 
     public function edit($id)
     {
+        if(Gate::denies('profile_admin'))
+            abort(403, 'Unauthorized');
+
         $user = $this->user->find($id);
 
         return view('painel.usuario.edit', compact('user'));
     }
 
+    public function status_inativado($id){
+
+        if(Gate::denies('profile_admin'))
+            abort(403, 'Unauthorized');
+
+        $user = $this->user->find($id);
+
+        $update = $user->update([
+            'status_user'    => 'inativo'
+        ]);
+
+        if($update){
+
+            return redirect()->route('usuario.index', $id)->with('message-status-inativado', 'O usuário foi Inativado com sucesso!');
+        }else{
+            return redirect()->route('usuario.index', $id)->withErrors(['errors' => 'Não foi possivel alterar o status do usuário!']);
+        }
+    }
+
+    public function status_ativado($id){
+
+        if(Gate::denies('profile_admin'))
+            abort(403, 'Unauthorized');
+
+        $user = $this->user->find($id);
+
+        $update = $user->update([
+            'status_user'    => 'ativo'
+        ]);
+
+        if($update){
+
+            return redirect()->route('usuario.index', $id)->with('message-status-ativado', 'O usuário foi ativado com sucesso!');
+        }else{
+            return redirect()->route('usuario.index', $id)->withErrors(['errors' => 'Não foi possivel alterar o status do usuário!']);
+        }
+    }
+
     public function update(Request $request, $id)
     {
+        if(Gate::denies('profile_admin'))
+            abort(403, 'Unauthorized');
 
         $dataForm = $request->all();
 
@@ -96,7 +145,6 @@ class UserController extends Controller
             'password_new'          => 'min:6|max:10',
             'password_new_confirm'  => 'min:6|max:10'
         ];
-
 
         //Verifica se se todos os campos da senha estão vazios
         if($dataForm['password_old'] == "" && $dataForm['password_new'] == "" && $dataForm['password_new_confirm'] == ""){
@@ -157,6 +205,9 @@ class UserController extends Controller
 
     public function destroy($id)
     {
+        if(Gate::denies('profile_admin'))
+            abort(403, 'Unauthorized');
+
         if($id == 1){
             return redirect()->route('usuario.index')->withErrors(['errors' => 'Usuário não pode ser deletado!']);
         }else{
@@ -165,9 +216,70 @@ class UserController extends Controller
             $delete = $user->delete();
 
             if($delete)
-                return redirect()->route('usuario.index')->with('message', 'Usuário deletado com sucesso!');
+                return redirect()->route('usuario.index')->with('message-delete', 'Usuário deletado com sucesso!');
             else
                 return redirect()->route('usuario.index')->withErrors(['errors' => 'Falha ao deletar usuário!']);
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----------DESTROYER----------*/
+/*
+            //verificar se a tabela user esta vinculada com outras tabelas
+
+            $pacientes = $users->pacients()->get();
+
+            foreach($pacientes as $paciente){
+                echo $paciente->user_id;
+            }
+            
+
+            if($paciente ){
+                $delete = $user->delete();
+
+                if($delete)
+                    return redirect()->route('usuario.index')->with('message-delete', 'Usuário deletado com sucesso!');
+                else
+                    return redirect()->route('usuario.index')->withErrors(['errors' => 'Falha ao deletar usuário!']);
+            }else{
+                $update = $user->update([
+                    'status_user'      => 'inativo',
+                ]);
+
+                if($update)
+                    return redirect()->route('usuario.index')->with('message-nodelete', 'Usuário não pode ser deletado !');
+                else
+                    return redirect()->route('usuario.index')->withErrors(['errors' => 'Falha ao deletar usuário!']);
+
+            }
+*/

@@ -1,16 +1,16 @@
 @extends('layouts.template')
 
 @push('links')
-    <link href="{{ asset('css/painel/usuario/edit.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/painel/formulario.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
-<div class="body_main">
+<div class="body-main body-main__user">
 	<header>
 		<h2><i class="glyphicon glyphicon glyphicon-edit"></i> Editar Usuário</h2>
 	</header>
-	<div id="main" class="container body_main--main">
-		<div class="main--form">
+	<div class="container body-main__main">
+		<div class="body-main__form">
 			<form method="post" action="{{ route('usuario.update', $user->id) }}" role="form" autocomplete="off">
 				{!! method_field('PUT') !!}
 				{{ csrf_field() }}
@@ -87,7 +87,6 @@
 						<div class="col-sm-3 form-group">
 							<label for="sexo">Sexo: <span class="notification-red">*</span></label>
 							<select class="form-control" id="sexo" name="sexo">
-
 								@if($user->sexo == "Masculino")
 									<option value="Masculino" selected>Masculino</option>
 									<option value="Feminino">Feminino</option>
@@ -122,7 +121,7 @@
 					<div class="col-sm-12">
 						<div class="col-sm-12">
 							<br>
-							<button class="btn btn-lg btn-primary btn-editar__user" type="submit">Editar</button>
+							<button class="btn btn-lg btn-primary btn-edit" type="submit">Editar</button>
 						</div>
 					</div>
 				</div>
