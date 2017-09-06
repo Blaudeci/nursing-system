@@ -13,6 +13,7 @@ Route::get('usuario/{id}/status_ativado', 'Painel\UserController@status_ativado'
 /*CRUD Paciente*/
 Route::resource('/paciente', 'Painel\PacienteController');
 Route::get('paciente/{id}/destroy', 'Painel\PacienteController@destroy');
+Route::get('paciente/{id}/show', 'Painel\PacienteController@show');
 Route::get('paciente/{id}/status_inativado', 'Painel\PacienteController@status_inativado');
 Route::get('paciente/{id}/status_ativado', 'Painel\PacienteController@status_ativado');
 

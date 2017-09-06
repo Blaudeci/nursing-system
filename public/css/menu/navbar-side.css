@@ -112,7 +112,7 @@
 @media (max-width: 960px) {
   .nav-side-menu {
     position: relative;
-    top: -20px;
+    top: -25px;
     width: 100%;
     margin-bottom: 10px;
   }

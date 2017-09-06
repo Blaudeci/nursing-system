@@ -5,6 +5,7 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.13/i18n/Portuguese-Brasil.json"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script src="{{ asset('js/datatable.js') }}"></script>
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
 @endpush
 
@@ -20,11 +21,6 @@
 					swal("Deletado!", "Usuário deletado com sucesso.", "success");
 				</script>
 			@endif
-			<!--@if(Session::has('message-nodelete'))
-				<script type="text/javascript">
-					swal("Usuário não pode ser deletado!", "O usuário está ligado com outras tabelas do BD. Então foi apenas inativado", "success");
-				</script>
-			@endif-->
 			@if(Session::has('message-status-inativado'))
 				<script type="text/javascript">
 					swal("Inativado!", "Usuário foi inativado com sucesso.", "success");
@@ -197,13 +193,4 @@
 		<br>
 	</div>
 </div>
-<script>
-    $(document).ready(function(){
-        $("#employee_data").DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Portuguese-Brasil.json"
-            }   
-        });
-    });
-</script>
 @endsection

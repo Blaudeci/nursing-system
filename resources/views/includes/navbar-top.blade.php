@@ -87,7 +87,7 @@
                 </li>
             </ul>
             <li data-toggle="collapse" data-target="#relatorio" class="collapsed">
-                <a href="{{ url('/relatorio') }}">
+                <a href="#">
                     <i class="glyphicon glyphicon-align-left" aria-hidden="true"></i> Relatório <span class="arrow"></span>
                 </a>
             </li>

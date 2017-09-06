@@ -20,11 +20,6 @@
 					swal("Deletado!", "Paciente deletado com sucesso.", "success");
 				</script>
 			@endif
-			@if(Session::has('message-nodelete'))
-				<script type="text/javascript">
-					swal("Paciente não pode ser deletado!", "O paciente está ligado com outras tabelas do BD. Então foi apenas inativado", "success");
-				</script>
-			@endif
 			@if(Session::has('message-status-inativado'))
 				<script type="text/javascript">
 					swal("Inativado!", "Paciente foi inativado com sucesso.", "success");

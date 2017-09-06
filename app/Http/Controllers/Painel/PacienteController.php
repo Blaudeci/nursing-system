@@ -144,7 +144,13 @@ class PacienteController extends Controller
    
     public function show($id)
     {
-        //
+        $pacient        = $this->pacient->find($id);
+        $contact        = $pacient->contato;
+        $fisiologico    = $pacient->fisiologico;
+        $morbida        = $pacient->morbida;
+        $habito         = $pacient->habito;
+
+        return view('painel.paciente.show', compact('pacient', 'contact', 'fisiologico', 'morbida', 'habito'));
     }
 
     
