@@ -67,20 +67,20 @@
 			<label for="perfil">Perfil: <span class="notification-red">*</span></label>
 			<select class="form-control" id="perfil" name="perfil">
 				<option value="" selected hidden>Selecione</option>
-				<option value="Tecnico" @if (old('perfil') == 'Tecnico') selected="selected" @endif>Técnico</option>
+				<option value="Técnico" @if (old('perfil') == 'Técnico') selected="selected" @endif>Técnico</option>
 				<option value="Superior" @if (old('perfil') == 'Superior') selected="selected" @endif>Superior</option>
 				<option value="Docente" @if (old('perfil') == 'Docente') selected="selected" @endif>Docente</option>
 				<option value="Terceirizado" @if (old('perfil') == 'Terceirizado') selected="selected" @endif>Terceirizado</option>
-				<option value="Administrativo" @if (old('perfil') == 'Administrativo') selected="selected" @endif>Tec Administrativo</option>
+				<option value="Tec Administrativo" @if (old('perfil') == 'Tec Administrativo') selected="selected" @endif>Tec Administrativo</option>
 			</select>
 		</div>
 		<div class="col-sm-3 form-group">
 			<label for="religiao">Religião: <span class="notification-red">*</span></label>
 			<select class="form-control" id="religiao" name="religiao">
 				<option value="" selected hidden>Selecione</option>
-				<option value="Catolica" @if (old('religiao') == 'Catolica') selected="selected" @endif>Cátolica</option>
-				<option value="Evangelica" @if (old('religiao') == 'Evangelica') selected="selected" @endif>Evangélica</option>
-				<option value="Espirita" @if (old('religiao') == 'Espirita') selected="selected" @endif>Espírita</option>
+				<option value="Cátolica" @if (old('religiao') == 'Cátolica') selected="selected" @endif>Cátolica</option>
+				<option value="Evangélica" @if (old('religiao') == 'Evangélica') selected="selected" @endif>Evangélica</option>
+				<option value="Espírita" @if (old('religiao') == 'Espírita') selected="selected" @endif>Espírita</option>
 				<option value="Outros" @if (old('religiao') == 'Outros') selected="selected" @endif>Outros</option>
 			</select>
 		</div>

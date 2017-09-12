@@ -5,6 +5,13 @@
 		</div>
 	</div>
 </div>
+<div class="row form-group">
+	<div class="col-sm-12">
+		<div class="col-sm-12">
+			<p class="notification-red">Os campos que possuem (*) são obrigatórios.</p>
+		</div>
+	</div>
+</div>
 <div class="row">
 	<div class="col-sm-12">
 		<div class="col-sm-4 form-group">

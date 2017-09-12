@@ -27,7 +27,7 @@ $(function(){
 	$("#perfil").click(function(){
 		var x = $("#perfil").val();
 
-		if(x == "Tecnico" || x == "Superior"){
+		if(x == "Técnico" || x == "Superior"){
 			$("#course-display").css("display", "block");
 		}else{
 			$("#course-display").css("display", "none");
@@ -118,7 +118,7 @@ $(function(){
 			$("#uf").removeClass("alert alert-danger");
 		}
 
-		if(perfil_paciente == "Tecnico" || perfil_paciente == "Superior"){
+		if(perfil_paciente == "Técnico" || perfil_paciente == "Superior"){
 			if(nome_curso == ""){
 				$("#nome_curso").addClass("alert-danger");
 			}else{
@@ -152,7 +152,7 @@ $(function(){
 			uf_paciente == null || uf_paciente == ""){
 				$('.error-fieldset').html('<div class="alert alert-danger"><p>Preencha todos os campos que são obrigatórios, para prosseguir!</p></div>');
 		}else{
-			if(perfil_paciente == "Tecnico" || perfil_paciente == "Superior"){
+			if(perfil_paciente == "Técnico" || perfil_paciente == "Superior"){
 				if(nome_curso == "" || semestre_curso == "" || periodo_curso == null ||
 				periodo_curso == "" || moradia_estudantil == null || moradia_estudantil == ""){
 					$('.error-fieldset').html('<div class="alert alert-danger"><p>Preencha todos os campos que são obrigatórios, para prosseguir!</p></div>');
@@ -206,5 +206,84 @@ $(function(){
 	//Form História Mórbida Pregressa
 	$('button[name=next4]').click(function(){
 		next($(this));
+	});
+
+	//Form Habitos
+	$('button[type=submit]').click(function(event){
+
+		var sono_repouso			= $("#sono_repouso").val();
+		var horas_sono				= $("#horas_sono").val();
+		var atividade_fisica		= $("#atividade_fisica").val();
+		var qtde_atividade_fisica 	= $("#qtde_atividade_fisica").val();
+		var frutas_verduras			= $("#frutas_verduras").val();
+		var carne_vermelha			= $("#carne_vermelha").val();
+		var carne_branca			= $("#carne_branca").val();
+		var suco_habitos			= $("#suco_habitos").val();
+		var agua_habitos 			= $("#agua_habitos").val();
+		var cha_habitos				= $("#cha_habitos").val();
+
+		if(sono_repouso == ""){
+			$("#sono_repouso").addClass("alert-danger");
+		}else{
+			$("#sono_repouso").removeClass("alert alert-danger");
+		}
+		if(horas_sono == ""){
+			$("#horas_sono").addClass("alert-danger");
+		}else{
+			$("#horas_sono").removeClass("alert alert-danger");
+		}
+		if(atividade_fisica == ""){
+			$("#atividade_fisica").addClass("alert-danger");
+		}else{
+			$("#atividade_fisica").removeClass("alert alert-danger");
+		}
+		if(qtde_atividade_fisica == ""){
+			$("#qtde_atividade_fisica").addClass("alert-danger");
+		}else{
+			$("#qtde_atividade_fisica").removeClass("alert alert-danger");
+		}
+		if(frutas_verduras == ""){
+			$("#frutas_verduras").addClass("alert-danger");
+		}else{
+			$("#frutas_verduras").removeClass("alert alert-danger");
+		}
+		if(carne_vermelha == ""){
+			$("#carne_vermelha").addClass("alert-danger");
+		}else{
+			$("#carne_vermelha").removeClass("alert alert-danger");
+		}
+		if(carne_branca == ""){
+			$("#carne_branca").addClass("alert-danger");
+		}else{
+			$("#carne_branca").removeClass("alert alert-danger");
+		}
+		if(suco_habitos == ""){
+			$("#suco_habitos").addClass("alert-danger");
+		}else{
+			$("#suco_habitos").removeClass("alert alert-danger");
+		}
+		if(agua_habitos == ""){
+			$("#agua_habitos").addClass("alert-danger");
+		}else{
+			$("#agua_habitos").removeClass("alert alert-danger");
+		}
+		if(cha_habitos == ""){
+			$("#cha_habitos").addClass("alert-danger");
+		}else{
+			$("#cha_habitos").removeClass("alert alert-danger");
+		}
+		if(sono_repouso == "" || horas_sono == "" || atividade_fisica == "" ||
+			qtde_atividade_fisica == "" || frutas_verduras == "" ||
+			carne_vermelha == "" || carne_branca == "" || suco_habitos == "" ||
+			agua_habitos == "" || cha_habitos == ""){
+
+			$('.error-fieldset').html('<div class="alert alert-danger"><p>Preencha todos os campos que são obrigatórios, para prosseguir!</p></div>');
+
+		}else{
+			$('.error-fieldset').html("");
+			return true;
+		}
+
+		event.preventDefault();
 	});
 });

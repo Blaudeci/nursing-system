@@ -62,7 +62,7 @@
 					@if($paciente->status == "ativo")
 						<td>
 							<a href="#" onclick="activated_patient({{$paciente->id}})">
-								<img src="{{ asset('img/joinha.png')}}" style="width: 40px;">
+								<img src="{{ asset('img/joinha.png')}}" style="width: 40px;" title="Ativo">
 								
 								<script type="text/javascript">
 		                    		
@@ -92,9 +92,8 @@
 					@else
 						<td>
 							<a href="#" onclick="inactivate_patient({{$paciente->id}})">
-								<img src="{{ asset('img/nao-joinha.png')}}" style="width: 40px;-webkit-transform:rotate(180deg); -moz-transform:rotate(180deg);">
+								<img src="{{ asset('img/nao-joinha.png')}}" style="width: 40px;-webkit-transform:rotate(180deg); -moz-transform:rotate(180deg);" title="Inativo">
 								<script type="text/javascript">
-		                    		
 		                    		function inactivate_patient(id){
 			                    		swal({ 
 											title: "Deseja ativar o usuário?",
@@ -133,7 +132,6 @@
 	                    <button onclick="confim_delete({{$paciente->id}})" class="actions">
 		                    <i class="glyphicon glyphicon-remove"></i>
 	                    	<script type="text/javascript">
-	                    		
 	                    		function confim_delete(id){
 		                    		swal({ 
 										title: "Você tem certeza?",

@@ -27,35 +27,6 @@ body{
     border: none;
     border-radius: 5px;
 }
-.body-main .body-main__main .glyphicon-eye-close{
-	background: #E9E9E9;
-	border-radius: 5px;	
-    padding: 7px;
-}
-.body-main .body-main__main .glyphicon-edit{ 
-    background: #E9E9E9;
-	border-radius: 5px;	
-    padding: 7px;
-}
-.body-main .body-main__main .glyphicon-remove{ 
-    background: #b12020;
-    border-radius: 5px;
-    padding: 7px;
-}
-.body-main .body-main__main .glyphicon-eye-close:hover{
-    background: black;
-    color: white;
-}
-.body-main .body-main__main .glyphicon-edit:hover{
-    background: black;
-    color: white;
-}
-.body-main .body-main__main .glyphicon-remove:hover{
-    background: black;
-    color: white;
-}
-
-
 /*-------------------Form User------------------*/
 /* Create*/
 .body-main__user .body-main__main .body-main__form .btn-register{
@@ -126,7 +97,7 @@ body{
 	content: none;
 }
 .body-main__patient .body-main__main .body-main__form #form-main__patient #progress 
-li.ativo:before, #form-main__patient #progress li.ativo:after{
+li.active:before, #form-main__patient #progress li.active:after{
 	background: red;
 	color: white;
 }

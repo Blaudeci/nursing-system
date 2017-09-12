@@ -17,11 +17,15 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('profile_admin', function( $user){
-            return $user->profile == "admin";
+            return $user->profile == "Admin";
         });
 
-        Gate::define('profile_user', function($user){
-            return $user->profile == "user";
+        Gate::define('profile_enfermeiro', function($user){
+            return $user->profile == "Enfermeiro";
+        });
+
+        Gate::define('profile_tecnico', function($user){
+            return $user->profile == "Técnico";
         });
     }
 }

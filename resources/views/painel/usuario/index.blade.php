@@ -62,20 +62,22 @@
 					<td>{{$user->cpf}}</td>
 					<td>{{$user->data_nasc}}</td>
 					<td>{{$user->email}}</td>
-					@if($user->profile == "admin")
-						<td>Enfermeiro</td>
-					@else
+					@if($user->profile == "Técnico")
 						<td>Técnico de Enfermagem</td>
+					@elseif($user->profile == "Admin")
+						<td>Admin</td>
+					@else
+						<td>Enfermeiro</td>
 					@endif
 					<td>{{$user->sexo}}</td>
-					@if($user->id != 1)
+					@if($user->profile != "Admin")
 						@if($user->status_user == "ativo")
 							<td>
 								<?php
 	                    			$id = $user->id;
 	                			?>
 								<a href="#" onclick="activated_user(<?=$id?>)">
-									<img src="{{ asset('img/joinha.png')}}" style="width: 40px;">
+									<img src="{{ asset('img/likeverde.png')}}" title="Ativo" style="width: 40px;">
 									
 									<script type="text/javascript">
 			                    		
@@ -108,7 +110,7 @@
 	                    			$id = $user->id;
 	                			?>
 								<a href="#" onclick="inactivate_user(<?=$id?>)">
-									<img src="{{ asset('img/nao-joinha.png')}}" style="width: 40px;-webkit-transform:rotate(180deg); -moz-transform:rotate(180deg);">
+									<img src="{{ asset('img/likevermelho.png')}}" title="Inativo" style="width: 40px;">
 									<script type="text/javascript">
 			                    		
 			                    		function inactivate_user(id){
@@ -138,7 +140,7 @@
 					@else
 						<td>
 							<a href="#" onclick="administrador_status()">
-								<img src="{{ asset('img/joinha.png')}}" style="width: 40px;">
+								<img src="{{ asset('img/likeverde.png')}}" title="Ativo" style="width: 40px;">
 									
 								<script type="text/javascript">
 			                    	function administrador_status(){
@@ -151,15 +153,15 @@
 					<td>
 	                    <button class="actions">
 		                    <a href="/usuario/{{$user->id}}/edit">
-		                        <i class="glyphicon glyphicon-edit"></i>
+		                        <img src="{{ asset('img/editar-usuario.ico') }}" id="img-user__edit" title="Editar" style="width: 40px; padding: 2px ;">
 		                    </a>
 	                    </button>
 	                    <?php
 	                    	$id = $user->id;
 	                    ?>
-	                    @if($user->id != 1)
+	                    @if($user->profile != "Admin")
 		                    <button onclick="confim_delete(<?=$id?>)" class="actions">
-		                    	<i class="glyphicon glyphicon-remove"></i>
+		                    	<img src="{{ asset('img/exluir.png') }}" id="img-user__excluir" style="width: 40px;" title="Excluir">
 		                    	<script type="text/javascript">
 		                    		
 		                    		function confim_delete(id){

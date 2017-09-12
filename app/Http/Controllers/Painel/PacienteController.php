@@ -28,6 +28,7 @@ class PacienteController extends Controller
         return view('painel.paciente.index', compact('pacientes'));
     }
 
+    //-----------------------Pronto-------------------------
     public function create()
     {
         return view('painel.paciente.create');
@@ -56,8 +57,8 @@ class PacienteController extends Controller
             'uf'                    => $dataForm['uf'],
             'nome_curso'            => $dataForm['nome_curso'],
             'semestre_curso'        => $dataForm['semestre_curso'],
-            'periodo_curso'         => 'Sim',
-            'moradia_estudantil'    => 'Sim',
+            'periodo_curso'         => $dataForm['periodo_curso'],
+            'moradia_estudantil'    => $dataForm['moradia_estudantil'],
             'status'                => 'ativo'
         ]);
 
@@ -84,7 +85,7 @@ class PacienteController extends Controller
             'cirurgias_anteriores'  => $dataForm['cirurgias_anteriores'],
             'internacoes'           => $dataForm['internacoes'],
             'alergias'              => $dataForm['alergias'],
-            'primeira_mestruacao'   => $dataForm['primeria_mestruacao'],
+            'primeira_mestruacao'   => $dataForm['primeira_mestruacao'],
             'queixas'               => $dataForm['queixas'],
             'gesta'                 => $dataForm['gesta'],
             'para'                  => $dataForm['para'],

@@ -50,7 +50,7 @@
 					<div class="col-sm-12">
 						<div class="col-sm-6 form-group">
 							<label for="name_edit">Nome: <span class="notification-red">*</span></label>
-							<input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome" value="{{$user->name}}" />
+							<input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome" maxlength="100" value="{{$user->name}}" />
 						</div>
 						<div class="col-sm-3 form-group">
 							<label for="cpf">CPF: <span class="notification-red">*</span></label>
@@ -66,20 +66,22 @@
 					<div class="col-sm-12">
 						<div class="col-sm-6 form-group">
 							<label for="email">E-mail: <span class="notification-red">*</span></label>
-							<input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail" value="{{$user->email}}">
+							<input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail" maxlength="100" value="{{$user->email}}">
 						</div>
 						<div class="col-sm-3 form-group">
 							<label for="profile">Perfil: <span class="notification-red">*</span></label>
 								<select class="form-control" id="profile" name="profile">
 									@if ($user->id == 1 && $user->profile == 'admin')
-										<option value="admin" selected>Enfermeiro</option>
+										<option value="Admin" selected>Enfermeiro</option>
 									@else
 										@if($user->profile == "Enfermeiro")
-											<option value="admin" selected>Enfermeiro</option>
-											<option value="user">Técnico de Enfermagem</option>
+											<option value="Enfermeiro" selected>Enfermeiro</option>
+											<option value="Técnico">Técnico de Enfermagem</option>
+										@elseif($user->profile == "Admin")
+											<option value="Admin" selected>Admin</option>
 										@else
-											<option value="admin">Enfermeiro</option>
-											<option value="user" selected>Técnico de Enfermagem</option>
+											<option value="Enfermeiro">Enfermeiro</option>
+											<option value="Técnico" selected>Técnico de Enfermagem</option>
 										@endif
 									@endif
 								</select>

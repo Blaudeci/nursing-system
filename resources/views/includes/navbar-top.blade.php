@@ -35,7 +35,7 @@
                     <i class="glyphicon glyphicon glyphicon-home"></i> Home
                 </a>
             </li>
-            @if(Auth::user()->profile == "admin")
+            @if(Auth::user()->profile == "Admin")
                 <li  data-toggle="collapse" data-target="#usuario" class="collapsed">
                     <a href="#"><i class="glyphicon glyphicon-user"></i> Usuário<span class="arrow"></span></a>
                 </li>

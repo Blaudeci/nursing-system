@@ -18,16 +18,22 @@
 .navbar-top .navbar-header{
     margin-bottom: 0px;
     margin-top: 5px;
-    font-family: 'Frijole', cursive;
-    font-family: 'Black Ops One', cursive;
-    font-family: 'Faster One', cursive;
-    font-family: 'Nosifer', cursive;
+    font-family: 'Oxygen', sans-serif;
+    font-family: 'Shrikhand', cursive;
+    font-family: 'Days One', sans-serif;
+    font-family: 'Shojumaru', cursive;
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-family: 'Rye', cursive;
+    font-family: 'Emblema One', cursive;
+    font-family: 'Chicle', cursive;
+    font-family: 'Goblin One', cursive;
 }
 .navbar-top .navbar-header .brand{
     margin-top: -12px;
 }
 .navbar-top .navbar-header .brand span{
-    font-size: 1.9em;
+    font-size: 1.7em;
+    text-align: center;
 }
 .navbar-top .navbar-header .brand img{
     width: 60px;

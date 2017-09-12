@@ -18,27 +18,31 @@ class UserController extends Controller
     
     public function index()
     {
-        
+        //Se usuario não for admin return para home
         if(Gate::denies('profile_admin'))
-            abort(403, 'Unauthorized');
+            return redirect('home');
 
         $users = $this->user->all(); 
 
         return view('painel.usuario.index', compact('users'));
     }
 
+    //--------------------------Pronto-------------------------------------
     public function create()
     {
+        //Se usuario não for admin return para home
         if(Gate::denies('profile_admin'))
-            abort(403, 'Unauthorized');
+            return redirect('home');
 
         return view('painel.usuario.create');
     }
 
+    //-------------------------Pronto--------------------------------------
     public function store(Request $request)
     {
+        //Se usuario não for admin return para home
         if(Gate::denies('profile_admin'))
-            abort(403, 'Unauthorized');
+            return redirect('home');
 
         $dataForm = $request->all();
 
@@ -68,58 +72,24 @@ class UserController extends Controller
             return redirect()->route('usuario.create');
     }
 
+    //-----------------------------Pronto--------------------------
     public function edit($id)
     {
+        //Se usuario não for admin return para home
         if(Gate::denies('profile_admin'))
-            abort(403, 'Unauthorized');
+            return redirect('home');
 
         $user = $this->user->find($id);
 
         return view('painel.usuario.edit', compact('user'));
     }
 
-    public function status_inativado($id){
-
-        if(Gate::denies('profile_admin'))
-            abort(403, 'Unauthorized');
-
-        $user = $this->user->find($id);
-
-        $update = $user->update([
-            'status_user'    => 'inativo'
-        ]);
-
-        if($update){
-
-            return redirect()->route('usuario.index', $id)->with('message-status-inativado', 'O usuário foi Inativado com sucesso!');
-        }else{
-            return redirect()->route('usuario.index', $id)->withErrors(['errors' => 'Não foi possivel alterar o status do usuário!']);
-        }
-    }
-
-    public function status_ativado($id){
-
-        if(Gate::denies('profile_admin'))
-            abort(403, 'Unauthorized');
-
-        $user = $this->user->find($id);
-
-        $update = $user->update([
-            'status_user'    => 'ativo'
-        ]);
-
-        if($update){
-
-            return redirect()->route('usuario.index', $id)->with('message-status-ativado', 'O usuário foi ativado com sucesso!');
-        }else{
-            return redirect()->route('usuario.index', $id)->withErrors(['errors' => 'Não foi possivel alterar o status do usuário!']);
-        }
-    }
-
+    //----------------------Pronto---------------------------------
     public function update(Request $request, $id)
     {
+        //Se usuario não for admin return para home
         if(Gate::denies('profile_admin'))
-            abort(403, 'Unauthorized');
+            return redirect('home');
 
         $dataForm = $request->all();
 
@@ -203,12 +173,56 @@ class UserController extends Controller
         }
     }
 
+    //--------------------------Pronto--------------------
+    public function status_inativado($id){
+
+        //Se usuario não for admin return para home
+        if(Gate::denies('profile_admin'))
+            return redirect('home');
+
+        $user = $this->user->find($id);
+
+        $update = $user->update([
+            'status_user'    => 'inativo'
+        ]);
+
+        if($update){
+
+            return redirect()->route('usuario.index', $id)->with('message-status-inativado', 'O usuário foi Inativado com sucesso!');
+        }else{
+            return redirect()->route('usuario.index', $id)->withErrors(['errors' => 'Não foi possivel alterar o status do usuário!']);
+        }
+    }
+
+    //--------------------Pronto---------------------------
+    public function status_ativado($id){
+
+        //Se usuario não for admin return para home
+        if(Gate::denies('profile_admin'))
+            return redirect('home');
+
+        $user = $this->user->find($id);
+
+        $update = $user->update([
+            'status_user'    => 'ativo'
+        ]);
+
+        if($update){
+
+            return redirect()->route('usuario.index', $id)->with('message-status-ativado', 'O usuário foi ativado com sucesso!');
+        }else{
+            return redirect()->route('usuario.index', $id)->withErrors(['errors' => 'Não foi possivel alterar o status do usuário!']);
+        }
+    }
+
+    //------------------Pronto--------------------------
     public function destroy($id)
     {
+        //Se usuario não for admin return para home
         if(Gate::denies('profile_admin'))
-            abort(403, 'Unauthorized');
+            return redirect('home');
 
-        if($id == 1){
+        if($id == 1 || $id == 2){
             return redirect()->route('usuario.index')->withErrors(['errors' => 'Usuário não pode ser deletado!']);
         }else{
             $user = $this->user->find($id);

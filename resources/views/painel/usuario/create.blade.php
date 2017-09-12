@@ -86,8 +86,8 @@
 							</label>
 							<select class="form-control" id="profile" name="profile" value="{{old('data_nasc')}}">
 								<option value="" selected hidden>Selecione</option>
-								<option value="admin" @if (old('profile') == 'admin') selected="selected" @endif>Enfermeiro</option>
-                				<option value="user" @if (old('profile') == 'user') selected="selected" @endif>Técnico de Enfermagem</option>
+								<option value="Enfermeiro" @if (old('profile') == 'Enfermeiro') selected="selected" @endif>Enfermeiro</option>
+                				<option value="Técnico" @if (old('profile') == 'Técnico') selected="selected" @endif>Técnico de Enfermagem</option>
 							</select>
 						</div>
 						<div class="col-sm-3 form-group{{ $errors->has('sexo') ? ' has-error' : '' }}">
