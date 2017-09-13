@@ -77,7 +77,7 @@
 	                    			$id = $user->id;
 	                			?>
 								<a href="#" onclick="activated_user(<?=$id?>)">
-									<img src="{{ asset('img/likeverde.png')}}" title="Ativo" style="width: 40px;">
+									<i class="glyphicon glyphicon-thumbs-up" style="color:green; font-size: 2em;" title="Ativo"></i>
 									
 									<script type="text/javascript">
 			                    		
@@ -110,7 +110,7 @@
 	                    			$id = $user->id;
 	                			?>
 								<a href="#" onclick="inactivate_user(<?=$id?>)">
-									<img src="{{ asset('img/likevermelho.png')}}" title="Inativo" style="width: 40px;">
+									<i class="glyphicon glyphicon-thumbs-down" style="color:red; font-size: 2em;" title="Inativo"></i>
 									<script type="text/javascript">
 			                    		
 			                    		function inactivate_user(id){
@@ -140,7 +140,7 @@
 					@else
 						<td>
 							<a href="#" onclick="administrador_status()">
-								<img src="{{ asset('img/likeverde.png')}}" title="Ativo" style="width: 40px;">
+								<i class="glyphicon glyphicon-thumbs-up" style="color:green; font-size: 2em;" title="Ativo"></i>
 									
 								<script type="text/javascript">
 			                    	function administrador_status(){
@@ -161,7 +161,7 @@
 	                    ?>
 	                    @if($user->profile != "Admin")
 		                    <button onclick="confim_delete(<?=$id?>)" class="actions">
-		                    	<img src="{{ asset('img/exluir.png') }}" id="img-user__excluir" style="width: 40px;" title="Excluir">
+		                    	<img src="{{ asset('img/exluir.png') }}" style="width: 40px;" title="Excluir">
 		                    	<script type="text/javascript">
 		                    		
 		                    		function confim_delete(id){

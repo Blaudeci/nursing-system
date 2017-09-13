@@ -23,9 +23,10 @@ body{
 }
 .body-main .body-main__main .actions{
     font-size: 1.4em;
-    color: #FFF;
     border: none;
+    background: none;
     border-radius: 5px;
+    padding: 1px;
 }
 /*-------------------Form User------------------*/
 /* Create*/
@@ -98,7 +99,7 @@ body{
 }
 .body-main__patient .body-main__main .body-main__form #form-main__patient #progress 
 li.active:before, #form-main__patient #progress li.active:after{
-	background: red;
+	background: #FF0000;
 	color: white;
 }
 .body-main__patient .body-main__main .body-main__form #form-main__patient fieldset #course-display{

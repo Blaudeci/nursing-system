@@ -33,6 +33,9 @@
 				<fieldset>
 					@include('painel.paciente.fieldset-edit.evento-fisiologico')
 				</fieldset>
+				<fieldset>
+					@include('painel.paciente.fieldset-edit.historia-morbida')
+				</fieldset>
 			</form>
 		</div>
 	</div>

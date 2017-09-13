@@ -12,8 +12,8 @@
 			<textarea class="form-control" id="outras_doencas" name="outras_doencas" maxlength="1000" value="{{old('outras_doencas')}}" rows="3"></textarea>
 		</div>
 		<div class="col-sm-6 form-group">
-			<label for="uso_medicacao">Uso de medicação continua: </label>
-			<textarea class="form-control" id="uso_medicacao" name="uso_medicacao" maxlength="1000" value="{{old('uso_medicacao')}}" rows="3"></textarea>
+			<label for="medicacao_continua">Uso de medicação continua: </label>
+			<textarea class="form-control" id="medicacao_continua" name="medicacao_continua" maxlength="1000" value="{{old('medicacao_continua')}}" rows="3"></textarea>
 		</div>
 	</div>
 </div>
@@ -52,15 +52,15 @@
 	<div class="col-sm-12">
 		<div class="col-sm-4">
 			<label for="gesta">Gesta: </label>
-			<input type="text" name="gesta" id="gesta" value="{{old('gesta')}}" class="form-control" maxlength="10">
+			<input type="text" name="gesta" id="gesta" value="{{old('gesta')}}" class="form-control" maxlength="20">
 		</div>
 		<div class="col-sm-4">
 			<label for="para">Para: </label>
-			<input type="text" name="para" id="para" value="{{old('para')}}" class="form-control" maxlength="10">
+			<input type="text" name="para" id="para" value="{{old('para')}}" class="form-control" maxlength="20">
 		</div>
 		<div class="col-sm-4">
 			<label for="aborto">Aborto: </label>
-			<input type="text" name="aborto" id="aborto" value="{{old('aborto')}}" class="form-control" maxlength="10">
+			<input type="text" name="aborto" id="aborto" value="{{old('aborto')}}" class="form-control" maxlength="20">
 		</div>
 	</div>
 </div>

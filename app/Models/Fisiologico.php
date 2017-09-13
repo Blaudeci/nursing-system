@@ -8,7 +8,7 @@ use App\Models\Paciente;
 class Fisiologico extends Model
 {
 	protected $fillable = [
-		'paciente_id', 'outras_doencas', 'uso_medicacao', 'cirurgias_anteriores', 'internacoes', 'alergias', 'primeria_mestruacao', 'queixas', 'gesta', 'para', 'aborto'
+		'paciente_id', 'outras_doencas', 'medicacao_continua', 'cirurgias_anteriores', 'internacoes', 'alergias', 'primeira_mestruacao', 'queixas', 'gesta', 'para', 'aborto'
 	]; 
 
     public function pacientes(){

@@ -17,6 +17,7 @@
         <link href="{{ asset('css/menu/navbar-top.css') }}" rel="stylesheet">
         <link href="{{ asset('css/menu/navbar-side.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Chicle|Days+One|Emblema+One|Goblin+One|Montserrat+Subrayada|Oxygen|Rye|Shojumaru|Shrikhand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Faster+One|Frijole|Patua+One" rel="stylesheet">
         
         <!-- Scripts -->
         <script src="{{ asset('js/jquery-3.1.1.js.js') }}"></script>

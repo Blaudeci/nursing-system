@@ -12,8 +12,8 @@
 			<textarea class="form-control" id="outras_doencas" name="outras_doencas" maxlength="1000" rows="3">{{$fisiologico->outras_doencas}}</textarea>
 		</div>
 		<div class="col-sm-6 form-group">
-			<label for="uso_medicacao">Uso de medicação continua: </label>
-			<textarea class="form-control" id="uso_medicacao" name="uso_medicacao" maxlength="1000" rows="3">{{$fisiologico->medicacao_continua}}</textarea>
+			<label for="medicacao_continua">Uso de medicação continua: </label>
+			<textarea class="form-control" id="medicacao_continua" name="medicacao_continua" maxlength="1000" rows="3">{{$fisiologico->medicacao_continua}}</textarea>
 		</div>
 	</div>
 </div>

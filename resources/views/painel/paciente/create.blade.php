@@ -8,7 +8,7 @@
 @section('content')
 <div class="body-main body-main__patient">
 	<header>
-		<h2><i class="glyphicon glyphicon glyphicon-edit"></i> Cadastrar Paciente</h2>
+		<h2><i class="glyphicon glyphicon-edit"></i> Cadastrar Paciente</h2>
 	</header>
 	<div class="container body-main__main" style="margin-top: 70px;">
 		<div class="body-main__form">

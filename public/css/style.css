@@ -44,6 +44,13 @@ body{
 .notification-red{
   color: red;
 }
+.inputError{
+  border-color: red;
+  box-shadow: 0 0 1px 0;
+}
+.labelError{
+  color: #CD5C5C;
+}
 /*----------Main------------*/
 .body-main{
   width: 83.8%;
@@ -68,6 +75,10 @@ body{
     position: relative;
     top: -7px;
     text-align: center;
+    font-family: 'Black Ops One', cursive;
+    font-family: 'Faster One', cursive;
+    font-family: 'Frijole', cursive;
+    font-family: 'Patua One', cursive;
 }
 .body-main .body-main__main{
     position: absolute;

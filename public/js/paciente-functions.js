@@ -24,6 +24,26 @@ $(function(){
 		prev_fs.show(800);
 	});
 
+
+	$("#perfil").change(function () { 
+    	var x = $("#perfil").val();
+
+		if(x == "Técnico" || x == "Superior"){
+			$("#course-display").css("display", "block");
+		}else{
+			$("#course-display").css("display", "none");
+			$("#nome_curso").val("");
+			$("#semestre_curso").val("");
+			$("#periodo_curso").val("");
+			$("#moradia_estudantil").val("");
+
+			$("#nome_curso").removeClass("alert alert-danger");
+			$("#semestre_curso").removeClass("alert alert-danger");
+			$("#periodo_curso").removeClass("alert alert-danger");
+			$("#moradia_estudantil").removeClass("alert alert-danger");
+		}
+   	});
+
 	$("#perfil").click(function(){
 		var x = $("#perfil").val();
 
@@ -63,84 +83,110 @@ $(function(){
 		var moradia_estudantil  = $("#moradia_estudantil").val();
 
 		if(nome_paciente == ""){
-			$("#nome").addClass("alert-danger");
+			$("#nome").addClass("inputError");
+			$("label[for=nome]").addClass("labelError");
 		}else{
-			$("#nome").removeClass("alert alert-danger");
+			$("#nome").removeClass("inputError");
+			$("label[for=nome]").removeClass("labelError");
 		}
 		if(data_nasc == ""){
-			$("#data_nasc").addClass("alert-danger");
+			$("#data_nasc").addClass("inputError");
+			$("label[for=data_nasc]").addClass("labelError");
 		}else{
-			$("#data_nasc").removeClass("alert alert-danger");
+			$("#data_nasc").removeClass("inputError");
+			$("label[for=data_nasc]").removeClass("labelError");
 		}
 		if(condicao_moradia == null || condicao_moradia == ""){
-			$("#condicao_moradia").addClass("alert-danger");
+			$("#condicao_moradia").addClass("inputError");
+			$("label[for=condicao_moradia]").addClass("labelError");
 		}else{
-			$("#condicao_moradia").removeClass("alert alert-danger");
+			$("#condicao_moradia").removeClass("inputError");
+			$("label[for=condicao_moradia]").removeClass("labelError");
 		}
 		if(sexo_paciente == null || sexo_paciente == ""){
-			$("#sexo").addClass("alert-danger");
+			$("#sexo").addClass("inputError");
+			$("label[for=sexo]").addClass("labelError");
 		}else{
-			$("#sexo").removeClass("alert alert-danger");
+			$("#sexo").removeClass("inputError");
+			$("label[for=sexo]").removeClass("labelError");
 		}
 		if(perfil_paciente == null || perfil_paciente == ""){
-			$("#perfil").addClass("alert-danger");
+			$("#perfil").addClass("inputError");
+			$("label[for=perfil]").addClass("labelError");
 		}else{
-			$("#perfil").removeClass("alert alert-danger");
+			$("#perfil").removeClass("inputError");
+			$("label[for=perfil]").removeClass("labelError");
 		}
 		if(religiao_paciente == null || religiao_paciente == ""){
-			$("#religiao").addClass("alert-danger");
+			$("#religiao").addClass("inputError");
+			$("label[for=religiao]").addClass("labelError");
 		}else{
-			$("#religiao").removeClass("alert alert-danger");
+			$("#religiao").removeClass("inputError");
+			$("label[for=religiao]").removeClass("labelError");
 		}
 		if(estado_civil == null || estado_civil == ""){
-			$("#estado_civil").addClass("alert-danger");
+			$("#estado_civil").addClass("inputError");
+			$("label[for=estado_civil]").addClass("labelError");
 		}else{
-			$("#estado_civil").removeClass("alert alert-danger");
+			$("#estado_civil").removeClass("inputError");
+			$("label[for=estado_civil]").removeClass("labelError");
 		}
 		if(endereco_paciente == ""){
-			$("#endereco").addClass("alert-danger");
+			$("#endereco").addClass("inputError");
+			$("label[for=endereco]").addClass("labelError");
 		}else{
-			$("#endereco").removeClass("alert alert-danger");
+			$("#endereco").removeClass("inputError");
+			$("label[for=endereco]").removeClass("labelError");
 		}
 		if(numero_casa == ""){
-			$("#numero_casa").addClass("alert-danger");
+			$("#numero_casa").addClass("inputError");
+			$("label[for=numero_casa]").addClass("labelError");
 		}else{
-			$("#numero_casa").removeClass("alert alert-danger");
+			$("#numero_casa").removeClass("inputError");
+			$("label[for=numero_casa]").removeClass("labelError");
 		}
 		if(cep_paciente == ""){
-			$("#cep").addClass("alert-danger");
+			$("#cep").addClass("inputError");
+			$("label[for=cep]").addClass("labelError");
 		}else{
-			$("#cep").removeClass("alert alert-danger");
+			$("#cep").removeClass("inputError");
+			$("label[for=cep]").removeClass("labelError");
 		}
 		if(uf_paciente == null || uf_paciente == ""){
-			$("#uf").addClass("alert-danger");
+			$("#uf").addClass("inputError");
+			$("label[for=uf]").addClass("labelError");
 		}else{
-			$("#uf").removeClass("alert alert-danger");
+			$("#uf").removeClass("inputError");
+			$("label[for=uf]").removeClass("labelError");
 		}
-
 		if(perfil_paciente == "Técnico" || perfil_paciente == "Superior"){
 			if(nome_curso == ""){
-				$("#nome_curso").addClass("alert-danger");
+				$("#nome_curso").addClass("inputError");
+				$("label[for=nome_curso]").addClass("labelError");
 			}else{
-				$("#nome_curso").removeClass("alert alert-danger");
+				$("#nome_curso").removeClass("inputError");
+				$("label[for=nome_curso]").removeClass("labelError");
 			}
-
 			if(semestre_curso == ""){
-				$("#semestre_curso").addClass("alert-danger");
+				$("#semestre_curso").addClass("inputError");
+				$("label[for=semestre_curso]").addClass("labelError");
 			}else{
-				$("#semestre_curso").removeClass("alert alert-danger");
+				$("#semestre_curso").removeClass("inputError");
+				$("label[for=semestre_curso]").removeClass("labelError");
 			}
-
 			if(periodo_curso == null || periodo_curso == ""){
-				$("#periodo_curso").addClass("alert-danger");
+				$("#periodo_curso").addClass("inputError");
+				$("label[for=periodo_curso]").addClass("labelError");
 			}else{
-				$("#periodo_curso").removeClass("alert alert-danger");
+				$("#periodo_curso").removeClass("inputError");
+				$("label[for=periodo_curso]").removeClass("labelError");
 			}
-
 			if(moradia_estudantil == null || moradia_estudantil == ""){
-				$("#moradia_estudantil").addClass("alert-danger");
+				$("#moradia_estudantil").addClass("inputError");
+				$("label[for=moradia_estudantil]").addClass("labelError");
 			}else{
-				$("#moradia_estudantil").removeClass("alert alert-danger");
+				$("#moradia_estudantil").removeClass("inputError");
+				$("label[for=moradia_estudantil]").removeClass("labelError");
 			}
 		}
 

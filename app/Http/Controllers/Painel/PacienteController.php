@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Painel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Gate;
 use App\Models\Users;
 use App\Models\Paciente;
 use App\Models\Contato;
@@ -81,7 +82,7 @@ class PacienteController extends Controller
         $fisiologico = Fisiologico::create([
             'paciente_id'           => $paciente->id,
             'outras_doencas'        => $dataForm['outras_doencas'],
-            'medicacao_continua'    => $dataForm['uso_medicacao'],
+            'medicacao_continua'    => $dataForm['medicacao_continua'],
             'cirurgias_anteriores'  => $dataForm['cirurgias_anteriores'],
             'internacoes'           => $dataForm['internacoes'],
             'alergias'              => $dataForm['alergias'],
@@ -173,11 +174,11 @@ class PacienteController extends Controller
         //
     }
 
-
-
-
-
     public function status_inativado($id){
+
+        if(Gate::allows('profile_tecnico'))
+            return redirect('home');
+
         $pacient = $this->pacient->find($id);
 
         $update = $pacient->update([
@@ -192,10 +193,11 @@ class PacienteController extends Controller
         }
     }
 
-
-
-
     public function status_ativado($id){
+
+        if(Gate::allows('profile_tecnico'))
+            return redirect('home');
+
         $pacient = $this->pacient->find($id);
 
         $update = $pacient->update([
@@ -208,14 +210,13 @@ class PacienteController extends Controller
         }else{
             return redirect()->route('paciente.index', $id)->withErrors(['errors' => 'Não foi possivel alterar o status do usuário!']);
         }
-    }
-
-    
-    
-
+    }    
    
     public function destroy($id)
     {
+        if(Gate::allows('profile_tecnico'))
+            return redirect('home');
+
         $pacient = $this->pacient->find($id);
 
         $delete = $pacient->delete();

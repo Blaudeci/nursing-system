@@ -49,6 +49,7 @@
 		<div class="col-sm-2 form-group">
 			<label for="parentesco_resp_two">Parentesco:</label>
 			<select class="form-control" id="parentesco_resp_two" name="parentesco_resp_two">
+				<option value="" hidden @if ($contact->parentesco_resp_two == '')  selected="selected" @endif>Selecione</option>
 				<option value="Pai" @if ($contact->parentesco_resp_two == 'Pai')  selected="selected" @endif>Pai</option>
 				<option value="Mãe" @if ($contact->parentesco_resp_two == 'Mãe')  selected="selected" @endif>Mãe</option>
 				<option value="Tio" @if ($contact->parentesco_resp_two == 'Tio')  selected="selected" @endif>Tio (a)</option>
@@ -78,6 +79,7 @@
 		<div class="col-sm-2 form-group">
 			<label for="parentesco_resp_three">Parentesco:</label>
 			<select class="form-control" id="parentesco_resp_three" name="parentesco_resp_three">
+				<option value="" hidden @if ($contact->parentesco_resp_three == '')  selected="selected" @endif>Selecione</option>
 				<option value="Pai" @if ($contact->parentesco_resp_three == 'Pai')  selected="selected" @endif>Pai</option>
 				<option value="Mãe" @if ($contact->parentesco_resp_three == 'Mãe')  selected="selected" @endif>Mãe</option>
 				<option value="Tio" @if ($contact->parentesco_resp_three == 'Tio')  selected="selected" @endif>Tio (a)</option>
