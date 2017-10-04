@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Painel;
 
 use Gate;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Painel\Users;
@@ -15,38 +16,35 @@ class UserController extends Controller
         $this->middleware('auth');
         $this->user = $user;
     }
-    
+    //--------------------------------------
     public function index()
     {
-        //Se usuario não for admin return para home
+        //If user is not admin return to home
         if(Gate::denies('profile_admin'))
             return redirect('home');
 
-        $users = $this->user->all(); 
+        $users = $this->user->all();
 
         return view('painel.usuario.index', compact('users'));
     }
-
-    //--------------------------Pronto-------------------------------------
+    //--------------------------------------
     public function create()
     {
-        //Se usuario não for admin return para home
+        //If user is not admin return to home
         if(Gate::denies('profile_admin'))
             return redirect('home');
 
         return view('painel.usuario.create');
     }
-
-    //-------------------------Pronto--------------------------------------
+    //--------------------------------------
     public function store(Request $request)
     {
-        //Se usuario não for admin return para home
+        //If user is not admin return to home
         if(Gate::denies('profile_admin'))
             return redirect('home');
 
         $dataForm = $request->all();
 
-        //Valida os dados
         $validate = validator($dataForm, $this->user->rules, $this->user->messages);
         if($validate->fails()){
             return redirect()
@@ -71,11 +69,10 @@ class UserController extends Controller
         else
             return redirect()->route('usuario.create');
     }
-
-    //-----------------------------Pronto--------------------------
+    //--------------------------------------
     public function edit($id)
     {
-        //Se usuario não for admin return para home
+        //If user is not admin return to home
         if(Gate::denies('profile_admin'))
             return redirect('home');
 
@@ -83,11 +80,10 @@ class UserController extends Controller
 
         return view('painel.usuario.edit', compact('user'));
     }
-
-    //----------------------Pronto---------------------------------
+    //--------------------------------------
     public function update(Request $request, $id)
     {
-        //Se usuario não for admin return para home
+        //If user is not admin return to home
         if(Gate::denies('profile_admin'))
             return redirect('home');
 
@@ -116,7 +112,7 @@ class UserController extends Controller
             'password_new_confirm'  => 'min:6|max:10'
         ];
 
-        //Verifica se se todos os campos da senha estão vazios
+        //Checks if all password fields are empty
         if($dataForm['password_old'] == "" && $dataForm['password_new'] == "" && $dataForm['password_new_confirm'] == ""){
 
                 //Valida os dados
@@ -141,10 +137,9 @@ class UserController extends Controller
                 return redirect()->route('usuario.edit', $id)->with('message', 'Usuário editado com sucesso!');
         }else{
             if($dataForm['password_old'] != "" && $dataForm['password_new'] != "" && $dataForm['password_new_confirm'] != ""){
-                //Verifica se a senha antiga(form) esta igual a senha antiga(banco) e se as senha nova e a confirmação da senha estão iguais 
+                //Checks whether the old password (form) is the same as the old password (bank) and if the new password and the password confirmation are the same 
                 if(password_verify($dataForm['password_old'], $user->password) && $dataForm['password_new'] == $dataForm['password_new_confirm']){ 
                     
-                    //Valida os dados
                     $validate = validator($dataForm, $rules_edit_password, $this->user->messages);
                     if($validate->fails()){
                        return redirect()
@@ -172,11 +167,10 @@ class UserController extends Controller
             }
         }
     }
-
-    //--------------------------Pronto--------------------
+    //--------------------------------------
     public function status_inativado($id){
 
-        //Se usuario não for admin return para home
+        //If user is not admin return to home
         if(Gate::denies('profile_admin'))
             return redirect('home');
 
@@ -187,17 +181,15 @@ class UserController extends Controller
         ]);
 
         if($update){
-
-            return redirect()->route('usuario.index', $id)->with('message-status-inativado', 'O usuário foi Inativado com sucesso!');
+            return redirect()->route('usuario.index', $id)->with('message-status-inativado', 'O usuário foi inativado com sucesso!');
         }else{
             return redirect()->route('usuario.index', $id)->withErrors(['errors' => 'Não foi possivel alterar o status do usuário!']);
         }
     }
-
-    //--------------------Pronto---------------------------
+    //--------------------------------------
     public function status_ativado($id){
 
-        //Se usuario não for admin return para home
+        //If user is not admin return to home
         if(Gate::denies('profile_admin'))
             return redirect('home');
 
@@ -208,92 +200,47 @@ class UserController extends Controller
         ]);
 
         if($update){
-
             return redirect()->route('usuario.index', $id)->with('message-status-ativado', 'O usuário foi ativado com sucesso!');
         }else{
             return redirect()->route('usuario.index', $id)->withErrors(['errors' => 'Não foi possivel alterar o status do usuário!']);
         }
     }
-
-    //------------------Pronto--------------------------
+    //--------------------------------------
     public function destroy($id)
     {
-        //Se usuario não for admin return para home
+        //If user is not admin return to home
         if(Gate::denies('profile_admin'))
             return redirect('home');
 
-        if($id == 1 || $id == 2){
+        $user = $this->user->find($id);
+
+        if(($id == 1 || $id == 2) && $user->profile == "Admin"){
             return redirect()->route('usuario.index')->withErrors(['errors' => 'Usuário não pode ser deletado!']);
         }else{
-            $user = $this->user->find($id);
+            $pacientes  = DB::table('pacientes')->where('user_id','=',$id)->first();
 
-            $delete = $user->delete();
-
-            if($delete)
-                return redirect()->route('usuario.index')->with('message-delete', 'Usuário deletado com sucesso!');
-            else
-                return redirect()->route('usuario.index')->withErrors(['errors' => 'Falha ao deletar usuário!']);
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*-----------DESTROYER----------*/
-/*
-            //verificar se a tabela user esta vinculada com outras tabelas
-
-            $pacientes = $users->pacients()->get();
-
-            foreach($pacientes as $paciente){
-                echo $paciente->user_id;
-            }
+            $ocorrencia = DB::table('ocorrencias')->where('user_id','=',$id)->first();
             
+            //If the user is linked to the patient tables and occurrences -> inactive user
+            if($pacientes != null || $ocorrencia != null){
+                if($user->status_user == "ativo"){
+                    $update = $user->update([
+                        'status_user'    => 'inativo'
+                    ]);
 
-            if($paciente ){
+                    return redirect()->route('usuario.index', $id)->with('message-no-delete', 'Usuário não pode ser deletado, pois está vinculado com outras tabelas!'); 
+                }else{
+                    return redirect()->route('usuario.index', $id)->with('message-no-delete', 'Usuário não pode ser deletado, pois está vinculado com outras tabelas!'); 
+                }
+            }else{
+
                 $delete = $user->delete();
 
                 if($delete)
                     return redirect()->route('usuario.index')->with('message-delete', 'Usuário deletado com sucesso!');
                 else
                     return redirect()->route('usuario.index')->withErrors(['errors' => 'Falha ao deletar usuário!']);
-            }else{
-                $update = $user->update([
-                    'status_user'      => 'inativo',
-                ]);
-
-                if($update)
-                    return redirect()->route('usuario.index')->with('message-nodelete', 'Usuário não pode ser deletado !');
-                else
-                    return redirect()->route('usuario.index')->withErrors(['errors' => 'Falha ao deletar usuário!']);
-
             }
-*/
+        }
+    }
+}

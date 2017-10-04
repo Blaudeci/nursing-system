@@ -5,13 +5,13 @@
 @endpush
 
 @section('content')
-<div class="body-main body-main__user">
+<div class="body-main">
 	<header>
 		<h2><i class="glyphicon glyphicon glyphicon-edit"></i> Editar Usuário</h2>
 	</header>
 	<div class="container body-main__main">
 		<div class="body-main__form">
-			<form method="post" action="{{ route('usuario.update', $user->id) }}" role="form" autocomplete="off">
+			<form method="post" action="{{ route('usuario.update', $user->id) }}" role="form" autocomplete="off" id="formulario">
 				{!! method_field('PUT') !!}
 				{{ csrf_field() }}
 				<div class="row form-group hrs-bottom">
@@ -49,7 +49,7 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="col-sm-6 form-group">
-							<label for="name_edit">Nome: <span class="notification-red">*</span></label>
+							<label for="name">Nome: <span class="notification-red">*</span></label>
 							<input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome" maxlength="100" value="{{$user->name}}" />
 						</div>
 						<div class="col-sm-3 form-group">
@@ -70,21 +70,17 @@
 						</div>
 						<div class="col-sm-3 form-group">
 							<label for="profile">Perfil: <span class="notification-red">*</span></label>
-								<select class="form-control" id="profile" name="profile">
-									@if ($user->id == 1 && $user->profile == 'admin')
-										<option value="Admin" selected>Enfermeiro</option>
-									@else
-										@if($user->profile == "Enfermeiro")
-											<option value="Enfermeiro" selected>Enfermeiro</option>
-											<option value="Técnico">Técnico de Enfermagem</option>
-										@elseif($user->profile == "Admin")
-											<option value="Admin" selected>Admin</option>
-										@else
-											<option value="Enfermeiro">Enfermeiro</option>
-											<option value="Técnico" selected>Técnico de Enfermagem</option>
-										@endif
-									@endif
-								</select>
+							<select class="form-control" id="profile" name="profile">
+								@if($user->profile == "Enfermeiro")
+									<option value="Enfermeiro" selected>Enfermeiro</option>
+									<option value="Técnico">Técnico de Enfermagem</option>
+								@elseif($user->profile == "Admin")
+									<option value="Admin" selected>Admin</option>
+								@else
+									<option value="Enfermeiro">Enfermeiro</option>
+									<option value="Técnico" selected>Técnico de Enfermagem</option>
+								@endif
+							</select>
 						</div>
 						<div class="col-sm-3 form-group">
 							<label for="sexo">Sexo: <span class="notification-red">*</span></label>
@@ -123,7 +119,7 @@
 					<div class="col-sm-12">
 						<div class="col-sm-12">
 							<br>
-							<button class="btn btn-lg btn-primary btn-edit" type="submit">Editar</button>
+							<button class="btn btn-lg btn-primary btn-edit" type="submit" onclick="document.form.submit();">Editar</button>
 						</div>
 					</div>
 				</div>
@@ -131,4 +127,17 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$("form").bind("keypress", function (e) {
+		if (e.keyCode == 13) {
+			return false;
+		}
+	});
+
+	$('button[type=submit]').keypress(function (e) {
+    	if (e.keyCode == 13) {
+    		$("#formulario").submit();
+    	}
+   	});
+</script>
 @endsection

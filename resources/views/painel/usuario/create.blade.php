@@ -5,13 +5,13 @@
 @endpush
 
 @section('content')
-<div class="body-main body-main__user">
+<div class="body-main">
 	<header>
 		<h2><i class="glyphicon glyphicon glyphicon-edit"></i> Cadastrar Usuário</h2>
 	</header>
 	<div class="container body-main__main">
 		<div class="body-main__form">
-			<form method="post" action="{{ route('usuario.store') }}" role="form" autocomplete="off">
+			<form method="post" action="{{ route('usuario.store') }}" role="form" autocomplete="off" id="formulario">
 				{{ csrf_field() }}
 				<div class="row form-group hrs-bottom">
 					<div class="col-sm-12">
@@ -84,7 +84,7 @@
 								Perfil: 
 								<span class="notification-red">*</span>
 							</label>
-							<select class="form-control" id="profile" name="profile" value="{{old('data_nasc')}}">
+							<select class="form-control" id="profile" name="profile" value="{{old('profile')}}">
 								<option value="" selected hidden>Selecione</option>
 								<option value="Enfermeiro" @if (old('profile') == 'Enfermeiro') selected="selected" @endif>Enfermeiro</option>
                 				<option value="Técnico" @if (old('profile') == 'Técnico') selected="selected" @endif>Técnico de Enfermagem</option>
@@ -127,7 +127,7 @@
 					<div class="col-sm-12">
 						<div class="col-sm-12">
 							<br>
-							<button class="btn btn-lg btn-primary btn-register" type="submit">Cadastrar</button>
+							<button class="btn btn-lg btn-primary btn-register" type="submit" onclick="document.form.submit();">Cadastrar</button>
 						</div>
 					</div>
 				</div>
@@ -135,4 +135,17 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$("form").bind("keypress", function (e) {
+		if (e.keyCode == 13) {
+			return false;
+		}
+	});
+
+	$('button[type=submit]').keypress(function (e) {
+    	if (e.keyCode == 13) {
+    		$("#formulario").submit();
+    	}
+   	});
+</script>
 @endsection

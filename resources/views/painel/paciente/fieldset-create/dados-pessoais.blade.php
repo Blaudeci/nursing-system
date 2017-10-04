@@ -32,16 +32,16 @@
 	<div class="col-sm-12">
 		<div class="col-sm-5 form-group">
 			<label for="nome">Nome: <span class="notification-red">*</span></label>
-			<input type="text" class="form-control" id="nome" name="nome" maxlength="100" value="{{old('nome')}}" />
+			<input type="text" class="form-control" id="nome" name="nome" maxlength="100" value="{{old('nome')}}">
 		</div>
 		<div class="col-sm-2 form-group">
 			<label for="data_nasc">Data Nasc.: <span class="notification-red">*</span></label>
 			<input type="text" class="form-control input-data" id="data_nasc" name="data_nasc" placeholder="00/00/0000" value="{{old('data_nasc')}}">
 		</div>
 		<div class="col-sm-3 form-group">
-			<label for="condicao_moradia">Condições de Moradia: <span class="notification-red">*</span></label>
+			<label for="condicao_moradia">Condição de Moradia: <span class="notification-red">*</span></label>
 			<select class="form-control" id="condicao_moradia" name="condicao_moradia">
-				<option value="" selected hidden>Selecione</option>
+				<option value="" hidden selected>Selecione</option>
 				<option value="Urbano" @if (old('condicao_moradia') == 'Urbano') selected="selected" @endif>Urbano</option>
                 <option value="Rural" @if (old('condicao_moradia') == 'Rural') selected="selected" @endif>Rural</option>
 			</select>
@@ -49,14 +49,13 @@
 		<div class="col-sm-2 form-group">
 			<label for="sexo">Sexo: <span class="notification-red">*</span></label>
 			<select class="form-control" id="sexo" name="sexo">
-				<option value="" selected hidden>Selecione</option>
+				<option value="" hidden selected>Selecione</option>
 				<option value="Masculino" @if (old('sexo') == 'Masculino') selected="selected" @endif>Masculino</option>
                	<option value="Feminino" @if (old('sexo') == 'Feminino') selected="selected" @endif>Feminino</option>
 			</select>
 		</div>
 	</div>
 </div>
-
 <div class="row">
 	<div class="col-sm-12">
 		<div class="col-sm-4 form-group">
@@ -66,7 +65,7 @@
 		<div class="col-sm-3 form-group">
 			<label for="perfil">Perfil: <span class="notification-red">*</span></label>
 			<select class="form-control" id="perfil" name="perfil">
-				<option value="" selected hidden>Selecione</option>
+				<option value="" hidden selected>Selecione</option>
 				<option value="Técnico" @if (old('perfil') == 'Técnico') selected="selected" @endif>Técnico</option>
 				<option value="Superior" @if (old('perfil') == 'Superior') selected="selected" @endif>Superior</option>
 				<option value="Docente" @if (old('perfil') == 'Docente') selected="selected" @endif>Docente</option>
@@ -77,26 +76,31 @@
 		<div class="col-sm-3 form-group">
 			<label for="religiao">Religião: <span class="notification-red">*</span></label>
 			<select class="form-control" id="religiao" name="religiao">
-				<option value="" selected hidden>Selecione</option>
+				<option value="" hidden selected>Selecione</option>
 				<option value="Cátolica" @if (old('religiao') == 'Cátolica') selected="selected" @endif>Cátolica</option>
 				<option value="Evangélica" @if (old('religiao') == 'Evangélica') selected="selected" @endif>Evangélica</option>
 				<option value="Espírita" @if (old('religiao') == 'Espírita') selected="selected" @endif>Espírita</option>
-				<option value="Outros" @if (old('religiao') == 'Outros') selected="selected" @endif>Outros</option>
+				<option value="Testemunhas de Jeová" @if (old('religiao') == 'Testemunhas de Jeová') selected="selected" @endif>Testemunhas de Jeová</option>
+				<option value="Umbanda" @if (old('religiao') == 'Umbanda') selected="selected" @endif>Umbanda</option>
+				<option value="Budismo" @if (old('religiao') == 'Budismo') selected="selected" @endif>Budismo</option>
+				<option value="Judaísmo" @if (old('religiao') == 'Judaísmo') selected="selected" @endif>Judaísmo</option>
+				<option value="Candomblé" @if (old('religiao') == 'Candomblé') selected="selected" @endif>Candomblé</option>
 			</select>
 		</div>
 		<div class="col-sm-2 form-group">
 			<label for="estado_civil">Estado Civil: <span class="notification-red">*</span></label>
 			<select class="form-control" id="estado_civil" name="estado_civil">
-				<option value="" selected hidden>Selecione</option>
-				<option value="Solteiro" @if (old('estado-civi_paciente') == 'Solteiro') selected="selected" @endif>Solteiro</option>
+				<option value="" hidden selected>Selecione</option>
+				<option value="Solteiro" @if (old('estado_civil') == 'Solteiro') selected="selected" @endif>Solteiro</option>
+				<option value="Amasiado" @if (old('estado_civil') == 'Amasiado') selected="selected" @endif>Amasiado</option>
 			  	<option value="Casado" @if (old('estado_civil') == 'Casado') selected="selected" @endif>Casado</option>
+			  	<option value="Separado" @if (old('estado_civil') == 'Separado') selected="selected" @endif>Separado</option>
+			  	<option value="Divorciado" @if (old('estado_civil') == 'Divorciado') selected="selected" @endif>Divorciado</option>
 			  	<option value="Viuvo" @if (old('estado_civil') == 'Viuvo') selected="selected" @endif>Viuvo(a)</option>
-			  	<option value="Outro" @if (old('estado_civil') == 'Outro') selected="selected" @endif>Outro</option>
 			</select>
 		</div>
 	</div>
 </div>
-
 <div class="row">
 	<div class="col-sm-12">
 		<div class="col-sm-5 form-group">
@@ -114,7 +118,7 @@
 		<div class="col-sm-2 form-group">
 			<label for="uf">UF: <span class="notification-red">*</span></label>
 			<select class="form-control" id="uf" name="uf">
-				<option value="" selected hidden>Selecione</option>
+				<option value="" hidden selected>Selecione</option>
 				<option value="AC" @if (old('uf') == 'AC') selected="selected" @endif>AC</option>
 				<option value="AL" @if (old('uf') == 'AL') selected="selected" @endif>AL</option>
 				<option value="AM" @if (old('uf') == 'AM') selected="selected" @endif>AM</option>
@@ -146,7 +150,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="row" id="course-display">
 	<div class="col-sm-12">
 		<div class="col-sm-5 form-group">
@@ -160,7 +163,7 @@
 		<div class="col-sm-2 form-group">
 			<label for="periodo_curso">Período: <span class="notification-red">*</span></label>
 			<select class="form-control" id="periodo_curso" name="periodo_curso">
-				<option value="" selected hidden>Selecione</option>
+				<option value="" hidden selected>Selecione</option>
 				<option value="Matutino" @if (old('periodo_curso') == 'Matutino') selected="selected" @endif>Matutino</option>
 				<option value="Vespertino" @if (old('periodo_curso') == 'Vespertino') selected="selected" @endif>Vespertino</option>
 				<option value="Noturno" @if (old('periodo_curso') == 'Noturno') selected="selected" @endif>Noturno</option>
@@ -169,13 +172,12 @@
 		</div>
 		<div class="col-sm-3 form-group">
 			<label for="moradia_estudantil">Moradia Estudantil: <span class="notification-red">*</span></label>
-			<select class="form-control" id="moradia_estudantil" name="moradia_estudantil" placeholder="Selecione" >
-				<option value="" selected hidden>Selecione</option>
-				<option value="Sim" @if (old('moradia_instituto') == 'Sim') selected="selected" @endif>Sim</option>
-				<option value="Não" @if (old('moradia_instituto') == 'Não') selected="selected" @endif>Não</option>
+			<select class="form-control" id="moradia_estudantil" name="moradia_estudantil">
+				<option value="" hidden selected>Selecione</option>
+				<option value="Sim" @if (old('moradia_estudantil') == 'Sim') selected="selected" @endif>Sim</option>
+				<option value="Não" @if (old('moradia_estudantil') == 'Não') selected="selected" @endif>Não</option>
 			</select>
 		</div>
-		<input type="hidden" name="status" value="Ativo">
 	</div>
 </div>
 <br>

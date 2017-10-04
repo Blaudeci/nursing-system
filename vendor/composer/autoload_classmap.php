@@ -39,6 +39,7 @@ return array(
     'CreateFisiologicosTable' => $baseDir . '/database/migrations/2017_08_31_191306_create_fisiologicos_table.php',
     'CreateHabitosTable' => $baseDir . '/database/migrations/2017_09_01_141923_create_habitos_table.php',
     'CreateMorbidasTable' => $baseDir . '/database/migrations/2017_09_01_141913_create_morbidas_table.php',
+    'CreateOcorrenciasTable' => $baseDir . '/database/migrations/2017_09_14_192607_create_ocorrencias_table.php',
     'CreatePacientesTable' => $baseDir . '/database/migrations/2017_08_27_203024_create_pacientes_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',

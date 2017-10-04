@@ -6,13 +6,13 @@
 @endpush
 
 @section('content')
-<div class="body-main body-main__patient">
+<div class="body-main">
 	<header>
 		<h2><i class="glyphicon glyphicon glyphicon-edit"></i> Editar Paciente</h2>
 	</header>
 	<div class="container body-main__main" style="margin-top: 70px;">
 		<div class="body-main__form">
-			<form method="post" action="{{ route('paciente.update', $pacient->id) }}" role="form" autocomplete="off" id="form-main__patient" name="formulario">
+			<form method="post" action="{{ route('paciente.update', $paciente->id) }}" role="form" autocomplete="off" id="form-main__patient" name="formulario">
 				{!! method_field('PUT') !!}
 				{{ csrf_field() }}
 					<ul id="progress">
@@ -36,8 +36,24 @@
 				<fieldset>
 					@include('painel.paciente.fieldset-edit.historia-morbida')
 				</fieldset>
+				<fieldset>
+					@include('painel.paciente.fieldset-edit.habitos')
+				</fieldset>
 			</form>
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$("form").bind("keypress", function (e) {
+		if (e.keyCode == 13) {
+			return false;
+		}
+	});
+
+	$('button[type=submit]').keypress(function (e) {
+    	if (e.keyCode == 13) {
+    		$("#form-main__patient").submit();
+    	}
+   	});
+</script>
 @endsection

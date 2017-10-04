@@ -42,10 +42,6 @@
 .navbar-top .dropdown-menu a{
     font-size: 1.3em;
 }
-.navbar-top .perfil a:hover{
-    color:black;
-    background: #C0C0C0;
-}
 .navbar-top .navbar-header a:focus{
     color:black;
     background: none;
@@ -54,9 +50,11 @@
     margin-top:7px;
     float: right;
 }
-.navbar-top .perfil a{
-    margin-top: 0px;
-    margin-bottom: 0px;
+.navbar-top .perfil strong{
+    color: white;
+    font-size: 1.1em;
+    position: relative;
+    top: 12px;
 }
 .navbar-top .logout{
     margin-top: -15px;

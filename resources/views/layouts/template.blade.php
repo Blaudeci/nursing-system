@@ -10,6 +10,9 @@
 
         <title>SWEP</title>
 
+        <!-- Icons -->
+        <link rel="icon" href="img/logotipo.jpg">
+        
         <!-- Styles -->
         <link href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -28,13 +31,10 @@
         <script src="{{ asset('js/js.js')}}"></script>
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/sweetalert.css')}}">
 
-        @stack('links')
-
-        <!-- Icons -->
-        <link rel="icon" href="img/logotipo.jpg">     
+        @stack('links')     
     </head>
     <body>
-        <!-- Verifica se o usuario esta logado -->
+        <!-- Verify that the user is logged in -->
         @if(Auth::check())
             @include('includes.navbar-top')
             @yield('content')   

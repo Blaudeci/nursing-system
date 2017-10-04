@@ -9,7 +9,7 @@
 	<div class="col-sm-12">
 		<!-- Doenças Pré-Existentes -->
 		<div class="col-sm-4 form-group">
-			<p >Doenças Pré-existentes</p>
+			<p>Doenças Pré-existentes</p>
 			<div class="col-sm-12 form-morbida">
 				<div class="col-sm-12 form-group">
 					<div class="input-group">
@@ -17,7 +17,7 @@
 				    		Acidente Vascular:
 			      		</span>
 			      		<select class="form-control" id="acidente_vascular" name="acidente_vascular">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('acidente_vascular') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('acidente_vascular') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -29,7 +29,7 @@
 				    		Câncer:
 			      		</span>
 			      		<select class="form-control" id="cancer" name="cancer">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('cancer') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('cancer') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -41,7 +41,7 @@
 				    		Hipertensão:
 			      		</span>
 			      		<select class="form-control" id="hipertensao" name="hipertensao">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('hipertensao') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('hipertensao') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -53,7 +53,7 @@
 				    		Cardiopatia:
 			      		</span>
 			      		<select class="form-control" id="cardiopatia" name="cardiopatia">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 							<option value="Cardiopatia congênita" @if (old('cardiopatia') == 'cardiopatia_congenita') selected="selected" @endif>Cardiopatia congênita</option>
 							<option value="Doenças no miocárdio" @if (old('cardiopatia') == 'Doenças no miocárdio') selected="selected" @endif>Doenças no miocárdio</option>
                 			<option value="Infecção no coração" @if (old('cardiopatia') == 'Infecção no coração') selected="selected" @endif>Infecção no coração</option>
@@ -69,7 +69,7 @@
 				    		Diabetes:
 			      		</span>
 			      		<select class="form-control" id="diabetes" name="diabetes">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 							<option value="Tipo-I" @if (old('diabetes') == 'Tipo-I') selected="selected" @endif>Tipo I</option>
                 			<option value="Tipo-II" @if (old('diabetes') == 'Tipo-II') selected="selected" @endif>Tipo II</option>
 						</select>
@@ -81,7 +81,7 @@
 				    		Doença Renal:
 			      		</span>
 			      		<select class="form-control" id="doenca_renal" name="doenca_renal">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Cálculos renais" @if (old('doenca_renal') == 'Cálculos renais') selected="selected" @endif>Cálculos renais</option>
 			      			<option value="Infecção renal ou Pielonefrite" @if (old('doenca_renal') == 'Infecção renal ou Pielonefrite') selected="selected" @endif>Infecção renal ou Pielonefrite</option>
 			      			<option value="Cistos renais" @if (old('doenca_renal') == 'Cistos renais') selected="selected" @endif>Cistos renais</option>
@@ -95,7 +95,7 @@
 				    		Pneumopatia:
 			      		</span>
 			      		<select class="form-control" id="pneumopatia" name="pneumopatia">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 							<option value="Pneumopatia Intersticial" @if (old('pneumopatia') == 'Pneumopatia Intersticial') selected="selected" @endif>Pneumopatia Intersticial</option>
 							<option value="Pneumopatia Aguda" @if (old('pneumopatia') == 'Pneumopatia Aguda') selected="selected" @endif>Pneumopatia Aguda</option>
 							<option value="Pneumopatia Crônica" @if (old('pneumopatia') == 'Pneumopatia Crônica') selected="selected" @endif>Pneumopatia Crônica</option>
@@ -121,7 +121,7 @@
 				    		Drogas:
 			      		</span>
 			      		<select class="form-control" id="drogas" name="drogas">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('drogas') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('drogas') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -133,7 +133,7 @@
 				    		Alimentos:
 			      		</span>
 			      		<select class="form-control" id="alimentos" name="alimentos">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('alimentos') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('alimentos') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -145,7 +145,7 @@
 				    		Cosméticos:
 			      		</span>
 			      		<select class="form-control" id="cosmeticos" name="cosmeticos">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('cosmeticos') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('cosmeticos') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -157,7 +157,7 @@
 				    		Esparadrapo:
 			      		</span>
 			      		<select class="form-control" id="esparadrapo" name="esparadrapo">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('esparadrapo') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('esparadrapo') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -169,7 +169,7 @@
 				    		Lã:
 			      		</span>
 			      		<select class="form-control" id="la_alergico" name="la_alergico">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
                 			<option value="Sim" @if (old('la_alergico') == 'Sim') selected="selected" @endif>Sim</option>
                 			<option value="Não" @if (old('la_alergico') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -191,7 +191,7 @@
 				    		Tabagismo:
 			      		</span>
 			      		<select class="form-control" id="tabagismo" name="tabagismo">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('tabagismo') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('tabagismo') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -203,7 +203,7 @@
 				    		Etilismo:
 			      		</span>
 			      		<select class="form-control" id="etilismo" name="etilismo">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('etilismo') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('etilismo') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -215,7 +215,7 @@
 				    		Quimioterapia:
 			      		</span>
 			      		<select class="form-control" id="quimioterapia" name="quimioterapia">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('quimioterapia') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('quimioterapia') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -227,7 +227,7 @@
 				    		Radioterapia:
 			      		</span>
 			      		<select class="form-control" id="radioterapia" name="radioterapia">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('radioterapia') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('radioterapia') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -239,7 +239,7 @@
 				    		Dependência Química:
 			      		</span>
 			      		<select class="form-control" id="dependencia_quimica" name="dependencia_quimica">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('dependencia_quimica') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('dependencia_quimica') == 'Não') selected="selected" @endif>Não</option>
 						</select>
@@ -251,7 +251,7 @@
 				    		Violência:
 			      		</span>
 			      		<select class="form-control" id="violencia" name="violencia">
-			      			<option value="" selected hidden>Selecione</option>
+			      			<option value="" selected>Selecione</option>
 			      			<option value="Sim" @if (old('violencia') == 'Sim') selected="selected" @endif>Sim</option>
 							<option value="Não" @if (old('violencia') == 'Não') selected="selected" @endif>Não</option>
 						</select>

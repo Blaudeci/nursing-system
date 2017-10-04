@@ -17,7 +17,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="row">
 	<div class="col-sm-12">
 		<div class="col-sm-6 form-group">
@@ -30,7 +29,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="row">
 	<div class="col-sm-12">
 		<div class="col-sm-4 form-group">
@@ -47,15 +45,14 @@
 		</div>
 	</div>
 </div>
-
 <div class="row">
 	<div class="col-sm-12">
 		<div class="col-sm-4">
-			<label for="gesta">Gesta: </label>
+			<label for="gesta">Gestação: </label>
 			<input type="text" name="gesta" id="gesta" value="{{$fisiologico->gesta}}" class="form-control" maxlength="10">
 		</div>
 		<div class="col-sm-4">
-			<label for="para">Para: </label>
+			<label for="para">Filhos: </label>
 			<input type="text" name="para" id="para" value="{{$fisiologico->para}}" class="form-control" maxlength="10">
 		</div>
 		<div class="col-sm-4">

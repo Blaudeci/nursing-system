@@ -16,6 +16,11 @@
 	</header>
 	<div class="container table-responsive body-main__main">
 		<div class="col-sm-12">
+			@if(Session::has('message-no-delete'))
+				<script type="text/javascript">
+					swal("Inativado!", "Usuário não pode ser deletado, pois está vinculado com outras tabelas!", "success");
+				</script>
+			@endif
 			@if(Session::has('message-delete'))
 				<script type="text/javascript">
 					swal("Deletado!", "Usuário deletado com sucesso.", "success");
@@ -144,7 +149,7 @@
 									
 								<script type="text/javascript">
 			                    	function administrador_status(){
-				                    	sweetAlert("Oops...", "O status do usuário não pode ser modificado!", "error");	
+				                    	sweetAlert("Oops...", "O status do usuário não pode ser alterado!", "error");	
 			                    	}
 			                    </script>
 			                </a>

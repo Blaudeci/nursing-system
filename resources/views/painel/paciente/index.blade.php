@@ -15,6 +15,11 @@
 	</header>
 	<div class="container table-responsive body-main__main">
 		<div class="col-sm-12">
+			@if(Session::has('message-no-delete'))
+				<script type="text/javascript">
+					swal("Inativado!", "Paciente não pode ser deletado, pois está vinculado com outras tabelas!", "success");
+				</script>
+			@endif
 			@if(Session::has('message-delete'))
 				<script type="text/javascript">
 					swal("Deletado!", "Paciente deletado com sucesso.", "success");
@@ -133,13 +138,12 @@
 					<td>
 						<button class="actions">
 							<a href="/paciente/{{$paciente->id}}/show">
-								
 							<img src="{{ asset('img/view-ocorrencia.png') }}" style="width: 40px;" title="View">
 							</a>
 						</button>
 						<button class="actions">
 		                    <a href="/paciente/{{$paciente->id}}/edit">
-		                    <img src="{{ asset('img/editar-ocorrencia.png') }}" style="width: 40px;" title="Editar">
+		                    	<img src="{{ asset('img/editar-ocorrencia.png') }}" style="width: 40px;" title="Editar">
 		                    </a>
 	                    </button>
 	                    @if(Auth::user()->profile == "Admin" || Auth::user()->profile == "Enfermeiro")

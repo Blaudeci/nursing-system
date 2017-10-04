@@ -15,17 +15,16 @@
         <div class="navbar-main">
             <ul class="nav navbar-nav perfil">
                 <li class="dropdown">
-                    <a href="#">
+                    <strong>
                         {{ Auth::user()->name }}
-                    </a>
+                    </strong>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- ************************************************************************************** -->
-
+<!-- Menu Side -->
 <div class="nav-side-menu">
     <div class="menu-list">
         <ul id="menu-content" class="menu-content collapse out">
@@ -36,7 +35,7 @@
             </li>
             @if(Auth::user()->profile == "Admin")
                 <li  data-toggle="collapse" data-target="#usuario" class="collapsed">
-                    <a href="#"><i class="glyphicon glyphicon-user"></i> Usuário<span class="arrow"></span></a>
+                    <a href="#"><i class="fa fa-user-md" style="font-size: 28px;"></i> Usuário<span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="usuario">
                     <li>
@@ -70,12 +69,12 @@
             </ul>
             <li data-toggle="collapse" data-target="#ocorrencia" class="collapsed">
                 <a href="#">
-                    <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> Ocorrência <span class="arrow"></span>
+                    <i class="fa fa-medkit" aria-hidden="true"></i> Ocorrência <span class="arrow"></span>
                 </a>
             </li>
             <ul class="sub-menu collapse" id="ocorrencia">
                 <li>
-                    <a href="{{ url('/ocorrencia/create') }}">
+                    <a href="{{ url('/ocorrencia/index-create') }}">
                         Cadastrar 
                     </a>
                 </li>
@@ -87,23 +86,23 @@
             </ul>
             <li data-toggle="collapse" data-target="#relatorio" class="collapsed">
                 <a href="#">
-                    <i class="glyphicon glyphicon-align-left" aria-hidden="true"></i> Relatório <span class="arrow"></span>
+                    <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> Relatório <span class="arrow"></span>
                 </a>
             </li>
             <ul class="sub-menu collapse" id="relatorio">
                 <li>
-                    <a href="#">
+                    <a href="/relatorio/ocorrencia">
                         Ocorrência 
                     </a>
                 </li>
             </ul>
             <li class="dropdown">
-                <a href="#">
-                    <i class="glyphicon glyphicon-picture"></i> Gráfico
+                <a href="/graficos">
+                    <i class="fa fa-line-chart"></i> Gráfico
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="perfil">
                     <i class="glyphicon glyphicon-user"></i> Perfil
                 </a>
             </li>

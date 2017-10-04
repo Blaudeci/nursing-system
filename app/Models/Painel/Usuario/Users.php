@@ -4,11 +4,16 @@ namespace App\Models\Painel;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Paciente;
+use App\Models\Ocorrencia;
 
 class Users extends Model
 {
     public function pacientes(){
         return $this->hasMany(Paciente::class);
+    }
+
+    public function ocorrencias(){
+        return $this->hasMany(Ocorrencia::class);
     }
     
     protected $fillable = [
@@ -19,7 +24,7 @@ class Users extends Model
         'password', 'remember_token'
     ];
 
-    //Validação dos dados do usuario create
+    //Validate user data create
     public $rules = [
 	    'name'                              => 'required|string|min:3|max:100',
         'cpf'                               => 'required|unique:users',

@@ -1,0 +1,16 @@
+.button-print__one{
+	margin-top: 10px;
+	float: right;
+}
+.button-print__two{
+	display: none;
+}
+@media (max-width: 960px) { 
+	.button-print__one{
+		display: none;
+	}
+	.button-print__two{
+		display: block;
+		width: 100%;
+	}
+}

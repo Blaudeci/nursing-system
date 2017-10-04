@@ -2,7 +2,7 @@
 
 @push('links')
 	<link href="{{ asset('css/painel/formulario.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/painel/show-print-patient.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/painel/show-print.css') }}" rel="stylesheet">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script type="text/javascript" src="http://www.position-absolute.com/creation/print/jquery.printPage.js"></script>
 @endpush
@@ -10,7 +10,7 @@
 @section('content')
 <div class="body-main body-main__patient">
 	<header>
-		<h2><i class="glyphicon glyphicon-eye-close"></i> View Paciente</h2>
+		<h2><i class="glyphicon glyphicon-eye-open"></i> View Paciente</h2>
 	</header>
 	<div class="container body-main__main">
 	<script type="text/javascript">
@@ -22,7 +22,7 @@
 		   tela_impressao.window.close();
 		}
 	</script>
-	<button class="btn btn-lg btn-primary button-print__patient1"  onclick="print();"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
+	<button class="btn btn-lg btn-primary button-print__one"  onclick="print();"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
 		<div class="body-main__form">
 			<div class="body-main__show" id="print">
 				<div class="row" id="dados-pessoais__part1">
@@ -36,192 +36,236 @@
 						<div class="col-sm-5 form-group" id="nome">
 							<label>Nome:</label>
 							<br>
-							<abbr>{{$pacient->nome}}</abbr>
+							<abbr>{{$paciente->nome}}</abbr>
 						</div>
 						<div class="col-sm-2 form-group" id="data_nasc">
 							<label>Data Nasc.:</label>
 							<br>
-							<abbr>{{$pacient->data_nasc}}</abbr>
+							<abbr>{{$paciente->data_nasc}}</abbr>
 						</div>
 						<div class="col-sm-3 form-group" id="condicoes_moradia">
 							<label>Condições de Moradia:</label>
 							<br>
-							<abbr>{{$pacient->condicao_moradia}}</abbr>
+							<abbr>{{$paciente->condicao_moradia}}</abbr>
 						</div>
 						<div class="col-sm-2 form-group" id="sexo">
 							<label>Sexo:</label>
 							<br>
-							<abbr>{{$pacient->sexo}}</abbr>
+							<abbr>{{$paciente->sexo}}</abbr>
 						</div>
 					</div>
 					<div class="col-sm-12">
 						<div class="col-sm-5 form-group">
 							<label>E-mail: </label>
 							<br>
-							<abbr>{{$pacient->email}}</abbr>
+							@if($paciente->email != "")
+								<abbr>{{$paciente->email}}</abbr>
+							@else
+								<abbr>Não respondido.</abbr>
+							@endif
 						</div>
 						<div class="col-sm-2 form-group">
 							<label for="perfil">Perfil:</label>
 							<br>
-							<abbr>{{$pacient->perfil}}</abbr>
+							<abbr>{{$paciente->perfil}}</abbr>
 						</div>
 						<div class="col-sm-3 form-group">
 							<label>Religião:</label>
 							<br>
-							<abbr>{{$pacient->religiao}}</abbr>
+							<abbr>{{$paciente->religiao}}</abbr>
 						</div>
 						<div class="col-sm-2 form-group">
 							<label>Estado Civil:</label>
 							<br>
-							<abbr>{{$pacient->estado_civil}}</abbr>
+							<abbr>{{$paciente->estado_civil}}</abbr>
 						</div>
 					</div>
 					<div class="col-sm-12">
 						<div class="col-sm-5 form-group">
 							<label>Endereço:</label>
 							<br>
-							<abbr>{{$pacient->endereco}}</abbr>
+							<abbr>{{$paciente->endereco}}</abbr>
 						</div>
 						<div class="col-sm-2 form-group">
 							<label>Nº:</label>
 							<br>
-							<abbr>{{$pacient->numero_casa}}</abbr>
+							<abbr>{{$paciente->numero_casa}}</abbr>
 						</div>
 						<div class="col-sm-3 form-group">
 							<label>CEP:</label>
 							<br>
-							<abbr>{{$pacient->cep}}</abbr>
+							<abbr>{{$paciente->cep}}</abbr>
 						</div>
 						<div class="col-sm-2 form-group">
 							<label>UF:</label>
 							<br>
-							<abbr>{{$pacient->uf}}</abbr>
+							<abbr>{{$paciente->uf}}</abbr>
 						</div>
 					</div>
 					<div class="col-sm-12">
 						<div class="col-sm-5 form-group">
 							<label>Curso:</label>
 							<br>
-							@if($pacient->nome_curso != "")
-								<abbr>{{$pacient->nome_curso}}</abbr>
+							@if($paciente->nome_curso != "")
+								<abbr>{{$paciente->nome_curso}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-2 form-group">
 							<label>Semestre:</label>
 							<br>
-							@if($pacient->semestre_curso != "")
-								<abbr>{{$pacient->semestre_curso}}</abbr>
+							@if($paciente->semestre_curso != "")
+								<abbr>{{$paciente->semestre_curso}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-2 form-group">
 							<label>Período:</label>
 							<br>
-							@if($pacient->periodo_curso != "")
-								<abbr>{{$pacient->periodo_curso}}</abbr>
+							@if($paciente->periodo_curso != "")
+								<abbr>{{$paciente->periodo_curso}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-3 form-group">
 							<label>Moradia Estudantil:</label>
 							<br>
-							@if($pacient->moradia_estudantil != "")
-								<abbr>{{$pacient->moradia_estudantil}}</abbr>
+							@if($paciente->moradia_estudantil != "")
+								<abbr>{{$paciente->moradia_estudantil}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 					</div>
 					<hr class="hrs">
 				<div class="col-sm-12 form-group">
-					<h1>
-						Responsável a serem Contactados em Casos de Urgência ou Emergência
-					</h1>
+					<div class="col-sm-12">
+						<h1>
+							Responsável a serem Contactados em Casos de Urgência ou Emergência
+						</h1>
+					</div>
 				</div>
 				<div class="col-sm-12 form-group">
 					<div class="col-sm-4 form-group">
 						<label>Nome Responsavel:</label>
 						<br>
-						<abbr>{{$contact->nome_resp_one}}</abbr>
+						<abbr>{{$contato->nome_resp_one}}</abbr>
 					</div>
 					<div class="col-sm-2 form-group">
 						<label>Parentesco:</label>
 						<br>
-						<abbr>{{$contact->parentesco_resp_one}}</abbr>
+						<abbr>{{$contato->parentesco_resp_one}}</abbr>
 					</div>
 					<div class="col-sm-3 form-group">
 						<label>Fone:</label>
 						<br>
-						<abbr>{{$contact->fone_resp_one}}</abbr>
+						@if($contato->fone_resp_one != "")
+							<abbr>{{$contato->fone_resp_one}}</abbr>
+						@else
+							<abbr>Não respondido.</abbr>
+						@endif
 					</div>
 					<div class="col-sm-3 form-group">
 						<label>Cel:</label>
 						<br>
-						<abbr>{{$contact->cel_resp_one}}</abbr>
+						<abbr>{{$contato->cel_resp_one}}</abbr>
 					</div>
 				</div>
-				@if($contact->nome_resp_two != null || $contact->nome_resp_two != "" || $contact->parentesco_resp_two != null || $contact->parentesco_resp_two != ""
-				|| $contact->fone_resp_two != null || $contact->fone_resp_two != "" || 
-				$contact->cel_resp_two != null || $contact->cel_resp_two != "")
+				@if($contato->nome_resp_two != null || $contato->nome_resp_two != "" || $contato->parentesco_resp_two != null || $contato->parentesco_resp_two != ""
+				|| $contato->fone_resp_two != null || $contato->fone_resp_two != "" || 
+				$contato->cel_resp_two != null || $contato->cel_resp_two != "")
 					<div class="col-sm-12 form-group">
 						<div class="col-sm-4 form-group">
 							<label>Nome Responsavel:</label>
 							<br>
-							<abbr>{{$contact->nome_resp_two}}</abbr>
+							@if($contato->nome_resp_two != "")
+								<abbr>{{$contato->nome_resp_two}}</abbr>
+							@else
+								<abbr>Não respondido.</abbr>
+							@endif
 						</div>
 						<div class="col-sm-2 form-group">
 							<label>Parentesco:</label>
 							<br>
-							<abbr>{{$contact->parentesco_resp_two}}</abbr>
+							@if($contato->parentesco_resp_two != "")
+								<abbr>{{$contato->parentesco_resp_two}}</abbr>
+							@else
+								<abbr>Não respondido.</abbr>
+							@endif
 						</div>
 						<div class="col-sm-3 form-group">
 							<label>Fone:</label>
 							<br>
-							<abbr>{{$contact->fone_resp_two}}</abbr>
+							@if($contato->fone_resp_two != "")
+								<abbr>{{$contato->fone_resp_two}}</abbr>
+							@else
+								<abbr>Não respondido.</abbr>
+							@endif
 						</div>
 						<div class="col-sm-3 form-group">
 							<label>Cel:</label>
 							<br>
-							<abbr>{{$contact->cel_resp_two}}</abbr>
+							@if($contato->cel_resp_two != "")
+								<abbr>{{$contato->cel_resp_two}}</abbr>
+							@else
+								<abbr>Não respondido.</abbr>
+							@endif
 						</div>
 					</div>
 				@endif
-				@if($contact->nome_resp_three != null || $contact->nome_resp_three != "" || 
-				$contact->parentesco_resp_three != null || $contact->parentesco_resp_three != ""
-				|| $contact->fone_resp_three != null || $contact->fone_resp_three != "" || 
-				$contact->cel_resp_three != null || $contact->cel_resp_three != "")
+				@if($contato->nome_resp_three != null || $contato->nome_resp_three != "" || 
+				$contato->parentesco_resp_three != null || $contato->parentesco_resp_three != ""
+				|| $contato->fone_resp_three != null || $contato->fone_resp_three != "" || 
+				$contato->cel_resp_three != null || $contato->cel_resp_three != "")
 					<div class="col-sm-12 form-group">
 						<div class="col-sm-4 form-group">
 							<label>Nome Responsavel:</label>
 							<br>
-							<abbr>{{$contact->nome_resp_three}}</abbr>
+							@if($contato->nome_resp_three != "")
+								<abbr>{{$contato->nome_resp_three}}</abbr>
+							@else
+								<abbr>Não respondido.</abbr>
+							@endif
 						</div>
 						<div class="col-sm-2 form-group">
 							<label>Parentesco:</label>
 							<br>
-							<abbr>{{$contact->parentesco_resp_three}}</abbr>
+							@if($contato->parentesco_resp_three != "")
+								<abbr>{{$contato->parentesco_resp_three}}</abbr>
+							@else
+								<abbr>Não respondido.</abbr>
+							@endif
 						</div>
 						<div class="col-sm-3 form-group">
 							<label>Fone:</label>
 							<br>
-							<abbr>{{$contact->fone_resp_three}}</abbr>
+							@if($contato->fone_resp_three != "")
+								<abbr>{{$contato->fone_resp_three}}</abbr>
+							@else
+								<abbr>Não respondido.</abbr>
+							@endif
 						</div>
 						<div class="col-sm-3 form-group">
 							<label>Cel:</label>
 							<br>
-							<abbr>{{$contact->cel_resp_three}}</abbr>
+							@if($contato->cel_resp_three != "")
+								<abbr>{{$contato->cel_resp_three}}</abbr>
+							@else
+								<abbr>Não respondido.</abbr>
+							@endif
 						</div>
 					</div>
 				@endif
 				<hr class="hrs">
 				<div class="col-sm-12 form-group">
-					<h1>
-						Antecedentes e Eventos Fisiológicos/Patológicos
-					</h1>
+					<div class="col-sm-12">
+						<h1>
+							Antecedentes e Eventos Fisiológicos/Patológicos
+						</h1>
+					</div>
 				</div>
 				<div class="col-sm-12 form-group">
 					<div class="col-sm-6 form-group">
@@ -230,7 +274,7 @@
 						@if($fisiologico->outras_doencas != "")
 							<abbr>{{$fisiologico->outras_doencas}}</abbr>
 						@else
-							<abbr>Não</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-6 form-group">
@@ -239,7 +283,7 @@
 						@if($fisiologico->medicacao_continua != "")
 							<abbr>{{$fisiologico->medicacao_continua}}</abbr>
 						@else
-							<abbr>Não</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -250,7 +294,7 @@
 						@if($fisiologico->cirurgias_anteriores != "")
 							<abbr>{{$fisiologico->cirurgias_anteriores}}</abbr>
 						@else
-							<abbr>Não</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-6 form-group">
@@ -259,7 +303,7 @@
 						@if($fisiologico->internacoes != "")
 							<abbr>{{$fisiologico->internacoes}}</abbr>
 						@else
-							<abbr>Não</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -270,7 +314,7 @@
 						@if($fisiologico->alergias != "")
 							<abbr>{{$fisiologico->alergias}}</abbr>
 						@else
-							<abbr>Não</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-4 form-group">
@@ -279,7 +323,7 @@
 						@if($fisiologico->primeira_mestruacao != "")
 							<abbr>{{$fisiologico->primeira_mestruacao}}</abbr>
 						@else
-							<abbr>Não</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-4 form-group">
@@ -288,7 +332,7 @@
 						@if($fisiologico->queixas != "")
 							<abbr>{{$fisiologico->queixas}}</abbr>
 						@else
-							<abbr>Não</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -299,7 +343,7 @@
 						@if($fisiologico->gesta != "")
 							<abbr>{{$fisiologico->gesta}}</abbr>
 						@else
-							<abbr>Não</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-4 form-group">
@@ -308,7 +352,7 @@
 						@if($fisiologico->para != "")
 							<abbr>{{$fisiologico->para}}</abbr>
 						@else
-							<abbr>Não</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-4 form-group">
@@ -317,15 +361,17 @@
 						@if($fisiologico->aborto != "")
 							<abbr>{{$fisiologico->aborto}}</abbr>
 						@else
-							<abbr>Não</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
 				<hr class="hrs">
 				<div class="col-sm-12 form-group">
-					<h1>
-						História Mórbida Pregressa
-					</h1>
+					<div class="col-sm-12">
+						<h1>
+							História Mórbida Pregressa
+						</h1>
+					</div>
 				</div>
 				<div class="col-sm-12">
 					<div class="col-sm-4">
@@ -338,7 +384,7 @@
 							@if($morbida->acidente_vascular != "")
 								<abbr>{{$morbida->acidente_vascular}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -347,7 +393,7 @@
 							@if($morbida->cancer != "")
 								<abbr>{{$morbida->cancer}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -356,7 +402,7 @@
 							@if($morbida->hipertensao != "")
 								<abbr>{{$morbida->hipertensao}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -365,7 +411,7 @@
 							@if($morbida->cardiopatia != "")
 								<abbr>{{$morbida->cardiopatia}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 
 						</div>
@@ -376,7 +422,7 @@
 							@if($morbida->diabetes != "")
 								<abbr>{{$morbida->diabetes}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -385,7 +431,7 @@
 							@if($morbida->doenca_renal != "")
 								<abbr>{{$morbida->doenca_renal}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -394,7 +440,7 @@
 							@if($morbida->pneumopatia != "")
 								<abbr>{{$morbida->pneumopatia}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -403,7 +449,7 @@
 							@if($morbida->outros_pre_existentes != "")
 								<abbr>{{$morbida->outros_pre_existentes}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 					</div>
@@ -420,7 +466,7 @@
 							@if($morbida->drogas != "")
 								<abbr>{{$morbida->drogas}}</abbr>
 							@else 
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -429,7 +475,7 @@
 							@if($morbida->alimentos != "")
 								<abbr>{{$morbida->alimentos}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -438,7 +484,7 @@
 							@if($morbida->cosmeticos != "")
 								<abbr>{{$morbida->cosmeticos}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -447,7 +493,7 @@
 							@if($morbida->esparadrapo != "")
 								<abbr>{{$morbida->esparadrapo}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -456,7 +502,7 @@
 							@if($morbida->la_alergico != "")
 								<abbr>{{$morbida->la_alergico}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -465,7 +511,7 @@
 							@if($morbida->outros_alergicos != "")
 								<abbr>{{$morbida->outros_alergicos}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 					</div>
@@ -482,7 +528,7 @@
 							@if($morbida->tabagismo != "")
 								<abbr>{{$morbida->tabagismo}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -491,7 +537,7 @@
 							@if($morbida->etilismo != "")
 								<abbr>{{$morbida->etilismo}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -500,7 +546,7 @@
 							@if($morbida->quimioterapia != "")
 								<abbr>{{$morbida->quimioterapia}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -509,7 +555,7 @@
 							@if($morbida->radioterapia != "")
 								<abbr>{{$morbida->radioterapia}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -518,7 +564,7 @@
 							@if($morbida->dependencia_quimica != "")
 								<abbr>{{$morbida->dependencia_quimica}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -527,7 +573,7 @@
 							@if($morbida->violencia != "")
 								<abbr>{{$morbida->violencia}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-12 form-group">
@@ -536,103 +582,138 @@
 							@if($morbida->outros_fatores_riscos != "")
 								<abbr>{{$morbida->outros_fatores_riscos}}</abbr>
 							@else
-								<abbr>Não</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 					</div>
 				</div>
 				<hr class="hrs">
 				<div class="col-sm-12 form-group">
-					<h1>
-						Hábitos
-					</h1>
+					<div class="col-sm-12">
+						<h1>
+							Hábitos
+						</h1>
+					</div>
 				</div>	
 				<div class="col-sm-12 form-group">
 					<div class="col-sm-3">
 						<label>Sono e Repouso:</label>
 						<br>
-						<abbr>{{$habito->sono_repouso}}</abbr>
+						@if($habito->sono_repouso != "")
+							<abbr>{{$habito->sono_repouso}}</abbr>
+						@else
+							<abbr>Satisfatório</abbr>
+						@endif
 					</div>
-
 					<div class="col-sm-3">
 						<label>Horas de Sono:</label>
 						<br>
-						<abbr>{{$habito->horas_sono}} horas/dia</abbr>
+						@if($habito->horas_sono != "")
+							<abbr>{{$habito->horas_sono}} horas/dia</abbr>
+						@else
+							<abbr>00:00</abbr>
+						@endif
 					</div>
 
 					<div class="col-sm-3">
 						<label>Atividade Física:</label>
 						<br>
-						<abbr>{{$habito->atividade_fisica}}</abbr>
+						@if($habito->atividade_fisica != "")
+							<abbr>{{$habito->atividade_fisica}}</abbr>
+						@else
+							<abbr>Não preenchido.</abbr>
+						@endif
 					</div>
 
 					<div class="col-sm-3">
 						<label>Qtde Atividade Física:</label>
 						<br>
-						<abbr>{{$habito->qtde_atividade_fisica}} x semana</abbr>
-					</div>
-				</div>
-				<div class="col-sm-12 form-group">
-					<h3>Alimentos e liquidos ingeridos:</h3>
-				</div>
-				<div class="col-sm-12">
-					<div class="col-sm-4">
-						<label>Frutas e verduras:</label>
-						<br>
-						<abbr>{{$habito->frutas_verduras}} x semana</abbr>
-					</div>
-					<div class="col-sm-4">
-						<label>Carne vermelha:</label>
-						<br>
-						<abbr>{{$habito->carne_vermelha}} x semana</abbr>
-					</div>
-					<div class="col-sm-4">
-						<label>Carne branca:</label>
-						<br>
-						<abbr>{{$habito->carne_branca}} x semana</abbr>
-					</div>
-				</div>
-				<div class="col-sm-12 form-group">
-					<div class="col-sm-4">
-						<label>Suco:</label>
-						<br>
-						<abbr>{{$habito->suco_habitos}} copos/dia</abbr>
-					</div>
-					<div class="col-sm-4">
-						<label>Água:</label>
-						<br>
-						<abbr>{{$habito->agua_habitos}} copos/dia</abbr>
-					</div>
-					<div class="col-sm-4">
-						<label>Chá:</label>
-						<br>
-						<abbr>{{$habito->cha_habitos}} copos/dia</abbr>
+						@if($habito->qtde_atividade_fisica != "")
+							<abbr>{{$habito->qtde_atividade_fisica}} x semana</abbr>
+						@else
+							<abbr>Não preenchido.</abbr>
+						@endif
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
 					<div class="col-sm-12">
+						<h2>Alimentos e liquidos ingeridos:</h2>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="col-sm-4 form-group">
+						<label>Frutas e verduras:</label>
+						<br>
+						@if($habito->frutas_verduras != "")
+							<abbr>{{$habito->frutas_verduras}} x semana</abbr>
+						@else
+							<abbr>Não preenchido.</abbr>
+						@endif
+					</div>
+					<div class="col-sm-4 form-group">
+						<label>Carne vermelha:</label>
+						<br>
+						@if($habito->carne_vermelha != "")
+							<abbr>{{$habito->carne_vermelha}} x semana</abbr>
+						@else
+							<abbr>Não preenchido.</abbr>
+						@endif
+					</div>
+					<div class="col-sm-4 form-group">
+						<label>Carne branca:</label>
+						<br>
+						@if($habito->carne_branca)
+							<abbr>{{$habito->carne_branca}} x semana</abbr>
+						@else
+							<abbr>Não preenchido.</abbr>
+						@endif
+					</div>
+				</div>
+				<div class="col-sm-12 form-group">
+					<div class="col-sm-4 form-group">
+						<label>Suco:</label>
+						<br>
+						@if($habito->suco_habitos)
+							<abbr>{{$habito->suco_habitos}} copos/dia</abbr>
+						@else
+							<abbr>Não preenchido.</abbr>
+						@endif
+					</div>
+					<div class="col-sm-4 form-group">
+						<label>Água:</label>
+						<br>
+						@if($habito->agua_habitos != "")
+							<abbr>{{$habito->agua_habitos}} copos/dia</abbr>
+						@else
+							<abbr>Não preenchido.</abbr>
+						@endif
+					</div>
+					<div class="col-sm-4 form-group">
+						<label>Chá:</label>
+						<br>
+						@if($habito->cha_habitos != "")
+							<abbr>{{$habito->cha_habitos}} copos/dia</abbr>
+						@else
+							<abbr>Não preenchido.</abbr>
+						@endif
+					</div>
+				</div>
+				<div class="col-sm-12 form-group">
+					<div class="col-sm-12 form-group">
 						<label>Outras Informações:</label>
 						<br>
 						@if($habito->outras_informacoes != "")
 							<abbr>{{$habito->outras_informacoes}}</abbr>
 						@else
-							<abbr>Não</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<br>
 				</div>
 				<div class="col-sm-12 form-group">
 					<div class="col-sm-12">
-						<button class="btn btn-lg btn-primary button-print__patient2"  onclick="cont();"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
+						<button class="btn btn-lg btn-primary button-print__two"  onclick="print();"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
 					</div>
-				</div>
-
-
-
-
-
-
-
 				</div>
 			</div>
 		</div>

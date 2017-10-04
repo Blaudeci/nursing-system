@@ -7,7 +7,7 @@ class UserTableSeeder extends Seeder
 {
     public function run()
     {
-        //Adicionar admin 1
+        //Add admin 1
     	User::create([
     		'name'        => 'Administrador',
     		'cpf'	      => '000.000.000-00',
@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
             'status_user' => 'ativo'
     	]);
 
-        //Adicionar admin 2
+        //Add admin 2
         User::create([
             'name'        => 'Administrador2',
             'cpf'         => '111.111.111-11',

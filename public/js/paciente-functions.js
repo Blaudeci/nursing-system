@@ -1,7 +1,6 @@
 $(function(){
 
 	var atual_fs, next_fs, prev_fs;
-
 	//Fomulario Paciente - Avançar
 	function next(elem){
 		atual_fs = $(elem).parent();
@@ -22,8 +21,9 @@ $(function(){
 
 		atual_fs.hide(800);
 		prev_fs.show(800);
-	});
 
+		$('.error-fieldset').html("");
+	});
 
 	$("#perfil").change(function () { 
     	var x = $("#perfil").val();
@@ -37,10 +37,14 @@ $(function(){
 			$("#periodo_curso").val("");
 			$("#moradia_estudantil").val("");
 
-			$("#nome_curso").removeClass("alert alert-danger");
-			$("#semestre_curso").removeClass("alert alert-danger");
-			$("#periodo_curso").removeClass("alert alert-danger");
-			$("#moradia_estudantil").removeClass("alert alert-danger");
+			$("label[for=nome_curso]").removeClass("labelError");
+			$("#nome_curso").removeClass("inputError");
+			$("label[for=semestre_curso]").removeClass("labelError");
+			$("#semestre_curso").removeClass("inputError");
+			$("label[for=periodo_curso]").removeClass("labelError");
+			$("#periodo_curso").removeClass("inputError");
+			$("label[for=moradia_estudantil]").removeClass("labelError");
+			$("#moradia_estudantil").removeClass("inputError");
 		}
    	});
 
@@ -56,10 +60,14 @@ $(function(){
 			$("#periodo_curso").val("");
 			$("#moradia_estudantil").val("");
 
-			$("#nome_curso").removeClass("alert alert-danger");
-			$("#semestre_curso").removeClass("alert alert-danger");
-			$("#periodo_curso").removeClass("alert alert-danger");
-			$("#moradia_estudantil").removeClass("alert alert-danger");
+			$("label[for=nome_curso]").removeClass("labelError");
+			$("#nome_curso").removeClass("inputError");
+			$("label[for=semestre_curso]").removeClass("labelError");
+			$("#semestre_curso").removeClass("inputError");
+			$("label[for=periodo_curso]").removeClass("labelError");
+			$("#periodo_curso").removeClass("inputError");
+			$("label[for=moradia_estudantil]").removeClass("labelError");
+			$("#moradia_estudantil").removeClass("inputError");
 		}
 	});
 
@@ -221,19 +229,25 @@ $(function(){
 		var cel_resp_one = $("#cel_resp_one").val();
 
 		if(nome_resp_one == ""){
-			$("#nome_resp_one").addClass("alert-danger");
+			$("#nome_resp_one").addClass("inputError");
+			$("label[for=nome_resp_one]").addClass("labelError");
 		}else{
-			$("#nome_resp_one").removeClass("alert alert-danger");
+			$("#nome_resp_one").removeClass("inputError");
+			$("label[for=nome_resp_one]").removeClass("labelError");
 		}
 		if(parentesco_resp_one == ""){
-			$("#parentesco_resp_one").addClass("alert-danger");
+			$("#parentesco_resp_one").addClass("inputError");
+			$("label[for=parentesco_resp_one]").addClass("labelError");
 		}else{
-			$("#parentesco_resp_one").removeClass("alert alert-danger");
+			$("#parentesco_resp_one").removeClass("inputError");
+			$("label[for=parentesco_resp_one]").removeClass("labelError");
 		}
 		if(cel_resp_one == ""){
-			$("#cel_resp_one").addClass("alert-danger");
+			$("#cel_resp_one").addClass("inputError");
+			$("label[for=cel_resp_one]").addClass("labelError");
 		}else{
-			$("#cel_resp_one").removeClass("alert alert-danger");
+			$("#cel_resp_one").removeClass("inputError");
+			$("label[for=cel_resp_one]").removeClass("labelError");
 		}
 
 		if(nome_resp_one == "" || parentesco_resp_one == "" || cel_resp_one == ""){
@@ -251,80 +265,55 @@ $(function(){
 
 	//Form História Mórbida Pregressa
 	$('button[name=next4]').click(function(){
+
+		var sono_repouso 		= $("#sono_repouso").val();
+		var atividade_fisica	= $("#atividade_fisica").val();
+
+		if(sono_repouso == "Alterado"){
+			$("#horas-sono__display").css("display", "block");
+		}else{
+			$("#horas-sono__display").css("display", "none");
+		}
+
+		if(atividade_fisica == "Sim"){
+			$("#qtde-atividade-fisica__display").css("display", "block");
+		}else{
+			$("#qtde-atividade-fisica__display").css("display", "none");
+		}
+
 		next($(this));
 	});
 
 	//Form Habitos
 	$('button[type=submit]').click(function(event){
 
-		var sono_repouso			= $("#sono_repouso").val();
+		var sono_repouso 			= $("#sono_repouso").val();
 		var horas_sono				= $("#horas_sono").val();
 		var atividade_fisica		= $("#atividade_fisica").val();
 		var qtde_atividade_fisica 	= $("#qtde_atividade_fisica").val();
-		var frutas_verduras			= $("#frutas_verduras").val();
-		var carne_vermelha			= $("#carne_vermelha").val();
-		var carne_branca			= $("#carne_branca").val();
-		var suco_habitos			= $("#suco_habitos").val();
-		var agua_habitos 			= $("#agua_habitos").val();
-		var cha_habitos				= $("#cha_habitos").val();
+		
+		if(sono_repouso == "Alterado"){
+			if(horas_sono == ""){
+				$("#horas_sono").addClass("inputError");
+				$("label[for=horas_sono]").addClass("labelError");
+			}	
+		}else{
+			$("#horas_sono").removeClass("inputError");
+			$("label[for=horas_sono]").removeClass("labelError");
+		}
 
-		if(sono_repouso == ""){
-			$("#sono_repouso").addClass("alert-danger");
+		if(atividade_fisica == "Sim"){
+			if(qtde_atividade_fisica == ""){
+				$("#qtde_atividade_fisica").addClass("inputError");
+				$("label[for=qtde_atividade_fisica]").addClass("labelError");
+			}
 		}else{
-			$("#sono_repouso").removeClass("alert alert-danger");
+			$("#qtde_atividade_fisica").removeClass("inputError");
+			$("label[for=qtde_atividade_fisica]").removeClass("labelError");
 		}
-		if(horas_sono == ""){
-			$("#horas_sono").addClass("alert-danger");
-		}else{
-			$("#horas_sono").removeClass("alert alert-danger");
-		}
-		if(atividade_fisica == ""){
-			$("#atividade_fisica").addClass("alert-danger");
-		}else{
-			$("#atividade_fisica").removeClass("alert alert-danger");
-		}
-		if(qtde_atividade_fisica == ""){
-			$("#qtde_atividade_fisica").addClass("alert-danger");
-		}else{
-			$("#qtde_atividade_fisica").removeClass("alert alert-danger");
-		}
-		if(frutas_verduras == ""){
-			$("#frutas_verduras").addClass("alert-danger");
-		}else{
-			$("#frutas_verduras").removeClass("alert alert-danger");
-		}
-		if(carne_vermelha == ""){
-			$("#carne_vermelha").addClass("alert-danger");
-		}else{
-			$("#carne_vermelha").removeClass("alert alert-danger");
-		}
-		if(carne_branca == ""){
-			$("#carne_branca").addClass("alert-danger");
-		}else{
-			$("#carne_branca").removeClass("alert alert-danger");
-		}
-		if(suco_habitos == ""){
-			$("#suco_habitos").addClass("alert-danger");
-		}else{
-			$("#suco_habitos").removeClass("alert alert-danger");
-		}
-		if(agua_habitos == ""){
-			$("#agua_habitos").addClass("alert-danger");
-		}else{
-			$("#agua_habitos").removeClass("alert alert-danger");
-		}
-		if(cha_habitos == ""){
-			$("#cha_habitos").addClass("alert-danger");
-		}else{
-			$("#cha_habitos").removeClass("alert alert-danger");
-		}
-		if(sono_repouso == "" || horas_sono == "" || atividade_fisica == "" ||
-			qtde_atividade_fisica == "" || frutas_verduras == "" ||
-			carne_vermelha == "" || carne_branca == "" || suco_habitos == "" ||
-			agua_habitos == "" || cha_habitos == ""){
 
+		if(sono_repouso == "Alterado" && horas_sono == "" || atividade_fisica == "Sim" && qtde_atividade_fisica == ""){
 			$('.error-fieldset').html('<div class="alert alert-danger"><p>Preencha todos os campos que são obrigatórios, para prosseguir!</p></div>');
-
 		}else{
 			$('.error-fieldset').html("");
 			return true;
@@ -332,4 +321,58 @@ $(function(){
 
 		event.preventDefault();
 	});
+
+	$("#sono_repouso").change(function () { 
+    	var x = $("#sono_repouso").val();
+
+		if(x == "Alterado" ){
+			$("#horas-sono__display").css("display", "block");
+		}else{
+			$("#qtde_atividade_fisica").val("");
+			$("#horas-sono__display").css("display", "none");
+			$("#horas_sono").removeClass("inputError");
+			$("label[for=horas_sono]").removeClass("labelError");
+		}
+   	});
+
+	$("#sono_repouso").click(function () { 
+    	var x = $("#sono_repouso").val();
+
+		if(x == "Alterado" ){
+			$("#horas-sono__display").css("display", "block");
+		}else{
+			$("#horas_sono").val("");
+			$("#horas-sono__display").css("display", "none");
+			$("#horas_sono").removeClass("inputError");
+			$("label[for=horas_sono]").removeClass("labelError");
+		}
+   	});
+
+   	$("#atividade_fisica").change(function () { 
+    	var x = $("#atividade_fisica").val();
+
+		if(x == "Sim" ){
+			$("#qtde-atividade-fisica__display").css("display", "block");
+
+		}else{
+			$("#qtde_atividade_fisica").val("");
+			$("#qtde-atividade-fisica__display").css("display", "none");
+			$("#qtde_atividade_fisica").removeClass("inputError");
+			$("label[for=qtde_atividade_fisica]").removeClass("labelError");
+		}
+   	});
+
+	$("#atividade_fisica").click(function () { 
+    	var x = $("#atividade_fisica").val();
+
+		if(x == "Sim" ){
+			$("#qtde-atividade-fisica__display").css("display", "block");
+
+		}else{
+			$("#qtde_atividade_fisica").val("");
+			$("#qtde-atividade-fisica__display").css("display", "none");
+			$("#qtde_atividade_fisica").removeClass("inputError");
+			$("label[for=qtde_atividade_fisica]").removeClass("labelError");
+		}
+   	});
 });

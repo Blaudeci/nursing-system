@@ -5,4 +5,5 @@ $(document).ready(function(){
 	$(".input-data").mask("99/99/9999");
 	$(".input-cep").mask("99999-999");
 	$(".input-time").mask("99:99");
+	$(".input-altura").mask("9,99");
 });
