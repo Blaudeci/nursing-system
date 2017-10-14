@@ -22,6 +22,8 @@ class OcorrenciaController extends Controller
     public function index()
     {   
         $ocorrencias = $this->ocorrencia->all(); 
+        //$ocorrencias = DB::table('ocorrencias')->get()->;
+
         return view('painel.ocorrencia.index', compact('ocorrencias'));
     }
 
@@ -184,8 +186,7 @@ class OcorrenciaController extends Controller
             return redirect()->route('ocorrencia.index')->withErrors(['errors' => 'Falha ao deletar ocorrência!']);
     }
 
-    public function relatorio(){
-        $ocorrencias = $this->ocorrencia->all(); 
-        return view('painel.ocorrencia.relatorio', compact('ocorrencias'));
+    public function graficos(){
+        return view('painel.ocorrencia.graficos');
     }
 }

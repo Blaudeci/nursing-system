@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Painel;
 
 use Gate;
 use DB;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Painel\Users;
@@ -20,7 +21,7 @@ class UserController extends Controller
     public function index()
     {
         //If user is not admin return to home
-        if(Gate::denies('profile_admin'))
+        if(Gate::allows('profile_tecnico'))
             return redirect('home');
 
         $users = $this->user->all();
@@ -31,7 +32,7 @@ class UserController extends Controller
     public function create()
     {
         //If user is not admin return to home
-        if(Gate::denies('profile_admin'))
+        if(Gate::allows('profile_tecnico'))
             return redirect('home');
 
         return view('painel.usuario.create');
@@ -40,7 +41,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //If user is not admin return to home
-        if(Gate::denies('profile_admin'))
+        if(Gate::allows('profile_tecnico'))
             return redirect('home');
 
         $dataForm = $request->all();
@@ -73,7 +74,7 @@ class UserController extends Controller
     public function edit($id)
     {
         //If user is not admin return to home
-        if(Gate::denies('profile_admin'))
+        if(Gate::allows('profile_tecnico'))
             return redirect('home');
 
         $user = $this->user->find($id);
@@ -84,7 +85,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //If user is not admin return to home
-        if(Gate::denies('profile_admin'))
+        if(Gate::allows('profile_tecnico'))
             return redirect('home');
 
         $dataForm = $request->all();
@@ -171,7 +172,7 @@ class UserController extends Controller
     public function status_inativado($id){
 
         //If user is not admin return to home
-        if(Gate::denies('profile_admin'))
+        if(Gate::allows('profile_tecnico'))
             return redirect('home');
 
         $user = $this->user->find($id);
@@ -190,7 +191,7 @@ class UserController extends Controller
     public function status_ativado($id){
 
         //If user is not admin return to home
-        if(Gate::denies('profile_admin'))
+        if(Gate::allows('profile_tecnico'))
             return redirect('home');
 
         $user = $this->user->find($id);
@@ -209,12 +210,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         //If user is not admin return to home
-        if(Gate::denies('profile_admin'))
+        if(Gate::allows('profile_tecnico'))
             return redirect('home');
 
         $user = $this->user->find($id);
 
-        if(($id == 1 || $id == 2) && $user->profile == "Admin"){
+        if($user->profile == "Admin"){ //admin_master
             return redirect()->route('usuario.index')->withErrors(['errors' => 'Usuário não pode ser deletado!']);
         }else{
             $pacientes  = DB::table('pacientes')->where('user_id','=',$id)->first();

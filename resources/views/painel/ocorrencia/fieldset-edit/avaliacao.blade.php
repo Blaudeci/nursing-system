@@ -58,9 +58,9 @@
 			<input type="text" class="form-control" id="acompanhamento" name="acompanhamento" value="{{$ocorrencias->acompanhante}}">
 		</div>
 		<div class="col-sm-4 form-group">
-			<label for="encaminhamento">Encaminhamento:</label>
+			<label for="encaminhamento">Encaminhamento: <span class="notification-red">*</span></label>
 			<select class="form-control" id="encaminhamento" name="encaminhamento">
-				<option value="" @if ($ocorrencias->encaminhamento == '')  selected="selected" @endif>Selecione</option>
+				<option value="" hidden @if ($ocorrencias->encaminhamento == '')  selected="selected" @endif>Selecione</option>
 				<option value="Hospital" @if ($ocorrencias->encaminhamento == 'Hospital')  selected="selected" @endif>Hospital</option>
 				<option value="ESF" @if ($ocorrencias->encaminhamento == 'ESF')  selected="selected" @endif>ESF</option>
 				<option value="Família" @if ($ocorrencias->encaminhamento == 'Família')  selected="selected" @endif>Família</option>
@@ -68,9 +68,9 @@
 			</select>
 		</div>
 		<div class="col-sm-4 form-group">
-			<label for="conduta_enfermagem">Conduta de Enfermagem:</label>
+			<label for="conduta_enfermagem">Conduta de Enfermagem: <span class="notification-red">*</span></label>
 			<select class="form-control" id="conduta_enfermagem" name="conduta_enfermagem">
-				<option value="" @if ($ocorrencias->conduta_enfermagem == '')  selected="selected" @endif>Selecione</option>
+				<option value="" hidden @if ($ocorrencias->conduta_enfermagem == '')  selected="selected" @endif>Selecione</option>
 				<option value="Orientações" @if ($ocorrencias->conduta_enfermagem == 'Orientações')  selected="selected" @endif>Orientações</option>
 				<option value="Procedimentos/Observação" @if ($ocorrencias->conduta_enfermagem == 'Procedimentos/Observação')  selected="selected" @endif>Procedimentos/Observação</option>
 				<option value="Encaminhamentos" @if ($ocorrencias->conduta_enfermagem == 'Encaminhamentos')  selected="selected" @endif>Encaminhamentos</option>

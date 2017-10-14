@@ -33,7 +33,7 @@
                     <i class="glyphicon glyphicon glyphicon-home"></i> Home
                 </a>
             </li>
-            @if(Auth::user()->profile == "Admin")
+            @if(Auth::user()->profile == "Admin" || Auth::user()->profile == "Enfermeiro")
                 <li  data-toggle="collapse" data-target="#usuario" class="collapsed">
                     <a href="#"><i class="fa fa-user-md" style="font-size: 28px;"></i> Usuário<span class="arrow"></span></a>
                 </li>
@@ -91,7 +91,7 @@
             </li>
             <ul class="sub-menu collapse" id="relatorio">
                 <li>
-                    <a href="/relatorio/ocorrencia">
+                    <a href="/relatorio">
                         Ocorrência 
                     </a>
                 </li>
@@ -99,11 +99,6 @@
             <li class="dropdown">
                 <a href="/graficos">
                     <i class="fa fa-line-chart"></i> Gráfico
-                </a>
-            </li>
-            <li>
-                <a href="perfil">
-                    <i class="glyphicon glyphicon-user"></i> Perfil
                 </a>
             </li>
             <li>

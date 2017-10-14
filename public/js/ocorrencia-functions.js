@@ -26,7 +26,32 @@ $(function(){
 	});
 
 	$('button[name=next1]').click(function(){
-		next($(this));
+
+		var encaminhamento 		= $("#encaminhamento").val();
+		var conduta_enfermagem 	= $("#conduta_enfermagem").val();
+
+		if(encaminhamento == ""){
+			$("#encaminhamento").addClass("inputError");
+			$("label[for=encaminhamento]").addClass("labelError");
+		}else{
+			$("#encaminhamento").removeClass("inputError");
+			$("label[for=encaminhamento]").removeClass("labelError");
+		}
+		
+		if(conduta_enfermagem == ""){
+			$("#conduta_enfermagem").addClass("inputError");
+			$("label[for=conduta_enfermagem]").addClass("labelError");
+		}else{
+			$("#conduta_enfermagem").removeClass("inputError");
+			$("label[for=conduta_enfermagem]").removeClass("labelError");
+		}
+		
+		if(encaminhamento == "" || conduta_enfermagem == ""){
+			$('.error-fieldset').html('<div class="alert alert-danger"><p>Preencha todos os campos que são obrigatórios, para prosseguir!</p></div>');
+		}else{
+			$('.error-fieldset').html("");
+			next($(this));
+		}
 	});
 
 	$('button[name=next2]').click(function(){
