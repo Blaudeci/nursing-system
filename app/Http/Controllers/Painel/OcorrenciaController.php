@@ -185,8 +185,4 @@ class OcorrenciaController extends Controller
         else
             return redirect()->route('ocorrencia.index')->withErrors(['errors' => 'Falha ao deletar ocorrência!']);
     }
-
-    public function graficos(){
-        return view('painel.ocorrencia.graficos');
-    }
 }

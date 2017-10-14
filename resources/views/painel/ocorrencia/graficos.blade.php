@@ -4,7 +4,11 @@
 	<link href="{{ asset('css/painel/formulario.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/painel/grafico.css') }}" rel="stylesheet">
 	<script type="text/javascript" src="{{ asset('js/graficos.js') }}"></script>
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
 @endpush
 
 @section('content')
@@ -17,7 +21,8 @@
 		<div class="error-fieldset">
 		</div>
 		<div class="col-sm-12" style="margin-bottom: 20px;  z-index: 1;">
-			<div class="input-datarange">
+			<form method="post" action="{{ route('graficos.store') }}">
+				{{ csrf_field() }}
 				<div class="col-sm-3">
 					<label for="start_date">Data Inicial: <span class="notification-red">*</span></label>
 					<input type="date" name="start_date" id="start_date" class="form-control">
@@ -28,255 +33,202 @@
 				</div>
 				<div class="col-sm-3">
 				<br>
-      				<input type="button" name="search" id="search" value="Buscar" class="btn btn-primary" style="font-size: 1em; margin-top: 3px;" />
+      				<input type="submit" name="search" id="search" value="Buscar" class="btn btn-primary" style="font-size: 1em; margin-top: 3px;" />
      			</div>
-			</div>
+     		</form>
 		</div>
 	</div>
 	<fieldset class="graficos">
-	<div class="col-sm-12" style="margin-top: 150px;">
-		<br>
-		<div class="col-sm-6">
-			<?php 
-				$masculino = DB::table('pacientes')->join('ocorrencias', function ($join) {
-            		$join->on('pacientes.id', '=', 'ocorrencias.paciente_id')
-                 		->where('sexo','=', "Masculino");
-        			})->get()->count();
+		<div class="col-sm-6" style="margin-top: 190px;">
+			<div id="chart_sexo" style="width: 100%; height: 400px; margin: 0 auto;"></div>
 
-				$feminino = DB::table('pacientes')->join('ocorrencias', function ($join) {
-            		$join->on('pacientes.id', '=', 'ocorrencias.paciente_id')
-                 		->where('sexo','=', "Feminino");
-        			})->get()->count();
-			?>
-
-			<div id="chart_div" class="grafico-sexo" style="margin-top:  50px; width: 100%;"></div>
 			<script type="text/javascript">
-		    	// Load the Visualization API and the corechart package.
-		      	google.charts.load('current', {'packages':['corechart']});
+				// Make monochrome colors and set them as default for all pies
+				Highcharts.getOptions().plotOptions.pie.colors = (function () {
+				    var colors = [],
+				        base = Highcharts.getOptions().colors[0],
+				        i;
 
-			      // Set a callback to run when the Google Visualization API is loaded.
-			      google.charts.setOnLoadCallback(drawChart);
+				    for (i = 0; i < 10; i += 1) {
+				        // Start out with a darkened base color (negative brighten), and end
+				        // up with a much brighter color
+				        colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
+				    }
+				    return colors;
+				}());
 
-			      // Callback that creates and populates a data table,
-		    	  // instantiates the pie chart, passes in the data and
-		      	// draws it.
-		      	function drawChart() {
-
-			        // Create the data table.
-		    	    var data = new google.visualization.DataTable();
-		        	data.addColumn('string', 'Topping');
-			        data.addColumn('number', 'Slices');
-		    	    data.addRows([
-		        		['Masculino', <?php echo $masculino; ?>],
-		       		  	['Feminino', <?php echo $feminino ?>]
-		        	]);
-
-			        // Set chart options
-			        var options = {'title':'Análise segundo o sexo dos pacientes atendidos',
-		                       'height':590};
-
-			        // Instantiate and draw our chart, passing in some options.
-		    	    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-		        	chart.draw(data, options);
-      			}
-    		</script>
+				// Build the chart
+				Highcharts.chart('chart_sexo', {
+				    chart: {
+				        plotBackgroundColor: null,
+				        plotBorderWidth: null,
+				        plotShadow: false,
+				        type: 'pie'
+				    },
+				    title: {
+				        text: 'Análise segundo o sexo dos pacientes atendidos'
+				    },
+				    tooltip: {
+				        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				    },
+				    plotOptions: {
+				        pie: {
+				            allowPointSelect: true,
+				            cursor: 'pointer',
+				            dataLabels: {
+				                enabled: true,
+				                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+				                style: {
+				                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+				                }
+				            }
+				        }
+				    },
+				    series: [{
+				        name: 'Porcentagem',
+				        data: [
+				            { name: 'Masculino', y: {{$masculino}} },
+				            { name: 'Feminino', y: {{$feminino}} },
+				        ]
+				    }]
+				});
+			</script>
 		</div>
-		<div class="col-sm-6">
-			<?php 
-				$tecnico = DB::table('pacientes')->join('ocorrencias', function ($join) {
-            		$join->on('pacientes.id', '=', 'ocorrencias.paciente_id')
-                 		->where('perfil','=', "Técnico");
-        			})->get()->count();
-
-				$superior = DB::table('pacientes')->join('ocorrencias', function ($join) {
-            		$join->on('pacientes.id', '=', 'ocorrencias.paciente_id')
-                 		->where('perfil','=', "Superior");
-        			})->get()->count();
-
-				$terceirizado = DB::table('pacientes')->join('ocorrencias', function ($join) {
-            		$join->on('pacientes.id', '=', 'ocorrencias.paciente_id')
-                 		->where('perfil','=', "Terceirizado");
-        			})->get()->count();
-
-				$adm = DB::table('pacientes')->join('ocorrencias', function ($join) {
-            		$join->on('pacientes.id', '=', 'ocorrencias.paciente_id')
-                 		->where('perfil','=', "Tec Administrativo");
-        			})->get()->count();
-
-				$docente = DB::table('pacientes')->join('ocorrencias', function ($join) {
-            		$join->on('pacientes.id', '=', 'ocorrencias.paciente_id')
-                 		->where('perfil','=', "Docente");
-        			})->get()->count();
-			?>
-
-			<div id="columnchart_material" style="width: 100%; margin-top: 50px;"></div>
+		<div class="col-sm-6" style="margin-top: 190px;">
+			<div id="chart_funcoes" style="width: 100%; height: 400px; margin: 0 auto;"></div>
 
     		<script type="text/javascript">
-      			google.charts.load('current', {'packages':['bar']});
-      			google.charts.setOnLoadCallback(drawChart);
-
-      			function drawChart() {
-        			var data = google.visualization.arrayToDataTable([
-          				['Funções', 'Técnico', 'Superior', 'Terceirizado', 'Tec ADM', 'Docente'],
-          				['2017', <?php echo $tecnico ?>, <?php echo $superior ?>, <?php echo $terceirizado ?>, <?php echo $adm ?>, <?php echo $docente ?>]
-        			]);
-
-        			var options = {
-          				chart: {
-            				title: 'Análise segundo as funções:'
-          				},
-          				'height':590
-          			};
-
-        			var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-	        		chart.draw(data, google.charts.Bar.convertOptions(options));
-      				}
+      			Highcharts.chart('chart_funcoes', {
+				    chart: {
+				        type: 'column'
+				    },
+				    title: {
+				        text: 'Análise segundo as funções'
+				    },
+				    xAxis: {
+				        type: 'category',
+				        labels: {
+				            rotation: -45,
+				            style: {
+				                fontSize: '13px',
+				                fontFamily: 'Verdana, sans-serif'
+				            }
+				        }
+				    },
+				    yAxis: {
+				        min: 0,
+				        title: {
+				            text: 'Funções'
+				        }
+				    },
+				    legend: {
+				        enabled: false
+				    },
+				    series: [{
+				        name: 'Quantidade',
+				        data: [
+				            ['Técnico', {{$tecnico}}],
+				            ['Superior', {{$superior}}],
+				            ['Terceirizado', {{$terceirizado}}],
+				            ['Tec ADM', {{$adm}}],
+				            ['Docente', {{$docente}}]
+				        ],
+				        dataLabels: {
+				            enabled: true,
+				            rotation: -90,
+				            color: '#FFFFFF',
+				            align: 'right',
+				            format: '{point.y:.1f}', // one decimal
+				            y: 10, // 10 pixels down from the top
+				            style: {
+				                fontSize: '13px',
+				                fontFamily: 'Verdana, sans-serif'
+				            }
+				        }
+				    }]
+				});
     		</script>
 		</div>
-	</div>
-	<div class="col-sm-12">
-		<div class="col-sm-6">
-			<?php 
-				$hospital = DB::table('ocorrencias')->where('encaminhamento','=', "Hospital")->get()->count();
+		<div class="col-sm-6" style="margin-top: 30px;">
+			<div id="chart_encaminhamentos" style="width: 100%; height: 400px; margin: 0 auto"></div>
 
-				$esf = DB::table('ocorrencias')->where('encaminhamento','=', "ESF")->get()->count();
+			<script type="text/javascript">
+				Highcharts.chart('chart_encaminhamentos', {
 
-				$familia = DB::table('ocorrencias')->where('encaminhamento','=', "Família")->get()->count();
+			    	title: {
+			        	text: 'Análise segundo o tipo de encaminhamentos'
+			    	},
+			    	xAxis: {
+			       		categories: ['Hospital', 'ESF', 'Família', 'Psicóloga']
+			    	},
 
-				$psicologa = DB::table('ocorrencias')->where('encaminhamento','=', "Psicóloga")->get()->count();
-			?>
-
-			<div id="columnchart_material2" style="width: 100%; margin-top: 30px;"></div>
-
-    		<script type="text/javascript">
-      			google.charts.load('current', {'packages':['bar']});
-      			google.charts.setOnLoadCallback(drawChart);
-
-      			function drawChart() {
-        			var data = google.visualization.arrayToDataTable([
-          				['Encaminhamento', 'Hospital', 'ESF', 'Família', 'Psicóloga'],
-          				['2017', <?php echo $hospital ?>, <?php echo $esf ?>, <?php echo $familia ?>, <?php echo $psicologa ?>]
-        			]);
-
-        			var options = {
-          				chart: {
-            				title: 'Análise segundo o tipo de encaminhamento:'
-          				},
-          				'height': 590
-        			};
-
-        			var chart = new google.charts.Bar(document.getElementById('columnchart_material2'));
-
-	        		chart.draw(data, google.charts.Bar.convertOptions(options));
-      				}
-    		</script>
+			    	series: [{
+			        	type: 'column',
+			        	colorByPoint: true,
+			        	data: [{{$hospital}}, {{$esf}}, {{$familia}}, {{$psicologa}}],
+			        	showInLegend: false
+			   		}]
+				});
+			</script>
 		</div>
 
-		<div class="col-sm-6">
-			<?php 
-				$orientacoes = DB::table('ocorrencias')->where('conduta_enfermagem','=', "Orientações")->get()->count();
+		<div class="col-sm-6" style="margin-top: 30px;">
+			<div id="chart_condutas" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
-				$procedimentos = DB::table('ocorrencias')->where('conduta_enfermagem','=', "Procedimentos/Observação")->get()->count();
+			<script type="text/javascript">
+				Highcharts.chart('chart_condutas', {
 
-				$encaminhamentos = DB::table('ocorrencias')->where('conduta_enfermagem','=', "Encaminhamentos")->get()->count();
-			?>
+			    	title: {
+			        	text: 'Análise segundo as condutas de enfermagem'
+			    	},
+			    	xAxis: {
+			       		categories: ['Orientações', 'Procedimentos/Observação', 'Encaminhamentos']
+			    	},
 
-			<div id="columnchart_material3" style="width: 100%; margin-top: 30px;"></div>
-
-    		<script type="text/javascript">
-      			google.charts.load('current', {'packages':['bar']});
-      			google.charts.setOnLoadCallback(drawChart);
-
-      			function drawChart() {
-        			var data = google.visualization.arrayToDataTable([
-          				['Conduta Enfermagem', 'Orientações', 'Procedimentos/Observação', 'Encaminhamentos'],
-          				['2017', <?php echo $orientacoes ?>, <?php echo $procedimentos ?>, <?php echo $encaminhamentos ?>]
-        			]);
-
-        			var options = {
-          				chart: {
-            				title: 'Análise segundo as condutas de enfermagem:'
-          				},
-          				'height': 590
-        			};
-
-        			var chart = new google.charts.Bar(document.getElementById('columnchart_material3'));
-
-	        		chart.draw(data, google.charts.Bar.convertOptions(options));
-      				}
-    		</script>
+			    	series: [{
+			        	type: 'column',
+			        	colorByPoint: true,
+			        	data: [{{$orientacoes}}, {{$procedimentos}}, {{$encaminhamentos}}],
+			        	showInLegend: false
+			   		}]
+				});
+			</script>
 		</div>
-	</div>
-	<div class="col-sm-12">
+
 		<div class="col-sm-12">
-
-			<?php 
-				$exame_preventivo = DB::table('ocorrencias')->where('tipo_queixa','=', "Exame Preventivo")->get()->count();
-
-				$febre = DB::table('ocorrencias')->where('tipo_queixa','=', "Febre")->get()->count();
-
-				$picada_inseto = DB::table('ocorrencias')->where('tipo_queixa','=', "Picada Inseto")->get()->count();
-
-				$geniturinaria = DB::table('ocorrencias')->where('tipo_queixa','=', "Geniturinária")->get()->count();
-
-				$orientacao = DB::table('ocorrencias')->where('tipo_queixa','=', "Orientação")->get()->count();
-
-				$ocular = DB::table('ocorrencias')->where('tipo_queixa','=', "Ocular/Auricular")->get()->count();
-
-				$colica = DB::table('ocorrencias')->where('tipo_queixa','=', "Cólica Mestrual")->get()->count();
-
-				$lesao = DB::table('ocorrencias')->where('tipo_queixa','=', "Lesão")->get()->count();
-
-				$gastrintestinal = DB::table('ocorrencias')->where('tipo_queixa','=', "Gastrintestinal")->get()->count();
-
-				$tontura = DB::table('ocorrencias')->where('tipo_queixa','=', "Tontura/Mal Estar")->get()->count();
-
-				$cefaleia = DB::table('ocorrencias')->where('tipo_queixa','=', "Cefaléia")->get()->count();
-			?>
-
-			<div id="top_x_div" style="width: 100%; height: 500px; margin-top: 30px;"></div>
+			<div id="chart_ocorrencia" style="margin-top: 30px; margin-bottom: 10px;"></div>
 
 			<script type="text/javascript">
-      			google.charts.load('current', {'packages':['bar']});
-      			google.charts.setOnLoadCallback(drawStuff);
+				var chart = Highcharts.chart('chart_ocorrencia', {
 
-      			function drawStuff() {
-        			var data = new google.visualization.arrayToDataTable([
-          				['Opening Move', 'Porcentagem'],
-          				["Exame Preventivo",  <?php echo $exame_preventivo ?>],
-          				["Febre", 			  <?php echo $febre ?>],
-          				["Picada Inseto", 	  <?php echo $picada_inseto ?>],
-          				["Geniturinária", 	  <?php echo $geniturinaria ?>],
-          				["Orientação", 	      <?php echo $orientacao ?>],
-          				["Ocular/Auricular",  <?php echo $ocular ?>],
-          				["Cólica Mestrual",   <?php echo $colica ?>],
-          				["Lesão", 			  <?php echo $lesao ?>],
-          				["Gastrintestinal",   <?php echo $gastrintestinal ?>],
-          				["Tontura/Mal Estar", <?php echo $tontura ?>],
-          				["Cefaléia",  		  <?php echo $cefaleia ?>]
-        			]);
 
-        			var options = {
-          				title: 'Análise segundo as ocorrências:',
-          				legend: { position: 'none' },
-          				chart: { 	
-          					title: 'Análise segundo as ocorrências:'},
-          					bars: 'horizontal', // Required for Material Bar Charts.
-          					axes: {
-            					x: {
-              						0: { side: 'top', label: 'Porcentagem'} // Top x-axis.
-            					}
-          					},
-          					bar: { groupWidth: "90%" }
-        			};
+				    title: {
+				        text: 'Análise segundo as ocorrências'
+				    },
 
-        			var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-        			chart.draw(data, options);
-      			};
-    		</script>
+				    xAxis: {
+				        categories: ['Exame Preventivo', 'Febre', 'Picada Inseto', 'Geniturinária', 'Orientação', 'Ocular/Auricular', 'Cólica Mestrual', 'Lesão', 'Gastrintestinal', 'Tontura/Mal Estar', 'Cefaléia']
+				    },
+
+				    series: [{
+				        type: 'column',
+				        colorByPoint: true,
+				        data: [{{$exame_preventivo}}, {{$febre}}, {{$picada_inseto}}, {{$geniturinaria}}, {{$orientacao}}, {{$ocular}}, {{$colica}}, {{$lesao}}, {{$gastrintestinal}}, {{$tontura}}, {{$cefaleia}}],
+				        showInLegend: false
+				    }]
+				});
+
+				chart.update({
+        			chart: {
+            			inverted: true,
+            			polar: false
+        			},
+        			subtitle: {
+            			text: 'Inverted'
+       				}
+    			});
+			</script>
 		</div>
-	</div>
 	</fieldset>
 </div>
 @endsection

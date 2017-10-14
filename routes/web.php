@@ -18,8 +18,6 @@ Route::get('paciente/{id}/status_inativado', 'Painel\PacienteController@status_i
 Route::get('paciente/{id}/status_ativado', 'Painel\PacienteController@status_ativado');
 
 /*CRUD Ocorrência*/
-Route::get('graficos', 'Painel\OcorrenciaController@graficos');
-
 Route::get('ocorrencia/index-create', 'Painel\OcorrenciaController@index_create');
 Route::resource('/ocorrencia', 'Painel\OcorrenciaController');
 Route::get('ocorrencia/{id}/create', 'Painel\OcorrenciaController@create');
@@ -28,6 +26,9 @@ Route::get('ocorrencia/{id}/show', 'Painel\OcorrenciaController@show');
 
 /*Relatório*/
 Route::resource('/relatorio', 'Painel\RelatorioController');
+
+/*Gráfico*/
+Route::resource('/graficos', 'Painel\GraficoController');
 
 Auth::routes();
 
