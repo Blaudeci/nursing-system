@@ -1,0 +1,136 @@
+.button-print__one{
+	margin-top: 10px;
+	float: right;
+}
+.button-print__two{
+	display: none;
+}
+@media (max-width: 960px) { 
+	.button-print__one{
+		display: none;
+	}
+	.button-print__two{
+		display: block;
+		width: 100%;
+	}
+}
+@media print {
+	/*linha 1*/
+	#nome{
+		width: 40%;
+		float: left;
+	}
+	#sexo{
+		width: 20%;
+		float: left;
+	}
+	#perfil{
+		width: 20%;
+		float: left;
+	}
+	#data_nasc{
+		width: 20%;
+		float: left;
+	}
+	/*linha 2*/
+	#acompanhante{
+		width: 30%;
+		float: left;
+	}
+	#encaminhamento{
+		width: 20%;
+		float: left;
+	}
+	#conduta_enfermagem{
+		width: 30%;
+		float: left;
+		margin-left: 20%;
+	}
+	/*linha 3*/
+	#consulta_anterior{
+		width: 100%;
+		float: left;
+	}
+	/*linha 4*/
+	#tipo_queixa{
+		width: 100%;
+		float: left;
+		margin-bottom: 20px;
+	}
+	/*linha 5*/
+	#motivo_consulta{
+		width: 100%;
+		float: left;
+		margin-bottom: 20px;
+	}
+	/*linha 6*/
+	#peso{
+		width: 25%;
+		float: left;
+	}
+	#altura{
+		width: 25%;
+		float: left;
+	}
+	#valor_imc{
+		width: 25%;
+		float: left;
+	}
+	#imc{
+		width: 25%;
+		float: left;
+	}
+	/*linha 7*/
+	#perimetro_abdominal{
+		width: 25%;
+		float: left;
+	}
+	#pressao_arterial{
+		width: 25%;
+		float: left;
+	}
+	#temperatura{
+		width: 25%;
+		float: left;
+	}
+	#frequencia_cardiaca{
+		width: 25%;
+		float: left;
+	}
+	/*linha 8*/
+	#frequencia_respiratoria{
+		width: 33.33%;
+		float: left;
+	}
+	#glicemia{
+		width: 33.33%;
+		float: left;
+	}
+	#estagio_tanner{
+		width: 33.33%;
+		float: left;
+	}
+	/*linha 9*/
+	#diagnostico_enfermagem{
+		width: 100%;
+		float: left;
+	}
+	/*linha 10*/
+	#prescricao_enfermagem{
+		width: 100%;
+		float: left;
+	}
+	/*linha 11*/
+	#evolucao_enfermagem{
+		width: 100%;
+		float: left;
+	}
+	/*linha 12*/
+	#anotacao_enfermagem{
+		width: 100%;
+		float: left;
+	}
+	button{
+		visibility: hidden;
+	}
+}

@@ -24,6 +24,9 @@ Route::get('ocorrencia/{id}/create', 'Painel\OcorrenciaController@create');
 Route::get('ocorrencia/{id}/destroy', 'Painel\OcorrenciaController@destroy');
 Route::get('ocorrencia/{id}/show', 'Painel\OcorrenciaController@show');
 
+/*Perfil User*/
+Route::resource('/perfil', 'Painel\PerfilController');
+
 /*Relatório*/
 Route::resource('/relatorio', 'Painel\RelatorioController');
 

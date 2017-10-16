@@ -11,6 +11,11 @@ use App\Http\Controllers\Controller;
 
 class RelatorioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $dt = new DateTime();
@@ -25,11 +30,6 @@ class RelatorioController extends Controller
         return view('painel.ocorrencia.relatorio', compact('ocorrencias', 'start_date', 'end_date'));
     }
 
-    public function create()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
         $dataForm = $request->all();
@@ -41,25 +41,5 @@ class RelatorioController extends Controller
 
         return view('painel.ocorrencia.relatorio', compact('ocorrencias', 'start_date', 'end_date'));
 
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 }

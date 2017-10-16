@@ -1,0 +1,61 @@
+.highcharts-credits{
+	visibility: hidden;
+}
+.highcharts-button{
+	display: none;
+}
+.chart_sexo{
+	margin-top: 190px;
+}
+.chart_funcoes{
+	margin-top: 190px;
+}
+.chart_encaminhamentos{
+	margin-top: 30px;
+}
+.chart_condutas{
+	margin-top: 30px;
+}
+.chart_ocorrencia{
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+#button-print__one{
+	float: right;
+	margin-top: 20px;
+}
+@media (max-width: 960px) {
+	#search{
+		width: 100%;
+	}
+	#button-print__one{
+		width: 100%;
+	}
+	.col-sm-6{
+		width: 100%;
+	}
+	.col-sm-12{
+		width: 100%;
+	}
+	.chart_sexo{
+		margin-top: 130px;
+	}
+	.chart_funcoes{
+		margin-top: 15px;
+	}
+	.chart_encaminhamentos{
+		margin-top: 15px;
+	}
+	.chart_condutas{
+		margin-top: 15px;
+	}
+	.chart_ocorrencia{
+		margin-top: 15px;
+		margin-bottom: 10px;
+	}
+}
+@media (max-width: 767px) {
+	.chart_sexo{
+		margin-top: 305px;
+	}
+}

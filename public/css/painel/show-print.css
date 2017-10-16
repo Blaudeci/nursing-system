@@ -5,6 +5,7 @@
 .button-print__two{
 	display: none;
 }
+
 @media (max-width: 960px) { 
 	.button-print__one{
 		display: none;
@@ -13,4 +14,354 @@
 		display: block;
 		width: 100%;
 	}
+}
+
+@media print {
+	/*linha 1*/
+	#nome{
+		width: 40%;
+		float: left;
+	}
+	#data_nasc{
+		width: 30%;
+		float: left;
+	}
+	#condicoes_moradia{
+		width: 30%;
+		float: left;
+	}
+	/*linha 2*/
+	#sexo{
+		width: 20%;
+		float: left;
+	}
+	#email{
+		width: 40%;
+		float: left;
+	}
+	#perfil{
+		width: 20%;
+		float: left;
+	}
+	#religiao{
+		width: 20%;
+		float: left;
+	}
+	/*linha 3*/
+	#estado_civil{
+		width: 20%;
+		float: left;
+	}
+	#endereco{
+		width: 40%;
+		float: left;
+	}
+	#numero_casa{
+		width: 10%;
+		float: left;
+	}
+	#uf{
+		width: 10%;
+		float: left;
+	}
+	#cep{
+		width: 20%;
+		float: left;
+	}
+	/*linha 4*/
+	#curso{
+		width: 40%;
+		float: left;
+	}
+	#semestre_curso{
+		width: 20%;
+		float: left;
+	}
+	#periodo_curso{
+		width: 20%;
+		float: left;
+	}
+	#moradia_estudantil{
+		width: 20%;
+		float: left;
+	}
+	/*linha 5*/
+	#nome_resp_one{
+		width: 40%;
+		float: left;
+	}
+	#parentesco_resp_one{
+		width: 15%;
+		float: left;
+	}
+	#fone_resp_one{
+		width: 20%;
+		float: left;
+	}
+	#cel_resp_one{
+		width: 25%;
+		float: left;
+	}
+	/*linha 6*/
+	#nome_resp_two{
+		width: 40%;
+		float: left;
+	}
+	#parentesco_resp_two{
+		width: 15%;
+		float: left;
+	}
+	#fone_resp_two{
+		width: 20%;
+		float: left;
+	}
+	#cel_resp_two{
+		width: 25%;
+		float: left;
+	}
+	/*linha 7*/
+	#resp_three{
+		margin-top: 20px;
+	}
+	#nome_resp_three{
+		width: 40%;
+		float: left;
+		margin-left: -39.8%;
+	}
+	#parentesco_resp_three{
+		width: 15%;
+		float: left;
+	}
+	#fone_resp_three{
+		width: 20%;
+		float: left;
+	}
+	#cel_resp_three{
+		width: 25%;
+		float: left;
+		margin-left: -1%;
+	}
+	/*Linha 8*/
+	#outras_doencas{
+		width: 50%;
+		float: left;
+	}
+	#medicacao_continua{
+		width: 50%;
+		float: left;
+	}
+	/*Linha 9*/
+	#cirurgias_anteriores{
+		width: 50%;
+		float: left;
+	}
+	#internacoes{
+		width: 50%;
+		float: left;
+	}
+	/*Linha 10*/
+	#alergias{
+		width: 50%;
+		float: left;
+	}
+	#primeira_mestruacao{
+		width: 50%;
+		float: left;
+	}
+	/*Linha 11*/
+	#alergias{
+		width: 33.33%;
+		float: left;
+	}
+	#primeira_mestruacao{
+		width: 33.33%;
+		float: left;
+	}
+	#queixas{
+		width: 33.33%;
+		float: left;
+	}
+	/*Linha 12*/
+	#gesta{
+		width: 33.33%;
+		float: left;
+		/*margin-bottom: 100px;*/
+	}
+	#para{
+		width: 33.33%;
+		float: left;
+		/*margin-bottom: 100px;*/
+	}
+	#aborto{
+		width: 33.33%;
+		float: left;
+		/*margin-bottom: 100px;*/
+	}
+	/*linha 13*/
+	#acidente_vascular{
+		width: 33.33%;
+		float: left;
+	}
+	#cancer{
+		width: 33.33%;
+		float: left;
+	}
+	#hipertensao{
+		width: 33.33%;
+		float: left;
+	}
+	
+	/*linha 14*/
+	#cardiopatia{
+		width: 33.33%;
+		float: left;
+	}
+	#diabetes{
+		width: 33.33%;
+		float: left;
+	}
+	#doenca_renal{
+		width: 33.33%;
+		float: left;
+	}
+	#pneumopatia{
+		width: 80%;
+		float: left;
+	}
+	#outros_pre_existentes{
+		width: 100%;
+		float: left;
+	}
+	/*linha 15*/
+	#transtornos_alergicos{
+		width: 100%;
+		float: left;
+	}
+	#doencas_pre_existentes{
+		width: 100%;
+		float: left;
+	}
+	#fatores_risco{
+		width: 100%;
+		float: left;
+	}
+	/*linha 16*/
+	#drogas{
+		width: 25%;
+		float: left;
+	}
+	#alimentos{
+		width: 25%;
+		float: left;
+	}
+	#cosmeticos{
+		width: 25%;
+		float: left;
+	}
+	#esparadrapo{
+		width: 25%;
+		float: left;
+	}
+	/*linha 17*/	
+	#la{
+		width: 100%;
+		float: left;
+	}
+	/*linha 18*/
+	#outros_alergicos{
+		width: 100%;
+		float: left;
+	}
+	/*linha 19*/
+	#tabagismo{
+		width: 25%;
+		float: left;
+	}
+	#etilismo{
+		width: 25%;
+		float: left;
+	}
+	#quimioterapia{
+		width: 25%;
+		float: left;
+	}
+	#radioterapia{
+		width: 25%;
+		float: left;
+	}
+	/*linha 20*/
+	#dependencia_quimica{
+		width: 25%;
+		float: left;
+	}
+	#violencia{
+		width: 75%;
+		float: left;
+	}
+	/*linha 21*/
+	#outros_fatores_riscos{
+		width: 100%;
+		float: left;
+	}
+	/*linha 22*/
+	#habitos{
+		width: 100%;
+		float: left;
+	}
+	/*linha 23*/
+	#sono_repouso{
+		width: 25%;
+		float: left;
+	}
+	#horas_sono{
+		width: 25%;
+		float: left;
+	}
+	#atividade_fisica{
+		width: 25%;
+		float: left;
+	}
+	#qtde_atividade_fisica{
+		width: 25%;
+		float: left;
+	}
+	/*linha 24*/
+	#alimentos_ingeridos{
+		width: 100%;
+		float: left;
+	}
+	/*linha 25*/
+	#frutas_verduras{
+		width: 33.33%;
+		float: left;
+	}
+	#carne_vermelha{
+		width: 33.33%;
+		float: left;
+	}
+	#carne_branca{
+		width: 33.33%;
+		float: left;
+	}
+	/*linha 26*/
+	#suco_habitos{
+		width: 33.33%;
+		float: left;
+	}
+	#agua_habitos{
+		width: 33.33%;
+		float: left;
+	}
+	#cha_habitos{
+		width: 33.33%;
+		float: left;
+	}
+	#outras_informacoes{
+		width: 100%;
+		float: left;
+	}
+	#button-print__two{
+		visibility: hidden;
+	}
+
 }

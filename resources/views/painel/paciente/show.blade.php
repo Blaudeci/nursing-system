@@ -13,17 +13,22 @@
 		<h2><i class="glyphicon glyphicon-eye-open"></i> View Paciente</h2>
 	</header>
 	<div class="container body-main__main">
+
 	<script type="text/javascript">
-		function print(){
-		   var conteudo = document.getElementById('print').innerHTML;
-		   tela_impressao = window.open('about:blank');
-		   tela_impressao.document.write(conteudo);
-		   tela_impressao.window.print();
-		   tela_impressao.window.close();
-		}
+
+		$(function(){
+		    $('#button-print__one').click(function(){
+		        window.print();
+		    });
+
+		    $('#button-print__two').click(function(){
+		        window.print();
+		    });
+		});
+		
 	</script>
-	<button class="btn btn-lg btn-primary button-print__one"  onclick="print();"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
-		<div class="body-main__form">
+	<button class="btn btn-lg btn-primary button-print__one" id="button-print__one"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
+		<div class="body-main__form" target="_blank">
 			<div class="body-main__show" id="print">
 				<div class="row" id="dados-pessoais__part1">
 					<div class="col-sm-12 form-group">
@@ -55,7 +60,7 @@
 						</div>
 					</div>
 					<div class="col-sm-12">
-						<div class="col-sm-5 form-group">
+						<div class="col-sm-5 form-group" id="email">
 							<label>E-mail: </label>
 							<br>
 							@if($paciente->email != "")
@@ -64,46 +69,46 @@
 								<abbr>Não respondido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-2 form-group">
+						<div class="col-sm-2 form-group" id="perfil">
 							<label for="perfil">Perfil:</label>
 							<br>
 							<abbr>{{$paciente->perfil}}</abbr>
 						</div>
-						<div class="col-sm-3 form-group">
+						<div class="col-sm-3 form-group" id="religiao">
 							<label>Religião:</label>
 							<br>
 							<abbr>{{$paciente->religiao}}</abbr>
 						</div>
-						<div class="col-sm-2 form-group">
+						<div class="col-sm-2 form-group" id="estado_civil">
 							<label>Estado Civil:</label>
 							<br>
 							<abbr>{{$paciente->estado_civil}}</abbr>
 						</div>
 					</div>
 					<div class="col-sm-12">
-						<div class="col-sm-5 form-group">
+						<div class="col-sm-5 form-group" id="endereco">
 							<label>Endereço:</label>
 							<br>
 							<abbr>{{$paciente->endereco}}</abbr>
 						</div>
-						<div class="col-sm-2 form-group">
+						<div class="col-sm-2 form-group" id="numero_casa">
 							<label>Nº:</label>
 							<br>
 							<abbr>{{$paciente->numero_casa}}</abbr>
 						</div>
-						<div class="col-sm-3 form-group">
-							<label>CEP:</label>
-							<br>
-							<abbr>{{$paciente->cep}}</abbr>
-						</div>
-						<div class="col-sm-2 form-group">
+						<div class="col-sm-2 form-group" id="uf">
 							<label>UF:</label>
 							<br>
 							<abbr>{{$paciente->uf}}</abbr>
 						</div>
+						<div class="col-sm-3 form-group" id="cep">
+							<label>CEP:</label>
+							<br>
+							<abbr>{{$paciente->cep}}</abbr>
+						</div>
 					</div>
 					<div class="col-sm-12">
-						<div class="col-sm-5 form-group">
+						<div class="col-sm-5 form-group" id="curso">
 							<label>Curso:</label>
 							<br>
 							@if($paciente->nome_curso != "")
@@ -112,7 +117,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-2 form-group">
+						<div class="col-sm-2 form-group" id="semestre_curso">
 							<label>Semestre:</label>
 							<br>
 							@if($paciente->semestre_curso != "")
@@ -121,7 +126,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-2 form-group">
+						<div class="col-sm-2 form-group" id="periodo_curso">
 							<label>Período:</label>
 							<br>
 							@if($paciente->periodo_curso != "")
@@ -130,7 +135,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-3 form-group">
+						<div class="col-sm-3 form-group" id="moradia_estudantil">
 							<label>Moradia Estudantil:</label>
 							<br>
 							@if($paciente->moradia_estudantil != "")
@@ -149,17 +154,17 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="nome_resp_one">
 						<label>Nome Responsavel:</label>
 						<br>
 						<abbr>{{$contato->nome_resp_one}}</abbr>
 					</div>
-					<div class="col-sm-2 form-group">
+					<div class="col-sm-2 form-group" id="parentesco_resp_one">
 						<label>Parentesco:</label>
 						<br>
 						<abbr>{{$contato->parentesco_resp_one}}</abbr>
 					</div>
-					<div class="col-sm-3 form-group">
+					<div class="col-sm-3 form-group" id="fone_resp_one">
 						<label>Fone:</label>
 						<br>
 						@if($contato->fone_resp_one != "")
@@ -168,7 +173,7 @@
 							<abbr>Não respondido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-3 form-group">
+					<div class="col-sm-3 form-group" id="cel_resp_one">
 						<label>Cel:</label>
 						<br>
 						<abbr>{{$contato->cel_resp_one}}</abbr>
@@ -178,7 +183,7 @@
 				|| $contato->fone_resp_two != null || $contato->fone_resp_two != "" || 
 				$contato->cel_resp_two != null || $contato->cel_resp_two != "")
 					<div class="col-sm-12 form-group">
-						<div class="col-sm-4 form-group">
+						<div class="col-sm-4 form-group" id="nome_resp_two">
 							<label>Nome Responsavel:</label>
 							<br>
 							@if($contato->nome_resp_two != "")
@@ -187,7 +192,7 @@
 								<abbr>Não respondido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-2 form-group">
+						<div class="col-sm-2 form-group" id="parentesco_resp_two">
 							<label>Parentesco:</label>
 							<br>
 							@if($contato->parentesco_resp_two != "")
@@ -196,7 +201,7 @@
 								<abbr>Não respondido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-3 form-group">
+						<div class="col-sm-3 form-group" id="fone_resp_two">
 							<label>Fone:</label>
 							<br>
 							@if($contato->fone_resp_two != "")
@@ -205,7 +210,7 @@
 								<abbr>Não respondido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-3 form-group">
+						<div class="col-sm-3 form-group" id="cel_resp_two">
 							<label>Cel:</label>
 							<br>
 							@if($contato->cel_resp_two != "")
@@ -221,7 +226,7 @@
 				|| $contato->fone_resp_three != null || $contato->fone_resp_three != "" || 
 				$contato->cel_resp_three != null || $contato->cel_resp_three != "")
 					<div class="col-sm-12 form-group">
-						<div class="col-sm-4 form-group">
+						<div class="col-sm-4 form-group" id="nome_resp_three">
 							<label>Nome Responsavel:</label>
 							<br>
 							@if($contato->nome_resp_three != "")
@@ -230,7 +235,7 @@
 								<abbr>Não respondido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-2 form-group">
+						<div class="col-sm-2 form-group" id="parentesco_resp_three">
 							<label>Parentesco:</label>
 							<br>
 							@if($contato->parentesco_resp_three != "")
@@ -239,7 +244,7 @@
 								<abbr>Não respondido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-3 form-group">
+						<div class="col-sm-3 form-group" id="fone_resp_three">
 							<label>Fone:</label>
 							<br>
 							@if($contato->fone_resp_three != "")
@@ -248,7 +253,7 @@
 								<abbr>Não respondido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-3 form-group">
+						<div class="col-sm-3 form-group" id="cel_resp_three">
 							<label>Cel:</label>
 							<br>
 							@if($contato->cel_resp_three != "")
@@ -268,7 +273,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-6 form-group">
+					<div class="col-sm-6 form-group" id="outras_doencas">
 						<label>Outras Doenças:</label>
 						<br>
 						@if($fisiologico->outras_doencas != "")
@@ -277,7 +282,7 @@
 							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-6 form-group">
+					<div class="col-sm-6 form-group" id="medicacao_continua">
 						<label>Uso de medicação continua:</label>
 						<br>
 						@if($fisiologico->medicacao_continua != "")
@@ -288,7 +293,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-6 form-group">
+					<div class="col-sm-6 form-group" id="cirurgias_anteriores">
 						<label>Cirurgias Anteriores:</label>
 						<br>
 						@if($fisiologico->cirurgias_anteriores != "")
@@ -297,7 +302,7 @@
 							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-6 form-group">
+					<div class="col-sm-6 form-group" id="internacoes">
 						<label>Internações:</label>
 						<br>
 						@if($fisiologico->internacoes != "")
@@ -308,7 +313,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="alergias">
 						<label>Alergias:</label>
 						<br>
 						@if($fisiologico->alergias != "")
@@ -317,7 +322,7 @@
 							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="primeira_mestruacao">
 						<label>Primeira Mestruação:</label>
 						<br>
 						@if($fisiologico->primeira_mestruacao != "")
@@ -326,7 +331,7 @@
 							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="queixas">
 						<label>Queixas:</label>
 						<br>
 						@if($fisiologico->queixas != "")
@@ -337,7 +342,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="gesta">
 						<label>Gesta:</label>
 						<br>
 						@if($fisiologico->gesta != "")
@@ -346,7 +351,7 @@
 							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="para">
 						<label>Para:</label>
 						<br>
 						@if($fisiologico->para != "")
@@ -355,7 +360,7 @@
 							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="aborto">
 						<label>Aborto:</label>
 						<br>
 						@if($fisiologico->aborto != "")
@@ -375,10 +380,10 @@
 				</div>
 				<div class="col-sm-12">
 					<div class="col-sm-4">
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="doencas_pre_existentes">
 							<h2>Doenças Pré-existentes</h2>
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="acidente_vascular">
 							<label>Acidente Vascular:</label>
 							<br>
 							@if($morbida->acidente_vascular != "")
@@ -387,7 +392,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="cancer">
 							<label>Câncer:</label>
 							<br>
 							@if($morbida->cancer != "")
@@ -396,7 +401,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="hipertensao">
 							<label>Hipertensão:</label>
 							<br>
 							@if($morbida->hipertensao != "")
@@ -405,7 +410,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="cardiopatia">
 							<label>Cardiopatia:</label>
 							<br>
 							@if($morbida->cardiopatia != "")
@@ -416,7 +421,7 @@
 
 						</div>
 
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="diabetes">
 							<label>Diabetes:</label>
 							<br>
 							@if($morbida->diabetes != "")
@@ -425,7 +430,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="doenca_renal">
 							<label>Doença Renal:</label>
 							<br>
 							@if($morbida->doenca_renal != "")
@@ -434,7 +439,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="pneumopatia">
 							<label>Pneumopatia:</label>
 							<br>
 							@if($morbida->pneumopatia != "")
@@ -443,7 +448,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="outros_pre_existentes">
 							<label>Outros:</label>
 							<br>
 							@if($morbida->outros_pre_existentes != "")
@@ -455,12 +460,12 @@
 					</div>
 
 					<div class="col-sm-4">
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="transtornos_alergicos">
 							<h2>
 								Transtornos Alérgicos
 							</h2>
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="drogas">
 							<label>Drogas:</label>
 							<br>
 							@if($morbida->drogas != "")
@@ -469,7 +474,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="alimentos">
 							<label>Alimentos:</label>
 							<br>
 							@if($morbida->alimentos != "")
@@ -478,7 +483,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="cosmeticos">
 							<label>Cosméticos:</label>
 							<br>
 							@if($morbida->cosmeticos != "")
@@ -487,7 +492,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="esparadrapo">
 							<label>Esparadrapo:</label>
 							<br>
 							@if($morbida->esparadrapo != "")
@@ -496,7 +501,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="la">
 							<label>Lã:</label>
 							<br>
 							@if($morbida->la_alergico != "")
@@ -505,7 +510,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="outros_alergicos">
 							<label>Outros:</label>
 							<br>
 							@if($morbida->outros_alergicos != "")
@@ -517,12 +522,12 @@
 					</div>
 
 					<div class="col-sm-4">
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="fatores_risco">
 							<h2>
 								Fatores de Risco
 							</h2>
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="tabagismo">
 							<label>Tabagismo:</label>
 							<br>
 							@if($morbida->tabagismo != "")
@@ -531,7 +536,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="etilismo">
 							<label>Etilismo:</label>
 							<br>
 							@if($morbida->etilismo != "")
@@ -540,7 +545,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="quimioterapia">
 							<label>Quimioterapia:</label>
 							<br>
 							@if($morbida->quimioterapia != "")
@@ -549,7 +554,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="radioterapia">
 							<label>Radioterapia:</label>
 							<br>
 							@if($morbida->radioterapia != "")
@@ -558,7 +563,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="dependencia_quimica">
 							<label>Dependência Química:</label>
 							<br>
 							@if($morbida->dependencia_quimica != "")
@@ -567,7 +572,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="violencia">
 							<label>Violência:</label>
 							<br>
 							@if($morbida->violencia != "")
@@ -576,7 +581,7 @@
 								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
-						<div class="col-sm-12 form-group">
+						<div class="col-sm-12 form-group" id="outros_fatores_riscos">
 							<label>Outros:</label>
 							<br>
 							@if($morbida->outros_fatores_riscos != "")
@@ -589,14 +594,14 @@
 				</div>
 				<hr class="hrs">
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-12">
+					<div class="col-sm-12" id="habitos">
 						<h1>
 							Hábitos
 						</h1>
 					</div>
 				</div>	
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-3">
+					<div class="col-sm-3" id="sono_repouso">
 						<label>Sono e Repouso:</label>
 						<br>
 						@if($habito->sono_repouso != "")
@@ -605,7 +610,7 @@
 							<abbr>Satisfatório</abbr>
 						@endif
 					</div>
-					<div class="col-sm-3">
+					<div class="col-sm-3" id="horas_sono">
 						<label>Horas de Sono:</label>
 						<br>
 						@if($habito->horas_sono != "")
@@ -615,7 +620,7 @@
 						@endif
 					</div>
 
-					<div class="col-sm-3">
+					<div class="col-sm-3" id="atividade_fisica">
 						<label>Atividade Física:</label>
 						<br>
 						@if($habito->atividade_fisica != "")
@@ -625,7 +630,7 @@
 						@endif
 					</div>
 
-					<div class="col-sm-3">
+					<div class="col-sm-3" id="qtde_atividade_fisica">
 						<label>Qtde Atividade Física:</label>
 						<br>
 						@if($habito->qtde_atividade_fisica != "")
@@ -636,12 +641,12 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-12">
+					<div class="col-sm-12" id="alimentos_ingeridos">
 						<h2>Alimentos e liquidos ingeridos:</h2>
 					</div>
 				</div>
 				<div class="col-sm-12">
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="frutas_verduras">
 						<label>Frutas e verduras:</label>
 						<br>
 						@if($habito->frutas_verduras != "")
@@ -650,7 +655,7 @@
 							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="carne_vermelha">
 						<label>Carne vermelha:</label>
 						<br>
 						@if($habito->carne_vermelha != "")
@@ -659,7 +664,7 @@
 							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="carne_branca">
 						<label>Carne branca:</label>
 						<br>
 						@if($habito->carne_branca)
@@ -670,7 +675,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="suco_habitos">
 						<label>Suco:</label>
 						<br>
 						@if($habito->suco_habitos)
@@ -679,7 +684,7 @@
 							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="agua_habitos">
 						<label>Água:</label>
 						<br>
 						@if($habito->agua_habitos != "")
@@ -688,7 +693,7 @@
 							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-4 form-group">
+					<div class="col-sm-4 form-group" id="cha_habitos">
 						<label>Chá:</label>
 						<br>
 						@if($habito->cha_habitos != "")
@@ -699,7 +704,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-12 form-group">
+					<div class="col-sm-12 form-group" id="outras_informacoes">
 						<label>Outras Informações:</label>
 						<br>
 						@if($habito->outras_informacoes != "")
@@ -712,7 +717,7 @@
 				</div>
 				<div class="col-sm-12 form-group">
 					<div class="col-sm-12">
-						<button class="btn btn-lg btn-primary button-print__two"  onclick="print();"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
+						<button class="btn btn-lg btn-primary button-print__two" id="button-print__two"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
 					</div>
 				</div>
 			</div>

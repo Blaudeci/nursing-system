@@ -2,7 +2,7 @@
 
 @push('links')
 	<link href="{{ asset('css/painel/formulario.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/painel/show-print.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/painel/show-print__ocorrencia.css') }}" rel="stylesheet">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script type="text/javascript" src="http://www.position-absolute.com/creation/print/jquery.printPage.js"></script>
 @endpush
@@ -14,15 +14,19 @@
 	</header>
 	<div class="container body-main__main">
 	<script type="text/javascript">
-		function print(){
-		   var conteudo = document.getElementById('print').innerHTML;
-		   tela_impressao = window.open('about:blank');
-		   tela_impressao.document.write(conteudo);
-		   tela_impressao.window.print();
-		   tela_impressao.window.close();
-		}
+
+		$(function(){
+		    $('#button-print__one').click(function(){
+		        window.print();
+		    });
+
+		    $('#button-print__two').click(function(){
+		        window.print();
+		    });
+		});
+		
 	</script>
-	<button class="btn btn-lg btn-primary button-print__one" onclick="print();"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
+	<button class="btn btn-lg btn-primary button-print__one" id="button-print__one"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
 		<div class="body-main__form">
 			<div class="body-main__show" id="print">
 				<div class="col-sm-12 form-group">
@@ -46,7 +50,7 @@
 						<br>
 						<abbr>{{$paciente->perfil}}</abbr>
 					</div>
-					<div class="col-sm-2 form-group" id="sexo">
+					<div class="col-sm-2 form-group" id="data_nasc">
 						<label>Data Nasc.:</label>
 						<br>
 						<abbr>{{$paciente->data_nasc}}</abbr>
@@ -187,7 +191,7 @@
 							<abbr>Não respondido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-3 form-group">
+					<div class="col-sm-3 form-group" id="temperatura">
 						<label>Temperatura:</label>
 						<br>
 						@if($ocorrencias->temperatura != "")
@@ -196,7 +200,7 @@
 							<abbr>Não respondido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-3 form-group">
+					<div class="col-sm-3 form-group" id="frequencia_cardiaca">
 						<label>Frequência Cardiaca:</label>
 						<br>
 						@if($ocorrencias->frequencia_cardiaca != "")
@@ -207,7 +211,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-3 form-group">
+					<div class="col-sm-3 form-group" id="frequencia_respiratoria">
 						<label>Frequência Respiratória:</label>
 						<br>
 						@if($ocorrencias->frequencia_respiratoria != "")
@@ -216,7 +220,7 @@
 							<abbr>Não respondido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-3 form-group">
+					<div class="col-sm-3 form-group" id="glicemia">
 						<label>Glicemia:</label>
 						<br>
 						@if($ocorrencias->glicemia != "")
@@ -225,7 +229,7 @@
 							<abbr>Não respondido.</abbr>
 						@endif
 					</div>
-					<div class="col-sm-4">
+					<div class="col-sm-4" id="estagio_tanner">
 						<label>Avaliação dos Estágios de Tanner:</label>
 						<br>
 						@if($ocorrencias->estagio_tanner != "")
@@ -236,7 +240,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-12 form-group">
+					<div class="col-sm-12 form-group" id="diagnostico_enfermagem">
 						<label>Diagnósticos de Enfermagem:</label>
 						<br>
 						@if($ocorrencias->diagnostico_enfermagem != "")
@@ -247,7 +251,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-12 form-group">
+					<div class="col-sm-12 form-group" id="prescricao_enfermagem">
 						<label>Prescrição de Enfermagem:</label>
 						<br>
 						@if($ocorrencias->prescricao_enfermagem != "")
@@ -258,7 +262,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-12 form-group">
+					<div class="col-sm-12 form-group" id="evolucao_enfermagem">
 						<label>Evolução de Enfermagem:</label>
 						<br>
 						@if($ocorrencias->evolucao_enfermagem != "")
@@ -269,7 +273,7 @@
 					</div>
 				</div>
 				<div class="col-sm-12 form-group">
-					<div class="col-sm-12 form-group">
+					<div class="col-sm-12 form-group" id="anotacao_enfermagem">
 						<label>Anotação de Enfermagem:</label>
 						<br>
 						@if($ocorrencias->anotacao_enfermagem != "")
@@ -281,7 +285,7 @@
 				</div>
 				<div class="col-sm-12 form-group">
 					<div class="col-sm-12">
-						<button class="btn btn-lg btn-primary button-print__two"  onclick="print();"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
+						<button class="btn btn-lg btn-primary button-print__two"  id="button-print__two"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
 					</div>
 				</div>
 			</div>

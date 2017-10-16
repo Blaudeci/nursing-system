@@ -101,6 +101,11 @@
                     <i class="fa fa-line-chart"></i> Gráfico
                 </a>
             </li>
+            <li class="dropdown">
+                <a href="/perfil">
+                    <i class="glyphicon glyphicon-user"></i> Perfil
+                </a>
+            </li>
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();

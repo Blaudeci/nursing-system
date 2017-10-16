@@ -4,11 +4,8 @@
 	<link href="{{ asset('css/painel/formulario.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/painel/grafico.css') }}" rel="stylesheet">
 	<script type="text/javascript" src="{{ asset('js/graficos.js') }}"></script>
-
 	<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 @endpush
 
 @section('content')
@@ -21,25 +18,38 @@
 		<div class="error-fieldset">
 		</div>
 		<div class="col-sm-12" style="margin-bottom: 20px;  z-index: 1;">
+			<script type="text/javascript">
+				function print(){
+		   			var conteudo = document.getElementById('print').innerHTML;
+		   			tela_impressao = window.open('about:blank');
+		   			tela_impressao.document.write(conteudo);
+		   			tela_impressao.window.print();
+		   			tela_impressao.window.close();
+				}
+			</script>
+
 			<form method="post" action="{{ route('graficos.store') }}">
 				{{ csrf_field() }}
 				<div class="col-sm-3">
 					<label for="start_date">Data Inicial: <span class="notification-red">*</span></label>
-					<input type="date" name="start_date" id="start_date" class="form-control">
+					<input type="date" name="start_date" id="start_date" class="form-control" @if ($start_date != '')  value="{{$start_date}}" @endif>
 				</div>
 				<div class="col-sm-3">
 					<label for="end_date">Data Final: <span class="notification-red">*</span></label>
-					<input type="date" name="end_date" id="end_date" class="form-control">
+					<input type="date" name="end_date" id="end_date" class="form-control" @if ($end_date != '')  value="{{$end_date}}" @endif>
 				</div>
 				<div class="col-sm-3">
 				<br>
-      				<input type="submit" name="search" id="search" value="Buscar" class="btn btn-primary" style="font-size: 1em; margin-top: 3px;" />
+      				<input type="submit" id="search" value="Buscar" class="btn btn-primary" style="font-size: 1em; margin-top: 3px;" />
+     			</div>
+     			<div class="col-sm-3">
+     				<button class="btn btn-lg btn-primary" id="button-print__one" onclick="print();"><i class="glyphicon glyphicon-print"></i> Imprimir</button>
      			</div>
      		</form>
 		</div>
 	</div>
-	<fieldset class="graficos">
-		<div class="col-sm-6" style="margin-top: 190px;">
+	<fieldset class="graficos" id="print">
+		<div class="col-sm-6 chart_sexo">
 			<div id="chart_sexo" style="width: 100%; height: 400px; margin: 0 auto;"></div>
 
 			<script type="text/javascript">
@@ -94,7 +104,7 @@
 				});
 			</script>
 		</div>
-		<div class="col-sm-6" style="margin-top: 190px;">
+		<div class="col-sm-6 chart_funcoes">
 			<div id="chart_funcoes" style="width: 100%; height: 400px; margin: 0 auto;"></div>
 
     		<script type="text/javascript">
@@ -149,7 +159,7 @@
 				});
     		</script>
 		</div>
-		<div class="col-sm-6" style="margin-top: 30px;">
+		<div class="col-sm-6 chart_encaminhamentos">
 			<div id="chart_encaminhamentos" style="width: 100%; height: 400px; margin: 0 auto"></div>
 
 			<script type="text/javascript">
@@ -171,8 +181,7 @@
 				});
 			</script>
 		</div>
-
-		<div class="col-sm-6" style="margin-top: 30px;">
+		<div class="col-sm-6 chart_condutas">
 			<div id="chart_condutas" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 			<script type="text/javascript">
@@ -194,9 +203,8 @@
 				});
 			</script>
 		</div>
-
-		<div class="col-sm-12">
-			<div id="chart_ocorrencia" style="margin-top: 30px; margin-bottom: 10px;"></div>
+		<div class="col-sm-12 chart_ocorrencia">
+			<div id="chart_ocorrencia"></div>
 
 			<script type="text/javascript">
 				var chart = Highcharts.chart('chart_ocorrencia', {
