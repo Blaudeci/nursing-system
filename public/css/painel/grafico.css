@@ -4,11 +4,16 @@
 .highcharts-button{
 	display: none;
 }
+#result_not_found{
+	margin-top: 200px;
+	text-align: center;
+	font-size: 1.5em;
+}
 .chart_sexo{
-	margin-top: 190px;
+	margin-top: 220px;
 }
 .chart_funcoes{
-	margin-top: 190px;
+	margin-top: 220px;
 }
 .chart_encaminhamentos{
 	margin-top: 30px;
@@ -28,8 +33,12 @@
 	#search{
 		width: 100%;
 	}
+	#result_not_found{
+		margin-top: 340px;
+	}
 	#button-print__one{
 		width: 100%;
+		margin-bottom: 10px;
 	}
 	.col-sm-6{
 		width: 100%;
@@ -38,7 +47,7 @@
 		width: 100%;
 	}
 	.chart_sexo{
-		margin-top: 130px;
+		margin-top: 180px;
 	}
 	.chart_funcoes{
 		margin-top: 15px;
@@ -56,6 +65,6 @@
 }
 @media (max-width: 767px) {
 	.chart_sexo{
-		margin-top: 305px;
+		margin-top: 335px;
 	}
 }

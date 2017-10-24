@@ -47,11 +47,11 @@
 			<form method="post" action="{{ route('relatorio.store') }}">
 				{{ csrf_field() }}
 				<div class="col-sm-4">
-					<label>Data Inicial:</label>
+					<label for="start_date">Data Inicial: <span class="notification-red">*</span></label>
                 	<input type="date" class="form-control" name="start_date" id="start_date" value="{{$start_date}}"/>
 				</div>
 				<div class="col-sm-4">
-					<label>Data Final:</label>
+					<label for="end_date">Data Final: <span class="notification-red">*</span></label>
                 	<input type="date" class="form-control" name="end_date" id="end_date" value="{{$end_date}}"/>
 				</div>
 				<div class="col-sm-4">

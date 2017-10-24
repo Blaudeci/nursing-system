@@ -4,6 +4,10 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
+Route::get('password/reset/{token}', function(){
+	return view('auth.passwords.reset');
+});
+
 /*CRUD Usuario*/
 Route::resource('/usuario', 'Painel\UserController');
 Route::get('usuario/{id}/destroy', 'Painel\UserController@destroy');

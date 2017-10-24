@@ -32,12 +32,20 @@ class RelatorioController extends Controller
 
     public function store(Request $request)
     {
-        $dataForm = $request->all();
+        $dataForm   = $request->all();
+
         $start_date = $dataForm['start_date'];
-        $end_date = $dataForm['end_date'];
+        $end_date   = $dataForm['end_date'];
 
-        $ocorrencias = DB::table('ocorrencias')->whereBetween('created_at', array($start_date, $end_date))->get();
-
+        if($start_date != null && $end_date != null){
+            if($start_date == $end_date){
+                $ocorrencias = DB::table('ocorrencias')
+                    ->whereDate('created_at', $start_date)
+                    ->get();
+            }else{
+                $ocorrencias = DB::table('ocorrencias')->whereDate('created_at', '>=', $start_date)->whereDate('created_at', '<=', $end_date)->get();
+            }
+        }
 
         return view('painel.ocorrencia.relatorio', compact('ocorrencias', 'start_date', 'end_date'));
 
