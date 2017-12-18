@@ -14,12 +14,8 @@
 </div>
 <div class="row">
 	<div class="col-sm-12">
-		<div class="col-sm-2 form-group">
-			<label for="id_paciente">Código:</label>
-			<input type="text" class="form-control" name="id_paciente" id="id_paciente" value="{{$paciente->id}}" disabled="disabled">
-			<input type="hidden" class="form-control" name="id_paciente" id="id_paciente" value="{{$paciente->id}}">
-		</div>
-		<div class="col-sm-4 form-group">
+		<input type="hidden" class="form-control" name="id_paciente" id="id_paciente" value="{{$paciente->id}}">
+		<div class="col-sm-6 form-group">
 			<label>Nome do Paciente:</label>
 			<input type="text" class="form-control" id="nome" name="nome" value="{{$paciente->nome}}" disabled/>
 		</div>

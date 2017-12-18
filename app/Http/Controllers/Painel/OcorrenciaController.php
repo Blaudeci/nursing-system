@@ -22,8 +22,7 @@ class OcorrenciaController extends Controller
     public function index()
     {   
         $ocorrencias = $this->ocorrencia->all(); 
-        //$ocorrencias = DB::table('ocorrencias')->get()->;
-
+        
         return view('painel.ocorrencia.index', compact('ocorrencias'));
     }
 

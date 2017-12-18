@@ -21,6 +21,9 @@ body{
     float: right;
     font-size: 1.2em;
 }
+.body-main textarea{
+	font-size: 1em;
+}
 .body-main .body-main__main .body-main__form .btn-edit{
     float: right;
     font-size: 1.2em;

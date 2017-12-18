@@ -88,7 +88,6 @@ body{
     width: 82.7%;
     border-radius: 5px;
 }
-
 @media (max-width: 960px) {
   .body-main{
     width: 100%;

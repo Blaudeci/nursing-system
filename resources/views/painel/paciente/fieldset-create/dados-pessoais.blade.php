@@ -8,7 +8,7 @@
 <div class="col-sm-12">
 	@if(Session::has('message'))
 		<script type="text/javascript">
-			swal("Usuário cadastrado com sucesso!", "", "success");
+			swal("Paciente cadastrado com sucesso!", "", "success");
 		</script>
 	@endif
 </div>

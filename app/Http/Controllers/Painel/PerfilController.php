@@ -61,7 +61,7 @@ class PerfilController extends Controller
                             'email'         => $dataForm['email'],
                             'profile'       => $dataForm['profile'],
                             'sexo'          => $dataForm['sexo'],
-                            'password'      => bcrypt($dataForm['password_new']),
+                            'password'      => bcrypt($dataForm['password_new'])
                         ]);
 
                         return redirect()->route('perfil.index')->with('message', 'Perfil editado com sucesso!');

@@ -21,7 +21,7 @@ class CreatePacientesTable extends Migration
             $table->string('religiao',           30)->nullable();
             $table->string('estado_civil',       20)->nullable();
             $table->string('endereco',          100)->nullable();
-            $table->string('numero_casa',          )->nullable();
+            $table->string('numero_casa'           )->nullable();
             $table->string('cep',                10)->nullable();
             $table->string('uf',                  2)->nullable();
             $table->string('nome_curso',        100)->nullable();

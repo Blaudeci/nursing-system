@@ -48,6 +48,5 @@ class RelatorioController extends Controller
         }
 
         return view('painel.ocorrencia.relatorio', compact('ocorrencias', 'start_date', 'end_date'));
-
     }
 }
