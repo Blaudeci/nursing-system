@@ -2,6 +2,7 @@
 
 @push('links')
 	<link href="{{ asset('css/painel/formulario.css') }}" rel="stylesheet">
+	<script src="{{ asset('js/button-enter.js')}}"></script>
 @endpush
 
 @section('content')
@@ -30,6 +31,7 @@
 				</div>
 				<div class="col-sm-12">
 					@if( isset($errors) && count($errors) > 0 )
+						<br>
 						<div class="alert alert-danger">
 							@foreach($errors->all() as $error)
 								<p>{{$error}}</p>
@@ -49,15 +51,33 @@
 					<div class="col-sm-12">
 						<div class="col-sm-6 form-group">
 							<label for="name">Nome: <span class="notification-red">*</span></label>
-							<input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome" maxlength="100" value="{{$user->name}}" />
+							<input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome" maxlength="100" value="{{$user->name}}">
+
+							@if ($errors->has('name'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
 						</div>
 						<div class="col-sm-3 form-group">
 							<label for="cpf">CPF: <span class="notification-red">*</span></label>
-							<input type="text" class="form-control input-cpf" id="cpf" name="cpf" placeholder="Digite seu CPF" value="{{$user->cpf}}"/>
+							<input type="text" class="form-control input-cpf" id="cpf" name="cpf" placeholder="Digite seu CPF" value="{{$user->cpf}}">
+
+							@if ($errors->has('cpf'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('cpf') }}</strong>
+                                </span>
+                            @endif
 						</div>
 						<div class="col-sm-3 form-group">
 							<label for="data_nasc">Data Nasc.: <span class="notification-red">*</span></label>
 							<input type="text" class="form-control input-data" id="data_nasc" name="data_nasc" placeholder="00/00/0000" value="{{$user->data_nasc}}">
+
+							@if ($errors->has('data_nasc'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('data_nasc') }}</strong>
+                                </span>
+                            @endif
 						</div>
 					</div>
 				</div>
@@ -66,6 +86,12 @@
 						<div class="col-sm-6 form-group">
 							<label for="email">E-mail: <span class="notification-red">*</span></label>
 							<input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail" maxlength="100" value="{{$user->email}}">
+
+							@if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
 						</div>
 						<div class="col-sm-3 form-group">
 							<label for="profile">Perfil: <span class="notification-red">*</span></label>
@@ -124,17 +150,4 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-	$("form").bind("keypress", function (e) {
-		if (e.keyCode == 13) {
-			return false;
-		}
-	});
-
-	$('button[type=submit]').keypress(function (e) {
-    	if (e.keyCode == 13) {
-    		$("#formulario").submit();
-    	}
-   	});
-</script>
 @endsection

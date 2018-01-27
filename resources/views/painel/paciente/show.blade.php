@@ -2,7 +2,7 @@
 
 @push('links')
 	<link href="{{ asset('css/painel/formulario.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/painel/show-print.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/painel/paciente/show-print.css') }}" rel="stylesheet">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script type="text/javascript" src="http://www.position-absolute.com/creation/print/jquery.printPage.js"></script>
 @endpush
@@ -170,7 +170,7 @@
 						@if($contato->fone_resp_one != "")
 							<abbr>{{$contato->fone_resp_one}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-3 form-group" id="cel_resp_one">
@@ -189,7 +189,7 @@
 							@if($contato->nome_resp_two != "")
 								<abbr>{{$contato->nome_resp_two}}</abbr>
 							@else
-								<abbr>Não respondido.</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-2 form-group" id="parentesco_resp_two">
@@ -198,7 +198,7 @@
 							@if($contato->parentesco_resp_two != "")
 								<abbr>{{$contato->parentesco_resp_two}}</abbr>
 							@else
-								<abbr>Não respondido.</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-3 form-group" id="fone_resp_two">
@@ -207,7 +207,7 @@
 							@if($contato->fone_resp_two != "")
 								<abbr>{{$contato->fone_resp_two}}</abbr>
 							@else
-								<abbr>Não respondido.</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-3 form-group" id="cel_resp_two">
@@ -216,7 +216,7 @@
 							@if($contato->cel_resp_two != "")
 								<abbr>{{$contato->cel_resp_two}}</abbr>
 							@else
-								<abbr>Não respondido.</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 					</div>
@@ -232,7 +232,7 @@
 							@if($contato->nome_resp_three != "")
 								<abbr>{{$contato->nome_resp_three}}</abbr>
 							@else
-								<abbr>Não respondido.</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-2 form-group" id="parentesco_resp_three">
@@ -241,7 +241,7 @@
 							@if($contato->parentesco_resp_three != "")
 								<abbr>{{$contato->parentesco_resp_three}}</abbr>
 							@else
-								<abbr>Não respondido.</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-3 form-group" id="fone_resp_three">
@@ -250,7 +250,7 @@
 							@if($contato->fone_resp_three != "")
 								<abbr>{{$contato->fone_resp_three}}</abbr>
 							@else
-								<abbr>Não respondido.</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 						<div class="col-sm-3 form-group" id="cel_resp_three">
@@ -259,7 +259,7 @@
 							@if($contato->cel_resp_three != "")
 								<abbr>{{$contato->cel_resp_three}}</abbr>
 							@else
-								<abbr>Não respondido.</abbr>
+								<abbr>Não preenchido.</abbr>
 							@endif
 						</div>
 					</div>

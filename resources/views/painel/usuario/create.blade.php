@@ -2,6 +2,7 @@
 
 @push('links')
 	<link href="{{ asset('css/painel/formulario.css') }}" rel="stylesheet">
+	<script src="{{ asset('js/button-enter.js')}}"></script>
 @endpush
 
 @section('content')
@@ -11,7 +12,7 @@
 	</header>
 	<div class="container body-main__main">
 		<div class="body-main__form">
-			<form method="post" action="{{ route('usuario.store') }}" role="form" autocomplete="off" id="formulario">
+			<form method="post" action="{{ route('usuario.store') }}" role="form" autocomplete="off">
 				{{ csrf_field() }}
 				<div class="row form-group hrs-bottom">
 					<div class="col-sm-12">
@@ -19,23 +20,6 @@
 							<h1>Formulário do Usuário</h1>
 						</div>
 					</div>
-				</div>
-				<br>
-				<div class="col-sm-12">
-					@if(Session::has('message'))
-						<script type="text/javascript">
-							swal("Usuário cadastrado com sucesso!", "", "success");
-						</script>
-					@endif
-				</div>
-				<div class="col-sm-12">
-					@if( isset($errors) && count($errors) > 0 )
-						<div class="alert alert-danger">
-							@foreach($errors->all() as $error)
-								<p>{{$error}}</p>
-							@endforeach
-						</div>
-					@endif	
 				</div>
 				<br>
 				<div class="row form-group">
@@ -53,13 +37,25 @@
 								<span class="notification-red">*</span>
 							</label>
 							<input type="text" class="form-control" id="name" name="name" maxlength="100" placeholder="Digite seu nome" value="{{old('name')}}" />
+
+							@if ($errors->has('name'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
 						</div>
 						<div class="col-sm-3 form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
 							<label for="cpf" class="{{ $errors->has('cpf') ? ' help-block' : '' }}">
 								CPF: 
 								<span class="notification-red">*</span>
 							</label>
-							<input type="text" class="form-control input-cpf" id="cpf" name="cpf" placeholder="Digite seu CPF" value="{{old('cpf')}}"/>
+							<input type="text" class="form-control input-cpf" id="cpf" name="cpf" placeholder="Digite seu CPF" value="{{old('cpf')}}">
+
+							@if ($errors->has('cpf'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('cpf') }}</strong>
+                                </span>
+                            @endif
 						</div>
 						<div class="col-sm-3 form-group{{ $errors->has('data_nasc') ? ' has-error' : '' }}">
 							<label for="data_nasc" class="{{ $errors->has('data_nasc') ? ' help-block' : '' }}">
@@ -67,6 +63,12 @@
 								<span class="notification-red">*</span>
 							</label>
 							<input type="text" class="form-control input-data" id="data_nasc" name="data_nasc" placeholder="00/00/0000" value="{{old('data_nasc')}}">
+
+							@if ($errors->has('data_nasc'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('data_nasc') }}</strong>
+                                </span>
+                            @endif
 						</div>
 					</div>
 				</div>
@@ -78,6 +80,12 @@
 								<span class="notification-red">*</span>
 							</label>
 							<input type="email" class="form-control" id="email" name="email" maxlength="100" placeholder="Digite seu e-mail" value="{{old('email')}}">
+
+							@if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
 						</div>
 						<div class="col-sm-3 form-group{{ $errors->has('profile') ? ' has-error' : '' }}">
 							<label for="profile" class="{{ $errors->has('profile') ? ' help-block' : '' }}">
@@ -89,6 +97,12 @@
 								<option value="Enfermeiro" @if (old('profile') == 'Enfermeiro') selected="selected" @endif>Enfermeiro</option>
                 				<option value="Técnico" @if (old('profile') == 'Técnico') selected="selected" @endif>Técnico de Enfermagem</option>
 							</select>
+
+							@if ($errors->has('profile'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('profile') }}</strong>
+                                </span>
+                            @endif
 						</div>
 						<div class="col-sm-3 form-group{{ $errors->has('sexo') ? ' has-error' : '' }}">
 							<label for="sexo" class="{{ $errors->has('sexo') ? ' help-block' : '' }}">Sexo: 
@@ -99,6 +113,12 @@
 								<option value="Masculino" @if (old('sexo') == 'Masculino') selected="selected" @endif>Masculino</option>
                 				<option value="Feminino" @if (old('sexo') == 'Feminino') selected="selected" @endif>Feminino</option>
 							</select>
+
+							@if ($errors->has('sexo'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('sexo') }}</strong>
+                                </span>
+                            @endif
 						</div>
 					</div>
 				</div>
@@ -110,6 +130,12 @@
 								<span class="notification-red">*</span>
 							</label>
 							<input type="password" class="form-control" id="password" name="password" maxlength="10">
+
+							@if ($errors->has('password'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
 						</div>
 						<div class="col-sm-6 form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
 							<label for="password_confirmation" class="{{ $errors->has('password_confirmation') ? ' help-block' : '' }}">
@@ -117,10 +143,15 @@
 								<span class="notification-red">*</span>
 							</label>
 							<input type="password" class="form-control" id="password_confirmation" name="password_confirmation" maxlength="10">
+
+							@if ($errors->has('password_confirmation'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                </span>
+                            @endif
 						</div>
 					</div>
 				</div>
-				<br>
 				<br>
 				<br>
 				<div class="row form-group hrs-top">
@@ -135,17 +166,4 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-	$("form").bind("keypress", function (e) {
-		if (e.keyCode == 13) {
-			return false;
-		}
-	});
-
-	$('button[type=submit]').keypress(function (e) {
-    	if (e.keyCode == 13) {
-    		$("#formulario").submit();
-    	}
-   	});
-</script>
 @endsection

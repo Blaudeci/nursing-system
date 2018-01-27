@@ -6,13 +6,6 @@
 	</div>
 </div>
 <div class="col-sm-12">
-	@if(Session::has('message'))
-		<script type="text/javascript">
-			swal("Paciente cadastrado com sucesso!", "", "success");
-		</script>
-	@endif
-</div>
-<div class="col-sm-12">
 	@if( isset($errors) && count($errors) > 0 )
 		<div class="alert alert-danger">
 			@foreach($errors->all() as $error)

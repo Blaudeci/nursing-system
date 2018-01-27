@@ -66,7 +66,7 @@ class UserController extends Controller
         ]);
 
         if($insert)
-            return redirect()->route('usuario.create')->with('message', 'Usuário cadastrado com sucesso!');
+            return redirect()->route('usuario.index')->with('message-register', 'Usuário cadastrado com sucesso!');
         else
             return redirect()->route('usuario.create');
     }
@@ -161,10 +161,10 @@ class UserController extends Controller
 
                     return redirect()->route('usuario.edit', $id)->with('message', 'Usuário editado com sucesso!');
                 }else{
-                    return redirect()->route('usuario.edit', $id)->withErrors(['errors' => 'A senha não corresponde!']);
+                    return redirect()->route('usuario.edit', $id)->with(['errors_password' => 'A senha não corresponde!']);
                 }
             }else{
-                return redirect()->route('usuario.edit', $id)->withErrors(['errors' => 'Todos os campos de senhas devem ser preenchidos!']);
+                return redirect()->route('usuario.edit', $id)->with(['errors_password_all' => 'Todos os campos de senhas devem ser preenchidos!']);
             }
         }
     }

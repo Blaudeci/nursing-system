@@ -135,7 +135,7 @@ class PacienteController extends Controller
         ]);
 
         if($paciente && $contato && $fisiologico && $morbida && $habito)
-            return redirect()->route('paciente.create')->with('message', 'Paciente cadastrado com sucesso!');
+            return redirect()->route('paciente.index')->with('message', 'Paciente cadastrado com sucesso!');
         else
             return redirect()->route('paciente.create')->withErrors(['errors' => 'Problema ao cadastrar paciente!']);
     }

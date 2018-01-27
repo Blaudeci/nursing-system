@@ -16,6 +16,11 @@
 	</header>
 	<div class="container table-responsive body-main__main">
 		<div class="col-sm-12">
+			@if(Session::has('message-register'))
+				<script type="text/javascript">
+					swal("Usuário cadastrado com sucesso!", "", "success");
+				</script>
+			@endif
 			@if(Session::has('message-no-delete'))
 				<script type="text/javascript">
 					swal("Inativado!", "Usuário não pode ser deletado, pois está vinculado com outras tabelas!", "success");
@@ -85,7 +90,6 @@
 									<i class="glyphicon glyphicon-thumbs-up" style="color:green; font-size: 2em;" title="Ativo"></i>
 									
 									<script type="text/javascript">
-			                    		
 			                    		function activated_user(id){
 				                    		swal({ 
 												title: "Deseja inativar o usuário?",
@@ -156,42 +160,41 @@
 						</td>
 					@endif
 					<td>
-	                    <button class="actions">
-		                    <a href="/usuario/{{$user->id}}/edit">
-		                        <img src="{{ asset('img/editar-usuario.ico') }}" id="img-user__edit" title="Editar" style="width: 40px; padding: 2px ;">
-		                    </a>
-	                    </button>
+	                    
 	                    <?php
 	                    	$id = $user->id;
 	                    ?>
 	                    @if($user->profile != "Admin")
-		                    <button onclick="confim_delete(<?=$id?>)" class="actions">
-		                    	<img src="{{ asset('img/exluir.png') }}" style="width: 40px;" title="Excluir">
-		                    	<script type="text/javascript">
-		                    		
-		                    		function confim_delete(id){
+		                    <a href="/usuario/{{$user->id}}/edit" class="actions">
+		                        <img src="{{ asset('img/editar-usuario.ico') }}" id="img-user__edit" title="Editar" style="width: 40px; padding: 2px ;">
+		                    </a>
 
-			                    		swal({ 
-											title: "Você tem certeza?",
-			  								text: "Você não poderá recuperar os dados do usuário!",
-			  								type: "warning",
-			  								showCancelButton: true,
-			  								confirmButtonColor: "#DD6B55",
-			  								confirmButtonText: "Sim, Excluir!",
-			  								cancelButtonText: "Não, Cancelar!",
-			  								closeOnConfirm: false,
-			  								closeOnCancel: false
-										},
-										function(isConfirm){
-			  								if (isConfirm) {
-			  									window.location='/usuario/'+ id +'/destroy';
-			  								}else{
-			  									swal("Cancelado" , "A exclusão foi cancelada :)", "error");
-			  								}
-										});
-		                    		}
-		                    	</script>
-							</button>
+			                    <button onclick="confim_delete(<?=$id?>)" class="actions">
+			                    	<img src="{{ asset('img/exluir.png') }}" style="width: 40px;" title="Excluir">
+			                    	<script type="text/javascript">
+			                    		function confim_delete(id){
+
+				                    		swal({ 
+												title: "Você tem certeza?",
+				  								text: "Você não poderá recuperar os dados do usuário!",
+				  								type: "warning",
+				  								showCancelButton: true,
+				  								confirmButtonColor: "#DD6B55",
+				  								confirmButtonText: "Sim, Excluir!",
+				  								cancelButtonText: "Não, Cancelar!",
+				  								closeOnConfirm: false,
+				  								closeOnCancel: false
+											},
+											function(isConfirm){
+				  								if (isConfirm) {
+				  									window.location='/usuario/'+ id +'/destroy';
+				  								}else{
+				  									swal("Cancelado" , "A exclusão foi cancelada :)", "error");
+				  								}
+											});
+			                    		}
+			                    	</script>
+								</button>
 						@endif
 	                </td>
 				</tr>

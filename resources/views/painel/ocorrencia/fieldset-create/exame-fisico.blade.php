@@ -99,14 +99,13 @@
 	<div class="col-sm-12 form-group">
 		<div class="col-sm-12 form-group">
 			<label for="diagnostico_enfermagem">Diagnósticos de Enfermagem:</label>
-			<textarea class="form-control" rows="7" name="diagnostico_enfermagem" id="diagnostico_enfermagem"></textarea>
+			<textarea class="form-control" rows="5" name="diagnostico_enfermagem" id="diagnostico_enfermagem"></textarea>
 		</div>
 	</div>
 </div>
 <hr>
 <button type="button" name="prev" class="prev acao btn-previous btn btn-primary">Anterior</button>
 <button type="button" name="next3" class="next acao btn-next btn btn-primary">Próximo</button>
-
 <script type="text/javascript">
 	function calcularIMC() {
 		var peso 	= $("#peso").val();

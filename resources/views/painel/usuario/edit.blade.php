@@ -2,6 +2,7 @@
 
 @push('links')
 	<link href="{{ asset('css/painel/formulario.css') }}" rel="stylesheet">
+	<script src="{{ asset('js/button-enter.js') }}"></script>
 @endpush
 
 @section('content')
@@ -23,20 +24,25 @@
 				</div>
 				<br>
 				<div class="col-sm-12">
+					@if(Session::has('errors_password'))
+						<div class="alert alert-danger">
+							<p>A senha não corresponde!</p>
+						</div>
+					@endif
+				</div>
+				<div class="col-sm-12">
+					@if(Session::has('errors_password_all'))
+						<div class="alert alert-danger">
+							<p>Todos os campos de senhas devem ser preenchidos!</p>
+						</div>
+					@endif
+				</div>
+				<div class="col-sm-12">
 					@if(Session::has('message'))
 						<script type="text/javascript">
 							swal("Usuário editado com sucesso!", "", "success");
 						</script>
 					@endif
-				</div>
-				<div class="col-sm-12">
-					@if( isset($errors) && count($errors) > 0 )
-						<div class="alert alert-danger">
-							@foreach($errors->all() as $error)
-								<p>{{$error}}</p>
-							@endforeach
-						</div>
-					@endif	
 				</div>
 				<br>
 				<div class="row form-group">
@@ -48,25 +54,61 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-						<div class="col-sm-6 form-group">
-							<label for="name">Nome: <span class="notification-red">*</span></label>
-							<input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome" maxlength="100" value="{{$user->name}}" />
+						<div class="col-sm-6 form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+							<label for="name" class="{{ $errors->has('name') ? ' help-block' : '' }}">
+								Nome: 
+								<span class="notification-red">*</span>
+							</label>
+							<input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome" maxlength="100" value="{{$user->name}}">
+
+							@if ($errors->has('name'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
 						</div>
-						<div class="col-sm-3 form-group">
-							<label for="cpf">CPF: <span class="notification-red">*</span></label>
-							<input type="text" class="form-control input-cpf" id="cpf" name="cpf" placeholder="Digite seu CPF" value="{{$user->cpf}}"/>
+						<div class="col-sm-3 form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
+							<label for="cpf" class="{{ $errors->has('cpf') ? ' help-block' : '' }}">
+								CPF: 
+								<span class="notification-red">*</span>
+							</label>
+							<input type="text" class="form-control input-cpf" id="cpf" name="cpf" placeholder="Digite seu CPF" value="{{$user->cpf}}">
+
+							@if ($errors->has('cpf'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('cpf') }}</strong>
+                                </span>
+                            @endif
 						</div>
-						<div class="col-sm-3 form-group">
-							<label for="data_nasc">Data Nasc.: <span class="notification-red">*</span></label>
+						<div class="col-sm-3 form-group{{ $errors->has('data_nasc') ? ' has-error' : '' }}">
+							<label for="data_nasc" class="{{ $errors->has('data_nasc') ? ' help-block' : '' }}">
+								Data Nasc.: 
+								<span class="notification-red">*</span>
+							</label>
 							<input type="text" class="form-control input-data" id="data_nasc" name="data_nasc" placeholder="00/00/0000" value="{{$user->data_nasc}}">
+
+							@if ($errors->has('data_nasc'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('data_nasc') }}</strong>
+                                </span>
+                            @endif
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-						<div class="col-sm-6 form-group">
-							<label for="email">E-mail: <span class="notification-red">*</span></label>
+						<div class="col-sm-6 form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+							<label for="email" class="{{ $errors->has('email') ? ' help-block' : '' }}">
+								E-mail: 
+								<span class="notification-red">*</span>
+							</label>
 							<input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail" maxlength="100" value="{{$user->email}}">
+
+							@if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
 						</div>
 						<div class="col-sm-3 form-group">
 							<label for="profile">Perfil: <span class="notification-red">*</span></label>
@@ -101,6 +143,12 @@
 						<div class="col-sm-4 form-group">
 							<label for="password_old">Senha Antiga: </label>
 							<input type="password" class="form-control" id="password_old" name="password_old" maxlength="10" >
+
+							@if(Session::has('password_old_message'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password_old_message') }}</strong>
+                                </span>
+                            @endif
 						</div>
 						<div class="col-sm-4 form-group">
 							<label for="password_new">Nova Senha: </label>
@@ -127,17 +175,4 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-	$("form").bind("keypress", function (e) {
-		if (e.keyCode == 13) {
-			return false;
-		}
-	});
-
-	$('button[type=submit]').keypress(function (e) {
-    	if (e.keyCode == 13) {
-    		$("#formulario").submit();
-    	}
-   	});
-</script>
 @endsection

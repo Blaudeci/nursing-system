@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', function () {
+Route::get('/', function (){
     return view('auth/login');
 });
 

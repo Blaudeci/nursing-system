@@ -40,7 +40,7 @@
 		<div class="col-sm-3 form-group" id="qtde-atividade-fisica__display">
 			<label for="qtde_atividade_fisica">Qtde Atividade Física: <span class="notification-red">*</span></label>
 			<div class="input-group">
-				<input type="text" class="form-control" aria-describedby="basic-addon2" id="qtde_atividade_fisica" name="qtde_atividade_fisica" value="{{old('qtde_atividade_fisica')}}">
+				<input type="number" class="form-control" aria-describedby="basic-addon2" id="qtde_atividade_fisica" name="qtde_atividade_fisica" value="{{old('qtde_atividade_fisica')}}" min="0">
 				<span class="input-group-addon" id="basic-addon2">x semana</span>
 			</div>
 		</div>
@@ -58,21 +58,21 @@
 		<div class="col-sm-4 form-group">
 			<label for="frutas_verduras">Frutas e verduras:</label>
 			<div class="input-group">
-				<input type="text" class="form-control" aria-describedby="basic-addon2" id="frutas_verduras" name="frutas_verduras" value="{{old('frutas_verduras')}}">
+				<input type="number" class="form-control" aria-describedby="basic-addon2" id="frutas_verduras" name="frutas_verduras" value="{{old('frutas_verduras')}}" min="0">
 				<span class="input-group-addon" id="basic-addon2">x semana</span>
 			</div>
 		</div>
 		<div class="col-sm-4 form-group">
 			<label for="carne_vermelha">Carne vermelha:</label>
 			<div class="input-group">
-				<input type="text" class="form-control" aria-describedby="basic-addon2" id="carne_vermelha" name="carne_vermelha" value="{{old('carne_vermelha')}}">
+				<input type="number" class="form-control" aria-describedby="basic-addon2" id="carne_vermelha" name="carne_vermelha" value="{{old('carne_vermelha')}}" min="0">
 				<span class="input-group-addon" id="basic-addon2">x semana</span>
 			</div>
 		</div>
 		<div class="col-sm-4 form-group">
 			<label for="carne_branca">Carne branca:</label>
 			<div class="input-group">
-				<input type="text" class="form-control" aria-describedby="basic-addon2" id="carne_branca" name="carne_branca" value="{{old('carne_branca')}}">
+				<input type="number" class="form-control" aria-describedby="basic-addon2" id="carne_branca" name="carne_branca" value="{{old('carne_branca')}}" min="0">
 				<span class="input-group-addon" id="basic-addon2">x semana</span>
 			</div>
 		</div>
@@ -83,21 +83,21 @@
 		<div class="col-sm-4 form-group">
 			<label for="suco_habitos">Suco:</label>
 			<div class="input-group">
-				<input type="text" class="form-control" aria-describedby="basic-addon2" id="suco_habitos" name="suco_habitos" value="{{old('suco_habitos')}}">
+				<input type="number" class="form-control" aria-describedby="basic-addon2" id="suco_habitos" name="suco_habitos" value="{{old('suco_habitos')}}" min="0">
 				<span class="input-group-addon" id="basic-addon2">copos/dia</span>
 			</div>
 		</div>
 		<div class="col-sm-4 form-group">
 			<label for="agua_habitos">Água:</label>
 			<div class="input-group">
-				<input type="text" class="form-control" aria-describedby="basic-addon2" id="agua_habitos" name="agua_habitos" value="{{old('agua_habitos')}}">
+				<input type="number" class="form-control" aria-describedby="basic-addon2" id="agua_habitos" name="agua_habitos" value="{{old('agua_habitos')}}" min="0">
 				<span class="input-group-addon" id="basic-addon2">copos/dia</span>
 			</div>
 		</div>
 		<div class="col-sm-4 form-group">
 			<label for="cha_habitos">Chá:</label>
 			<div class="input-group">
-				<input type="text" class="form-control" aria-describedby="basic-addon2" id="cha_habitos" name="cha_habitos" value="{{old('cha_habitos')}}">
+				<input type="number" class="form-control" aria-describedby="basic-addon2" id="cha_habitos" name="cha_habitos" value="{{old('cha_habitos')}}" min="0">
 				<span class="input-group-addon" id="basic-addon2">copos/dia</span>
 			</div>
 		</div>

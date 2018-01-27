@@ -2,8 +2,9 @@
 
 @push('links')
 	<link href="{{ asset('css/painel/formulario.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/painel/ocorrencia.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/painel/ocorrencia/create.css') }}" rel="stylesheet">
     <script src="{{ asset('js/ocorrencia-functions.js') }}"></script>
+    <script src="{{ asset('js/button-enter.js')}}"></script>
 @endpush
 
 @section('content')
@@ -57,17 +58,4 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-	$("form").bind("keypress", function (e) {
-		if (e.keyCode == 13) {
-			return false;
-		}
-	});
-
-	$('button[type=submit]').keypress(function (e) {
-    	if (e.keyCode == 13) {
-    		$("#form-main__patient").submit();
-    	}
-   	});
-</script>
 @endsection

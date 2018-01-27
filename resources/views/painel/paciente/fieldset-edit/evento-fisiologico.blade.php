@@ -48,11 +48,11 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="col-sm-4">
-			<label for="gesta">Gestação: </label>
+			<label for="gesta">Gesta: </label>
 			<input type="text" name="gesta" id="gesta" value="{{$fisiologico->gesta}}" class="form-control" maxlength="10">
 		</div>
 		<div class="col-sm-4">
-			<label for="para">Filhos: </label>
+			<label for="para">Para: </label>
 			<input type="text" name="para" id="para" value="{{$fisiologico->para}}" class="form-control" maxlength="10">
 		</div>
 		<div class="col-sm-4">

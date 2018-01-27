@@ -80,7 +80,7 @@
 	<div class="col-sm-12">
 		<div class="col-sm-12 form-group">
 			<label for="avaliacao_consulta_anterior">Avaliação da consulta anterior:</label>
-			<textarea class="form-control" name="avaliacao_consulta_anterior" id="avaliacao_consulta_anterior" rows="10">{{$ocorrencias->consulta_anterior}}</textarea>
+			<textarea class="form-control" name="avaliacao_consulta_anterior" id="avaliacao_consulta_anterior" rows="8">{{$ocorrencias->consulta_anterior}}</textarea>
 		</div>
 	</div>
 </div>

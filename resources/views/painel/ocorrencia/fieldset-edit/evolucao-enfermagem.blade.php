@@ -16,13 +16,13 @@
 	<div class="col-sm-12">
 		<div class="col-sm-12 form-group">
 			<label for="prescricao_enfermagem">Prescrição de Enfermagem:</label>
-			<textarea class="form-control" rows="8" name="prescricao_enfermagem" id="prescricao_enfermagem">{{$ocorrencias->prescricao_enfermagem}}</textarea>
+			<textarea class="form-control" rows="5" name="prescricao_enfermagem" id="prescricao_enfermagem">{{$ocorrencias->prescricao_enfermagem}}</textarea>
 		</div>
 	</div>
 	<div class="col-sm-12">
 		<div class="col-sm-12 form-group">
 			<label for="evolucao_enfermagem">Evolução de Enfermagem:</label>
-			<textarea class="form-control" rows="8" name="evolucao_enfermagem" id="evolucao_enfermagem">{{$ocorrencias->evolucao_enfermagem}}</textarea>
+			<textarea class="form-control" rows="5" name="evolucao_enfermagem" id="evolucao_enfermagem">{{$ocorrencias->evolucao_enfermagem}}</textarea>
 		</div>
 	</div>
 </div>

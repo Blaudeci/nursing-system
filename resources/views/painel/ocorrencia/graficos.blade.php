@@ -54,6 +54,8 @@
 		@if($masculino == 0 && $feminino == 0 && $tecnico == 0 && $superior == 0 && $terceirizado == 0 && $adm == 0 && $docente == 0 && $hospital == 0 && $esf == 0 && $familia == 0 && $psicologa == 0 && $orientacoes == 0 && $procedimentos == 0 && $encaminhamentos == 0 && $exame_preventivo == 0 && $febre == 0 && $picada_inseto == 0 && $geniturinaria == 0 && $orientacao == 0 && $ocular == 0 && $colica == 0 && $lesao == 0 && $gastrintestinal == 0 && $tontura == 0 && $cefaleia == 0)
 
 			<div class="col-sm-12 container" id="result_not_found">
+				<br>
+				<br>
 				<strong>Resultado não encontrado!</strong>
 			</div>
 		@else

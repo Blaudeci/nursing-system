@@ -63,7 +63,7 @@
 						@if($ocorrencias->acompanhante != "")
 							<abbr>{{$ocorrencias->acompanhante}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-4 form-group" id="encaminhamento">
@@ -72,7 +72,7 @@
 						@if($ocorrencias->encaminhamento != "")
 							<abbr>{{$ocorrencias->encaminhamento}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-4 form-group" id="conduta_enfermagem">
@@ -81,7 +81,7 @@
 						@if($ocorrencias->conduta_enfermagem != "")
 							<abbr>{{$ocorrencias->conduta_enfermagem}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -92,7 +92,7 @@
 						@if($ocorrencias->consulta_anterior != "")
 							<abbr>{{$ocorrencias->consulta_anterior}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -111,7 +111,7 @@
 						@if($ocorrencias->tipo_queixa != "")
 							<abbr>{{$ocorrencias->tipo_queixa}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -122,7 +122,7 @@
 						@if($ocorrencias->motivo_consulta != "")
 							<abbr>{{$ocorrencias->motivo_consulta}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -141,7 +141,7 @@
 						@if($ocorrencias->peso != "")
 							<abbr>{{$ocorrencias->peso}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-3 form-group" id="altura">
@@ -150,7 +150,7 @@
 						@if($ocorrencias->altura != "")
 							<abbr>{{$ocorrencias->altura}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-3 form-group" id="valor_imc">
@@ -159,7 +159,7 @@
 						@if($ocorrencias->valor_imc != "")
 							<abbr>{{$ocorrencias->valor_imc}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-3 form-group" id="imc">
@@ -168,7 +168,7 @@
 						@if($ocorrencias->imc != "")
 							<abbr>{{$ocorrencias->imc}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -179,7 +179,7 @@
 						@if($ocorrencias->perimetro_abdominal != "")
 							<abbr>{{$ocorrencias->perimetro_abdominal}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-3 form-group" id="pressao_arterial">
@@ -188,7 +188,7 @@
 						@if($ocorrencias->pressao_arterial != "")
 							<abbr>{{$ocorrencias->pressao_arterial}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-3 form-group" id="temperatura">
@@ -197,7 +197,7 @@
 						@if($ocorrencias->temperatura != "")
 							<abbr>{{$ocorrencias->temperatura}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-3 form-group" id="frequencia_cardiaca">
@@ -206,7 +206,7 @@
 						@if($ocorrencias->frequencia_cardiaca != "")
 							<abbr>{{$ocorrencias->frequencia_cardiaca}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -217,7 +217,7 @@
 						@if($ocorrencias->frequencia_respiratoria != "")
 							<abbr>{{$ocorrencias->frequencia_respiratoria}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-3 form-group" id="glicemia">
@@ -226,7 +226,7 @@
 						@if($ocorrencias->glicemia != "")
 							<abbr>{{$ocorrencias->glicemia}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 					<div class="col-sm-4" id="estagio_tanner">
@@ -235,7 +235,7 @@
 						@if($ocorrencias->estagio_tanner != "")
 							<abbr>{{$ocorrencias->estagio_tanner}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -246,7 +246,7 @@
 						@if($ocorrencias->diagnostico_enfermagem != "")
 							<abbr>{{$ocorrencias->diagnostico_enfermagem}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -257,7 +257,7 @@
 						@if($ocorrencias->prescricao_enfermagem != "")
 							<abbr>{{$ocorrencias->prescricao_enfermagem}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -268,7 +268,7 @@
 						@if($ocorrencias->evolucao_enfermagem != "")
 							<abbr>{{$ocorrencias->evolucao_enfermagem}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>
@@ -279,7 +279,7 @@
 						@if($ocorrencias->anotacao_enfermagem != "")
 							<abbr>{{$ocorrencias->anotacao_enfermagem}}</abbr>
 						@else
-							<abbr>Não respondido.</abbr>
+							<abbr>Não preenchido.</abbr>
 						@endif
 					</div>
 				</div>

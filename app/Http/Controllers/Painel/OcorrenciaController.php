@@ -102,9 +102,9 @@ class OcorrenciaController extends Controller
         }
 
         if($insert)
-            return redirect('ocorrencia/index-create')->with('message', 'Ocorrência cadastrada com sucesso!');
+            return redirect()->route('ocorrencia.index')->with('message', 'Ocorrência cadastrada com sucesso!');
         else
-            return redirect('ocorrencia/index-create')->with('message-error', 'Erro ao cadastrar ocorrência!');
+            return redirect()->route('ocorrencia.index')->with('message-error', 'Erro ao cadastrar ocorrência!');
     }
 
     public function show($id)

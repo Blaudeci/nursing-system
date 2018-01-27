@@ -5,6 +5,7 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.13/i18n/Portuguese-Brasil.json"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script src="{{ asset('js/datatable.js') }}"></script>
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
 @endpush
 
@@ -18,6 +19,20 @@
 			@if(Session::has('message-delete'))
 				<script type="text/javascript">
 					swal("Deletado!", "Ocorrência deletada com sucesso.", "success");
+				</script>
+			@endif
+		</div>
+		<div class="col-sm-12">
+		@if(Session::has('message'))
+			<script type="text/javascript">
+				swal("Ocorrência cadastrada com sucesso!", "", "success");
+			</script>
+		@endif
+		</div>
+		<div class="col-sm-12">
+			@if(Session::has('message-error'))
+				<script type="text/javascript">
+					swal("Erro ao cadastrar ocorrência!", "", "error");
 				</script>
 			@endif
 		</div>
@@ -54,15 +69,13 @@
 						{{$data}}
 					</td>
 					<td>
-						<button class="actions">
-							<a href="/ocorrencia/{{$ocorrencia->id}}/show">
+						<a href="/ocorrencia/{{$ocorrencia->id}}/show">
 							<img src="{{ asset('img/view-ocorrencia.png') }}" style="width: 40px;" title="View">
-							</a>
+						</a>
 						</button>
-						<button class="actions">
-		                    <a href="/ocorrencia/{{$ocorrencia->id}}/edit">
-		                    	<img src="{{ asset('img/editar-ocorrencia.png') }}" style="width: 40px;" title="Editar">
-		                    </a>
+	                    <a href="/ocorrencia/{{$ocorrencia->id}}/edit">
+	                    	<img src="{{ asset('img/editar-ocorrencia.png') }}" style="width: 40px;" title="Editar">
+	                    </a>
 	                    </button>
 	                    @if(Auth::user()->profile == "Admin" || Auth::user()->profile == "Enfermeiro")
 		                    <button onclick="confim_delete({{$ocorrencia->id}})" class="actions">
@@ -98,13 +111,4 @@
 		<br>
 	</div>
 </div>
-<script>
-    $(document).ready(function(){
-        $("#employee_data").DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Portuguese-Brasil.json"
-            }   
-        });
-    });
-</script>
 @endsection

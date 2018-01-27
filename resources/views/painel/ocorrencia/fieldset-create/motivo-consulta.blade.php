@@ -35,7 +35,7 @@
 	<div class="col-sm-12">
 		<div class="col-sm-12 form-group">
 			<label for="motivo_consulta">Motivo da consulta/Queixa principal: <span class="notification-red">*</span></label>
-			<textarea class="form-control" name="motivo_consulta" id="motivo_consulta" rows="10"></textarea>
+			<textarea class="form-control" name="motivo_consulta" id="motivo_consulta" rows="7"></textarea>
 		</div>
 	</div>
 </div>

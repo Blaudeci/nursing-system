@@ -31,13 +31,13 @@
         <script src="{{ asset('js/js.js')}}"></script>
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/sweetalert.css')}}">
 
-        @stack('links')     
+        @stack('links')
     </head>
     <body>
         <!-- Verify that the user is logged in -->
         @if(Auth::check())
             @include('includes.navbar-top')
-            @yield('content')   
+            @yield('content')
         @else
             @yield('content')
         @endif

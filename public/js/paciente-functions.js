@@ -1,7 +1,7 @@
 $(function(){
 
 	var atual_fs, next_fs, prev_fs;
-	//Fomulario Paciente - Avançar
+	//Patient Form - Next
 	function next(elem){
 		atual_fs = $(elem).parent();
 		next_fs = $(elem).parent().next();
@@ -12,7 +12,7 @@ $(function(){
 		next_fs.show(800);
 	};
 	
-	//Fomulario Paciente - Voltar
+	//Patient Form - Back
 	$('.prev').click(function(){
 		atual_fs = $(this).parent();
 		prev_fs = $(this).parent().prev();

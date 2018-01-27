@@ -35,7 +35,7 @@
 	<div class="col-sm-12">
 		<div class="col-sm-12 form-group">
 			<label for="anotacao_enfermagem">Anotação de Enfermagem: <span class="notification-red">*</span></label>
-			<textarea class="form-control" rows="10" name="anotacao_enfermagem" id="anotacao_enfermagem"></textarea>
+			<textarea class="form-control" rows="7" name="anotacao_enfermagem" id="anotacao_enfermagem"></textarea>
 		</div>
 	</div>
 </div>

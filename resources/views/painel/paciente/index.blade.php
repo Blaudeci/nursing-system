@@ -5,6 +5,7 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.13/i18n/Portuguese-Brasil.json"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script src="{{ asset('js/datatable.js') }}"></script>
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
 @endpush
 
@@ -14,6 +15,13 @@
 		<h2><i class="glyphicon glyphicon glyphicon-edit"></i> Buscar Paciente</h2>
 	</header>
 	<div class="container table-responsive body-main__main">
+		<div class="col-sm-12">
+			@if(Session::has('message'))
+				<script type="text/javascript">
+					swal("Paciente cadastrado com sucesso!", "", "success");
+				</script>
+			@endif
+		</div>
 		<div class="col-sm-12">
 			@if(Session::has('message-no-delete'))
 				<script type="text/javascript">
@@ -136,16 +144,12 @@
 						@endif
 					@endif
 					<td>
-						<button class="actions">
-							<a href="/paciente/{{$paciente->id}}/show">
+						<a href="/paciente/{{$paciente->id}}/show">
 							<img src="{{ asset('img/view-ocorrencia.png') }}" style="width: 40px;" title="View">
-							</a>
-						</button>
-						<button class="actions">
-		                    <a href="/paciente/{{$paciente->id}}/edit">
-		                    	<img src="{{ asset('img/editar-ocorrencia.png') }}" style="width: 40px;" title="Editar">
-		                    </a>
-	                    </button>
+						</a>
+		                <a href="/paciente/{{$paciente->id}}/edit">
+		                   	<img src="{{ asset('img/editar-ocorrencia.png') }}" style="width: 40px;" title="Editar">
+	                    </a>
 	                    @if(Auth::user()->profile == "Admin" || Auth::user()->profile == "Enfermeiro")
 		                    <button onclick="confim_delete({{$paciente->id}})" class="actions">
 			                    <img src="{{ asset('img/exluir.png') }}" style="width: 40px;" title="Excluir">
@@ -180,13 +184,4 @@
 		<br>
 	</div>
 </div>
-<script>
-    $(document).ready(function(){
-        $("#employee_data").DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Portuguese-Brasil.json"
-            }   
-        });
-    });
-</script>
 @endsection

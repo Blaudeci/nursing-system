@@ -99,7 +99,7 @@
 	<div class="col-sm-12">
 		<div class="col-sm-12 form-group">
 			<label for="diagnostico_enfermagem">Diagnósticos de Enfermagem:</label>
-			<textarea class="form-control" rows="8" name="diagnostico_enfermagem" id="diagnostico_enfermagem">{{$ocorrencias->diagnostico_enfermagem}}</textarea>
+			<textarea class="form-control" rows="5" name="diagnostico_enfermagem" id="diagnostico_enfermagem">{{$ocorrencias->diagnostico_enfermagem}}</textarea>
 		</div>
 	</div>
 </div>

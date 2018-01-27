@@ -35,30 +35,30 @@
             </li>
             @if(Auth::user()->profile == "Admin" || Auth::user()->profile == "Enfermeiro")
                 <li  data-toggle="collapse" data-target="#usuario" class="collapsed">
-                    <a href="#"><i class="fa fa-user-md" style="font-size: 28px;"></i> Usuário<span class="arrow"></span></a>
+                    <a><i class="fa fa-user-md" style="font-size: 28px;"></i> Usuário<span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="usuario">
                     <li>
                         <a href="{{ url('/usuario/create') }}">
-                            Cadastrar 
+                            Cadastrar
                         </a>
                     </li>
                     <li>
                         <a href="{{ url('/usuario') }}">
-                            Consultar 
+                            Consultar
                         </a>
                     </li>
                 </ul>
             @endif
             <li data-toggle="collapse" data-target="#paciente" class="collapsed">
-                <a href="#">
+                <a>
                     <i class="glyphicon glyphicon-user"></i> Paciente <span class="arrow"></span>
                 </a>
-            </li>  
+            </li>
             <ul class="sub-menu collapse" id="paciente">
                 <li>
                     <a href="{{ url('/paciente/create') }}">
-                        Cadastrar 
+                        Cadastrar
                     </a>
                 </li>
                 <li>
@@ -68,31 +68,31 @@
                 </li>
             </ul>
             <li data-toggle="collapse" data-target="#ocorrencia" class="collapsed">
-                <a href="#">
+                <a>
                     <i class="fa fa-medkit" aria-hidden="true"></i> Ocorrência <span class="arrow"></span>
                 </a>
             </li>
             <ul class="sub-menu collapse" id="ocorrencia">
                 <li>
                     <a href="{{ url('/ocorrencia/index-create') }}">
-                        Cadastrar 
+                        Cadastrar
                     </a>
                 </li>
                 <li>
                     <a href="{{ url('/ocorrencia') }}">
-                        Consultar 
+                        Consultar
                     </a>
                 </li>
             </ul>
             <li data-toggle="collapse" data-target="#relatorio" class="collapsed">
-                <a href="#">
+                <a>
                     <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> Relatório <span class="arrow"></span>
                 </a>
             </li>
             <ul class="sub-menu collapse" id="relatorio">
                 <li>
                     <a href="/relatorio">
-                        Ocorrência 
+                        Ocorrência
                     </a>
                 </li>
             </ul>
